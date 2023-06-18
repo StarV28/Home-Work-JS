@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Task 4</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      Main Page
+    </header>
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            Task 4
+            <p>
+              Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість випадкових чисел
+              вводиться користувачем.
+            </p>
+          </li>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            let rundomNumber = parseFloat(prompt('Введыть кылькысть выпадковых чисел'));
+            for (let i = 0; i < rundomNumber; i++) {
+              let result = Math.floor((Math.random() * 100) + 1);
+              document.write(`<li>${result}</li>`)
+            }
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>

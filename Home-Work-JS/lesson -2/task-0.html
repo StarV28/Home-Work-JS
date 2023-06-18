@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      Main Page
+    </header>
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            <a href="task-0.html">Task 0</a>
+            <p>Обчислити значення виразів</p>
+            <p> S1= a+12+b</p>
+            <p> S2= (a+b / 2*a)^2</p>
+            <p> S3= ((a+b)c)^3</p>
+            <p> S4= sin⁡(a/-b)</p>
+          </li>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            let a = parseFloat(prompt('Введіть A', '0'));
+            let b = parseFloat(prompt('Введіть B', '0'));
+            let c = parseFloat(prompt('Введіть C', '0'));
+            let bb = parseFloat(prompt('Введіть B-Negative', '0'));
+
+            // Рішення s1
+            let s1 = a + 12 + b;
+            // Рішення s2
+            let s2One = a + b;
+            let s2Two = 2 * a;
+            let s2Three = s2One / s2Two;
+            let s2 = Math.sqrt(s2Three);
+            // Рішення s3
+            let s3One = a + b;
+            let s3Two = s3One * c;
+            let s3 = Math.cbrt(s3Two);
+            // Рішення s4
+            let bNegative = bb * -1;
+            let s4One = a / bNegative;
+            let s4 = Math.sin(s4One);
+
+            // Виведення результату
+            document.write(`
+           s1 = ${s1} <br>
+           s2 = ${s2} <br>
+           s3 = ${s3} <br>
+           s4 = ${s4} <br>
+         `)
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>

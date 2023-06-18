@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Task 7</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      Main Page
+    </header>
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            Task 7
+            <p>
+              Вивести таблицю з 3 рядків і 7 стовпців
+            </p>
+          </li>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            document.write('<table>')
+            for (let i = 1; i <= 3; i++) {
+              document.write('<tr>')
+              for (let e = 1; e <= 7; e++) {
+                document.write(`<td>${e}</td>`)
+              }
+              document.write('</tr>')
+            }
+            document.write('</table>')
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>

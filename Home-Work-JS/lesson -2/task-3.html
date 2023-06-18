@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Task 3</title>
+</head>
+
+<body>
+  <header class="header">
+    Main Page
+  </header>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            <a href="">Task 3</a>
+            <p> Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).
+            </p>
+          </li>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            // Данні
+            let unitGoods = parseFloat(prompt('Введіть вартість одиниці товару', ''));
+            let quantitGyoods = parseFloat(prompt('Введіть кількість одиниць товару', ''));
+            // Рішення
+            let oneSolution = unitGoods * quantitGyoods;
+            // Рішення
+            let twoSolution = oneSolution * 0.05;
+
+
+            //Виведення 
+            document.write(`
+            Загальна вартість = ${oneSolution}гр <br>
+            ПДВ = ${twoSolution}гр <br>
+            `)
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>

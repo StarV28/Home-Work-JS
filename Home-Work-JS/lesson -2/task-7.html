@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Task 7</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      Main Page
+    </header>
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            <a href="">Task 7</a>
+            <p>Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера дня (від 0 до 6).</p>
+          </li>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            let randomMonts = Math.floor(Math.random() * 12 + 1);
+            const month = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
+            for (let i = 0; i < month.length; i++) {
+              if (i === randomMonts) {
+                const yourMonth = month[i];
+                document.write(`
+              <div>Номер місяця: ${randomMonts}</div>
+              <div>Обраний Вами Mісяць: ${yourMonth}</div>
+                `)
+              }
+            }
+            let dayRandom = Math.floor(Math.random() * 6);
+            const day = ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'Пятниця', 'Суббота'];
+            for (let i = 0; i <= day.length; i++) {
+              if (i === dayRandom) {
+                const yourDay = day[i];
+                document.write(`
+                <div>Номер дня: ${dayRandom}</div>
+                <div>Обраний Вами День: ${yourDay}</div>
+                `)
+              }
+            }
+            document.write(``)
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>

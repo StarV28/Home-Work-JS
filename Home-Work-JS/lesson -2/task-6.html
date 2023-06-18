@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Task 6</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      Main Page
+    </header>
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            <a href="">Task 6</a>
+            <p>З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару
+              окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.</p>
+          </li>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            let rom = parseInt(prompt('Введіть кількість пляшок Рому', ''));
+            let priceRom = parseInt(prompt('Веведіть ціну Рому', ''));
+            let vodka = parseInt(prompt('Введіть кількість пляшок Водки', ''))
+            let priceVodka = parseInt(prompt('Веведіть ціну Водки', ''));
+            let cocaG = parseInt(prompt('Введіть кількість г Коки', ''));
+            let priceCoca = parseInt(prompt('Веведіть ціну Коки', ''));
+
+            // Рішення
+            let oneButlePriceRom = priceRom / rom;
+            let oneButleVodka = priceVodka / vodka;
+            let gramCocaPrice = priceCoca / cocaG;
+            let sum = priceCoca + priceRom + priceVodka;
+
+            // Віводим
+            document.write(`
+            <p>Вартість однієї пляшки Рому: ${oneButlePriceRom}$</p>
+            <p>Вартість однієї пляшки Водки: ${oneButleVodka}$</p>
+            <p>Вартість одного граму Коки: ${gramCocaPrice}$</p>
+            <p>Вартість вашої Гулянки ;) ${sum}$</p>
+            `)
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Task 5</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      Main Page
+    </header>
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            Task 5
+            <p>
+              Створити 10 елементів для введення цін продуктів
+            </p>
+          </li>
+          <textarea placeholder="Введіть ціну товара" name="" id="" cols="7" rows="1"></textarea>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            for (let i = 1; i <= 10; i++) {
+              document.write(`Product#${i}<div><textarea placeholder="Введіть ціну товара" cols="20" rows="1"></textarea></div>`)
+
+            }
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>

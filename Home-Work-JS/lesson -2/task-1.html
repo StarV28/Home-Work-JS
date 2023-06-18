@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Task 1</title>
+</head>
+
+<body>
+  <header class="header">
+    Main Page
+  </header>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            <a href="">Task 1</a>
+            <p>Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиц</p>
+          </li>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            // Данні
+            let oneData = parseFloat(prompt('Введіть цифрове значення №1', ''));
+            let twoData = parseFloat(prompt('Введіть цифрове значення №2', ''));
+            // Рішення
+            let oneSolution = oneData + twoData;
+            // Рішення
+            let twoSolution = oneData * twoData;
+            // Рішення
+            let threSolution = oneData / twoData;
+
+            //Виведення 
+            document.write(`
+            Сумма = ${oneSolution} <br>
+            Добуток = ${twoSolution} <br>
+            Частка = ${threSolution}
+            `)
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>

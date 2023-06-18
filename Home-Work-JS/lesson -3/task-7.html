@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Task 7</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      Main Page
+    </header>
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            <a href="task-1.html">Task 7</a>
+            <p>
+              З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься
+            </p>
+          </li>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            let numberMonth = parseInt(prompt('Введіть номер місяця щоб дізнатись пору року'))
+            let season;
+            // Рішення 
+            if (numberMonth < 3 || numberMonth === 12) {
+              season = 'Зима'
+            } else if (numberMonth >= 3 && numberMonth <= 5) {
+              season = 'Весна'
+            } else if (numberMonth >= 6 && numberMonth <= 8) {
+              season = 'Літо'
+            } else if (numberMonth >= 9 && numberMonth <= 11) {
+              season = 'Осінь'
+            }
+
+            document.write(season);
+
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>

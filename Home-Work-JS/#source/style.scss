@@ -1,0 +1,134 @@
+@import "nullstyle.scss";
+
+//====================Wraper=========================================================
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  > main {
+    flex: 1 1 auto;
+  }
+}
+
+[class*="__container"] {
+  width: 80%;
+  margin: 0 auto;
+}
+
+//==================Main Page=============================================================
+
+.header {
+  text-align: center;
+  padding: rem(20) rem(0);
+  font-size: rem(22);
+  font-weight: 700;
+  line-height: 1.5;
+  background-color: rgba(21, 6, 6, 0.579);
+  color: #fff;
+}
+.page {
+  padding-top: rem(20);
+  // .page__title
+
+  &__title {
+    h1 {
+      font-size: rem(22);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+  }
+
+  // .page__body
+
+  &__body {
+    padding: rem(10) rem(0);
+  }
+
+  // .page__lest
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(10);
+  }
+
+  // .page__item
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+    a {
+      background-color: rgba(204, 191, 191, 0.177);
+      padding: rem(20) rem(10);
+      border-radius: rem(15);
+      font-size: rem(16);
+      line-height: 1.5;
+      font-weight: 400;
+      color: red;
+      @media (any-hover: hover) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  //  .page__task
+
+  &__task {
+    padding: rem(25) rem(15);
+    background-color: rgba(204, 191, 191, 0.177);
+    border-radius: rem(10);
+    transition: all 0.3s;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgba(187, 27, 27, 0.134);
+        box-shadow: 5px 8px 8px 8px rgba(0, 0, 0, 0.256);
+        a {
+          text-shadow: 1px 5px 5px;
+        }
+      }
+    }
+    a {
+      font-size: rem(18);
+      line-height: 1.5;
+      font-weight: 400;
+      color: purple;
+      letter-spacing: 1px;
+    }
+    p {
+      font-size: rem(14);
+      line-height: 1.5;
+      font-weight: 400;
+      color: red;
+    }
+  }
+
+  // .page__solution
+
+  &__dessegen {
+    background-color: rgba(204, 191, 191, 0.177);
+    border-radius: rem(5);
+    margin: rem(20) 0;
+    p {
+      padding: rem(10) rem(0);
+    }
+    div {
+      padding: rem(20) rem(0);
+    }
+  }
+}
+
+.footer {
+  background-color: rgba(21, 6, 6, 0.579);
+  text-align: center;
+  padding: rem(10) rem(0);
+  font-size: rem(14);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+}
+
+//==================Task Page============================================================

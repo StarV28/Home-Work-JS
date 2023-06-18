@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Task 2</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      Main Page
+    </header>
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            <a href="task-2.html">Task </a>
+            <p>
+              З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці,
+              інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн
+            </p>
+          </li>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            let priceBread = parseFloat(prompt('Введіть вартість Хлібу'));
+            let priceMeat = parseFloat(prompt('Введіть вартість Мяса'));
+            let priceEggs = parseFloat(prompt('Введіть вартість Яйця'));
+            let moneyQuantity = parseFloat(prompt('Введіть кількість грошей'));
+            const priceAll = priceBread + priceEggs + priceMeat;
+
+            // Рішення  
+            const result = priceAll > moneyQuantity ? document.write('На жаль у Вас не висточає грошей') : document.write('Дякуемо за покупку та можемо вам запропонувати лотерею за 4гр')
+
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>

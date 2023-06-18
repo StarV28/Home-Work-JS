@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Task 4</title>
+</head>
+
+<body>
+  <header class="header">
+    Main Page
+  </header>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__container">
+        <ul class="page__list">
+          <li class="page__task">
+            <a href="">Task 4</a>
+            <p>Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.</p>
+          </li>
+        </ul>
+        <div class="page__dessegen">
+          <script>
+            // Данні
+            let sm = parseFloat(prompt('Введіть сантіметри', ''));
+            let m = 100;
+            let km = 1000;
+            // Рішення
+            let meter = sm / m;
+            // Рішення
+            let kilometr = sm / km;
+
+            //Виведення 
+            document.write(`
+            Метри = ${meter} <br>
+            Кілометри = ${kilometr} <br>
+            `)
+          </script>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Cours JS Starovoit Vladymyr
+    </footer>
+  </div>
+</body>
+
+</html>
