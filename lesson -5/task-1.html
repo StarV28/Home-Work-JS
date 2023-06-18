@@ -18,23 +18,27 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+            <a href="task-1.html">Task 1</a>
+            <p>
+              Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи
+              непарних.
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
+            let doubleNumber = 0;
+            let undoubleNumber = 0;
+            for (let i = 0; i < 100; i++) {
+              const rundomNumber = Math.floor((Math.random() * 1000) + 1);
+              if (rundomNumber % 2 === 0) {
+                doubleNumber++
+              } else {
+                undoubleNumber++
+              }
+            }
+            document.write(`<div>Парні числа: ${doubleNumber}</div>`)
+            document.write(`<div>Неарні числа: ${undoubleNumber}</div>`)
           </script>
         </div>
       </div>
