@@ -26,10 +26,14 @@
         </ul>
         <div class="page__dessegen">
           <script>
-            document.write('<table>')
+            let result = 0;
+            document.write('<table border="2px">')
             for (let i = 1; i <= 3; i++) {
               document.write('<tr>')
-              document.write(`<td>${i}</td>`)
+              for (let e = 1; e <= 3; e++) {
+                result++
+                document.write(`<td>${result}</td>`)
+              }
               document.write('</tr>')
             }
             document.write('</table>')
