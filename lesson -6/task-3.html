@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
+  <title>Task 3</title>
 </head>
 
 <body>
@@ -18,22 +18,30 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+            Task 3
+            <p>
+              Інвестор вклав N тис. грн на 20 років під 20% річних, а потім на 17 років під 27% річних. Визначити за
+              допомогою циклів суму, яку він одержить.
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
+            const investSum = parseInt(prompt('Enter the investment number'));
+            let resultThreeYears;
+            let resultAllYear;
 
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
+            for (let i = 1; i < 20; i++) {
+              if (i <= 3) {
+                let procThreeYear = 20 * investSum / 100
+                resultThreeYears = procThreeYear * i
+              } else {
+                let procAllYear = 27 * investSum / 100
+                resultAllYear = procAllYear * i
+              }
+            }
+            let result = resultThreeYears + resultAllYear;
+            document.write(`this sum: 3 years 20% + 17 years-27% = ${result}`)
 
           </script>
         </div>
