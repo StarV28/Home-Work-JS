@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
+  <title>Task 4</title>
 </head>
 
 <body>
@@ -18,23 +18,30 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+            Task 4
+            <p>
+              Створити окремі функції, які переводять:<br>
+                  Сантиметри у дюйми;<br>
+                  Кілограми у фунти;<br>
+                  Кілометри у милі.
+            </p><div></div>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
+            // parseFloat на віпадок не цілого числа при введенні
+            let userNumberInches = parseFloat(prompt('Введіть сантиментри'))
+            let userNumberPounds = parseFloat(prompt('Введіть кілограми'))
+            let userNumberMiles = parseFloat(prompt('Введіть кілометри'))
 
+            let getConvertInches = () => Math.round(userNumberInches * 0.39)
+            document.write(`<div>Це дюйми: ${getConvertInches()}</div>`)
 
-            // Рішення s1
+            let getConvertPound = () => Math.round(userNumberPounds * 2,20)
+            document.write(`<div>Це фунти: ${getConvertPound()}</div>`)
 
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
+            let getConvertMiles = () => userNumberMiles * 0.62           
+            document.write(`<div>Це милі: ${getConvertMiles()}</div>`)
           </script>
         </div>
       </div>

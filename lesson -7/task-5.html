@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
+  <title>Task 5</title>
 </head>
 
 <body>
@@ -18,23 +18,20 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+           Task 5
+            <p>
+              Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень передаються у функцію)
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
+            const randomImg = Math.floor(Math.random() * 4 + 1)
+            let randomFoto = () => document.write(` <img src="../img/lesson-7/${randomImg}.jpg" alt="">`)
+            // function randomFoto(e) {
+            //   document.write(` <img src="../img/lesson-7/${randomImg}.jpg" alt="">`)
+            // }
+            randomFoto()
           </script>
         </div>
       </div>

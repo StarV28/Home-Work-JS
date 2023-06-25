@@ -18,23 +18,34 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+            Task 1
+            <p>
+              Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
+            let numberMonth = parseInt(prompt('Введіть номер місяця'))
+            function getTimeYear (e) {       
+              let result = 0;    
+              switch (e <= 12) {
+                case e === 12:
+                  case e < 3: 
+                  result = 'Це зима'
+                  break;
+                case e < 6:
+                   result = 'Це весна'
+                break
+                  case e < 9:
+                     result = 'Це літо' 
+                  break;
+                  case e < 12: 
+                  result = 'Це осінь' 
+              }
+              return result
+            }
+            document.write(getTimeYear(numberMonth));
           </script>
         </div>
       </div>

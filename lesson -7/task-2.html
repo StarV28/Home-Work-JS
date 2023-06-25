@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
+  <title>Task 2</title>
 </head>
 
 <body>
@@ -18,24 +18,30 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+           Task 2
+            <p>
+              Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
+            const numbersDay = parseInt(prompt('Введіть номер дня тижня'))
+            let result = 0;
+            function getWorkDayWeek(e) {
+              let result =  e <= 5 ? 'Це рабочий день' : 'Це вихідні'
+              return result
+            }
+            document.write(getWorkDayWeek(numbersDay))
           </script>
+                   <!-- switch (e <= 7) {
+                    case e <= 5:result =                  
+                      break;
+                    case e <= 7:result = 
+                    break;
+                    default: result = 'Введена якась дурня ;)'
+                      break;
+                  } -->
         </div>
       </div>
     </main>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
+  <title>Task 3</title>
 </head>
 
 <body>
@@ -18,23 +18,23 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+           Task 3
+            <p>
+              Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим фіксованим повідомленням).
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
+            let numberColumnsRowsUser = parseInt(prompt('Введіть кількісь'))
+            function funcTable(e) {
+              document.write(`<table style="border=2px">`)
+                for (let i = 1; i <= numberColumnsRowsUser; i++) {
+                  document.write(`<tr> This is column  ${i} <td> This is row  ${i} </td> </tr>`)               
+                }             
+                document.write(`</table>`)
+            }
+            funcTable()
           </script>
         </div>
       </div>
