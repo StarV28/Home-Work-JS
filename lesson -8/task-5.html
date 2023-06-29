@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
+  <title>Task 5</title>
 </head>
 
 <body>
@@ -18,23 +18,30 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+            Task 5
+            <p>
+              Дано послідовність оцінок учня. Підрахувати кількість:
+              1	двійок
+              2	кількість хороших оцінок (добре, відмінно);
+              3	кількість оцінок, які нижче середнього.
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
+            let studyBal = [5,2,4,3,4,2,2,4,3,3,4,5,5,4,2,2,3]
+           function chekBal() {
+            let counterMiddle = 0;
+            let counterGood = 0;
+            let counterBed = 0;
+            for (let i = 0; i < studyBal.length; i++) {
+              if(studyBal[i] === 2) counterBed++
+              if(studyBal[i] === 3) counterMiddle++
+              if(studyBal[i] > 3) counterGood++
+            }
+            document.write(`У учня двійок: ${counterBed}<br> У учня хороших оцінок: ${counterGood}<br> У учня оцінок нижче середнього: ${counterMiddle}`);
+          }
+          chekBal()
           </script>
         </div>
       </div>

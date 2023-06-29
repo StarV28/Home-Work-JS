@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
+  <title>Task 4</title>
 </head>
 
 <body>
@@ -18,23 +18,75 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+            Task 4
+            <p>
+              Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+                за весь рік;
+                у першій половині року;
+                у другій половині року;
+                за літо;
+                за ІІ квартал;
+
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
+            let buyPricesYear = [100, 150, 100, 250,300, 300, 250, 200, 200, 150, 100, 100];
+            let sumPaymentsYear = 0;
+            let sumOneHulfYear = 0;
+            let sumTwoHulfYear = 0;
+            let sumSumer = 0;
+            let sumTwoQuart = 0;
 
+            function sumYear() {
+              for (let i = 0; i < buyPricesYear.length; i++) {
+                sumPaymentsYear += buyPricesYear[i]               
+              }            
+            }
+            sumYear()
 
-            // Рішення s1
+            //-------------------------
+            function sumOneHulf() {
+              for (let i = 0; i < 6; i++) {
+                  sumOneHulfYear += buyPricesYear[i]
+                }
+            }
+            sumOneHulf()
 
-            // Рішення s3
+            //---------------------------------------
+            function sumTwoHulf() {
+              for (let i = 7; i < 12; i++) {
+                  sumTwoHulfYear += buyPricesYear[i]
+                }
+            }
+            sumTwoHulf()
 
-            // Рішення s4
+            //----------------------------------
+            function sumSumerYear() {
+              for (let i = 6; i <= 8; i++) {
+                  sumSumer += buyPricesYear[i]
+                }
+            }
+            sumSumerYear()
 
+            //------------------------------------
+            function sumQuart() {
+              for (let i = 6; i <= 8; i++) {
+                  sumTwoQuart += buyPricesYear[i]
+                }
+            }
+            sumQuart()
+            
+            //----------------------------
 
-            // Виведення результату
-
+            document.write(
+              sumPaymentsYear,`<br>`,
+              sumTwoQuart,`<br>`,
+              sumSumer,`<br>`,
+              sumTwoHulfYear,`<br>`,
+              sumOneHulfYear,`<br>`,
+            )
           </script>
         </div>
       </div>

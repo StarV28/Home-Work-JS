@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
+  <title>Task 3</title>
 </head>
 
 <body>
@@ -18,23 +18,36 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+            Task 3
+            <p>
+              Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається).
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
+            let nameProducts = ['Мясо','Молоко','Хліб','Вино','Пиво']
+            let priceProduct = [200, 40, 20, 300, 50]
+            let res = []
+            function getProductsUser() {
+              let userMoney = parseInt(prompt('Введіть наявну кількість грошей'))
+              for (let i = 0; i < priceProduct.length; i++) {
+                if(userMoney - priceProduct[i] <= 0){
+                  break
+                } else if (userMoney - priceProduct[i] !== 0) {
+                  res.push(nameProducts[i]) 
+                  userMoney -= priceProduct[i]                  
+                }                
+              }
+              return res
+            }
+             document.write(nameProducts,
+             `<br>`,
+             priceProduct,
+             `<br>`,
+             getProductsUser()
+             )
+            
           </script>
         </div>
       </div>

@@ -18,23 +18,66 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+            Task 1
+            <p>
+              Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
+            //----------------------------------------
+            let numberLessons = parseInt(prompt('Введіть кількість уроків'))
+            
+            //-----------------------------------------
+            function sumBals(e) {
 
+            //-----------------------------------------
 
-            // Рішення s1
+             let lessonsGrade = []
+             let userPerformance;
+             let res = 0;
+            //-----------------------------------------
 
-            // Рішення s3
+             for (let i = 0; i < e; i++) {              
+                let b = parseInt(prompt('Введіть оцінку за предмет від 2 до 5'))    
+                res += b;
+              b = lessonsGrade.push(b)
+             }   
+            //-----------------------------------------
 
-            // Рішення s4
+                let minNumber = lessonsGrade[0]
+                for (let f = 0; f < lessonsGrade.length; f++) {
+                 if (minNumber > lessonsGrade[f]) minNumber = lessonsGrade[f]            
+                }  
+            //-----------------------------------------
 
+              if (parseInt(minNumber) === 2) {
+                  userPerformance = 'двійочник'
+                } else if(parseInt(minNumber) === 3){
+                  userPerformance = 'трійочник'
+                } else if (parseInt(minNumber) === 4) {
+                  userPerformance = 'хорошист' 
+                } else if (parseInt(minNumber) === 5) {
+                  userPerformance = 'відмінник'
+                } else {
+                  userPerformance = 'Не правільно введена оцінка'
+                }
+            //-----------------------------------------
 
-            // Виведення результату
+             res /= e; 
+            //-----------------------------------------
 
+             return    document.write(`
+                                  Середні бал учня: ${res.toFixed(1)}<br>
+                                  Учень: ${userPerformance}<br>
+                                  ${lessonsGrade}
+                                  `)
+           }
+            //-----------------------------------------
+
+         sumBals(numberLessons)
+      
           </script>
         </div>
       </div>
@@ -43,6 +86,7 @@
       Cours JS Starovoit Vladymyr
     </footer>
   </div>
+
 </body>
 
 </html>
