@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
+  <title>Task 2</title>
 </head>
 
 <body>
@@ -18,22 +18,22 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+           Task 2
+            <p>
+              Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 1-цями, а друга заповнена 7-ками.
+            </p>
+            <p>
+              Користувач вводить кількість елементів. Створити масив, у якому перші 5 елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+            </p>
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
+            let userEnter = parseInt(prompt('Введіть кількість елементів'))
+            let halfUserEnter = userEnter / 2
+            let userArray1 = new Array(userEnter).fill(1, 0, halfUserEnter).fill(7, halfUserEnter)
+            let userArray2 = new Array(userEnter).fill(1, 0, 5).fill(7, 5)
+            document.write(userArray1,'<br>', userArray2)
 
           </script>
         </div>
