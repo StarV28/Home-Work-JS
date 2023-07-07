@@ -29,9 +29,9 @@
             let arr = [20,5,25,15,6,9,35,66,78]
             let firstArrElem = arr[0]
             arr.forEach((el, ind, ar) => {
-              if(el > firstArrElem) document.write(ar[ind] * 2,'<br>')
+              if(el > firstArrElem) ar[ind] = ar[ind] * 2
             })
-          
+          console.log(arr);
           </script>
         </div>
       </div>

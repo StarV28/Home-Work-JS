@@ -26,20 +26,14 @@
         </ul>
         <div class="page__dessegen">
           <script>
-            let priceArr = [200,150,1500,1100,600,1900,900,2000];
-          
-            for (let i = 0; i < priceArr.length; i++) {
-              if (priceArr[i] > 1000) {
-              priceArr[i] -= priceArr[i] * 0.30
-            }              
-          }
-         document.write(priceArr)
-         
-         priceArr.forEach((el, ind, arr) => {
-          if (el > 1000) {
-            el - arr[ind] * 0.30
-          }
-         })
+            let priceArr = [200,150,1500,1100,600,1900,900,2000];          
+          priceArr.forEach((el, ind, arr) => {
+            if (el > 1000) {
+              arr[ind] = el - arr[ind] * 0.30
+              }
+          })
+          document.write(priceArr)
+          console.log(priceArr);
           </script>
         </div>
       </div>
