@@ -18,24 +18,57 @@
       <div class="page__container">
         <ul class="page__list">
           <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
+            Task 1
+            <h1> Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)</h1>
+
+            <p>1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.</p>
+
+            <p>2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.</p>
+
+            <p>3)Сформувати список з тих цін, які більші за попереднє значення</p>
+
+            <p>4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального</p>
+
+            <p>5)Підрахувати кількість змін цін</p>
+            
+            <p>6)Визначити, чи є ціна, що менше 1000</p>
+
+            <p>7)Визначати, чи усі ціни більше за 1000</p>
+
+            <p>8)Підрахувати кількість цін, що більше за 1000</p>
+
+            <p>9)Підрахувати суму цін, що більше за 1000</p>
+
+            <p>10)Знайти першу ціну, що більше за 1000</p>
+
+            <p>11)Знайти індекс першої ціни, що більше за 1000</p>
+
+            <p>12)Знайти останню ціну, що більше за 1000</p>
+
+            <p>13)Знайти індекс останньої ціни, що більше за 1000</p>  
           </li>
         </ul>
         <div class="page__dessegen">
           <script>
+            let priceHistory = []
+            let numPriceUserEnter = parseInt(prompt('Введіть кількість цін'))
+            function getRandomPrice(a,b) {              
+              for (let i = 0; i < a; i++) {             
+                 priceHistory.push(Math.floor(Math.random() * b + 1))
+              }
+            }
+            getRandomPrice(numPriceUserEnter, 10000)
+           
+            // Array price > 1000gr
+            let priceMoreOneThousand = priceHistory.filter((el) => el > 1000)
+            console.log(priceMoreOneThousand);
 
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+            // Array index price more 1000
+            let indPriceMoreOneThousend = priceMoreOneThousand.map(
+              (el, ind) => ind
+            )
+            console.log(indPriceMoreOneThousend);
+            </script>
         </div>
       </div>
     </main>
