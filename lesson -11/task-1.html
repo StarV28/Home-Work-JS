@@ -24,15 +24,57 @@
           </ul>
           <div class="page__dessegen">
             <script>
-              let arr = [];
-              function getRandomArr() {
-                for (let i = 0; i < 4; i++) {
-                  arr.push(Math.floor(Math.random() * 20 + 1));
+              // Function ------------RandomNum---------------------------------------------
+              function getRandNum(minValue, maxValue) {
+                return Math.floor(Math.random() * (maxValue - minValue) + 1);
+              }
+              // -----------SmolArray--------------------------------------------------------
+              function generateRandomArr(arrLenghts, minValue, maxValue) {
+                let arr = [];
+                for (let i = 0; i < arrLenghts; i++) {
+                  const rundNum = getRandNum(maxValue, minValue);
+                  arr.push(rundNum);
                 }
                 return arr;
               }
-              getRandomArr();
+              // ----------BigArray--------------------------------------------------------
+              function generateBigArr(rowsNum, columnsNum, maxValue, minValue) {
+                let tabl = [];
+                for (let i = 0; i < rowsNum; i++) {
+                  const rundRow = generateRandomArr(
+                    columnsNum,
+                    maxValue,
+                    minValue
+                  );
+                  tabl.push(rundRow);
+                }
+                return tabl;
+              }
+              let arr = generateBigArr(4, 4, 21, 1);
               console.log(arr);
+
+              // ----------Sum areas-------------------------------------------------------------
+              function sumAreas(areaSmol) {
+                let sum = 0;
+                for (let i = 0; i < areaSmol.length; i++) {
+                  sum += areaSmol[i];
+                }
+                return sum;
+              }
+
+              // ---------------Sum One Area-----------------------------------------------------
+              console.log(sumAreas(arr[0]));
+              // ---------------Sum Two Area-----------------------------------------------------
+              console.log(sumAreas(arr[1]));
+              // ---------------Sum Three Area---------------------------------------------------
+              console.log(sumAreas(arr[2]));
+              // ---------------Sum For Area-----------------------------------------------------
+              console.log(sumAreas(arr[3]));
+
+              // ------------------------------------Sum double rows-----------------------------
+              function sumDoublRows(areaSmol) {
+                for (let i = 0; i < areaSmol; i++) {}
+              }
             </script>
           </div>
         </div>
