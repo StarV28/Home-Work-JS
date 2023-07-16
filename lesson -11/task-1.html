@@ -72,9 +72,68 @@
               console.log(sumAreas(arr[3]));
 
               // ------------------------------------Sum double rows-----------------------------
-              // function sumDoublRows(areaSmol) {
-              //   for (let i = 0; i < areaSmol; i++) {}
-              // }
+              function sumDoublRows(ar) {
+                let sumDuobRow = 0;
+                for (let i = 0; i < ar.length; i++) {
+                  if (i % 2 === 0) {
+                    sumDuobRow += sumAreas(ar[i]);
+                    console.log(ar[i]);
+                  }
+                }
+                return sumDuobRow;
+              }
+              let res = sumDoublRows(arr);
+              console.log(res);
+
+              // ------------------------------------Sum not paired Columns-----------------------------
+              function sumColumns(ar) {
+                let sum = 0;
+                for (let i = 0; i < ar.length; i++) {
+                  for (let j = 0; j < ar[i].length; j++) {
+                    if (j % 2 !== 0) {
+                      sum += ar[i][j];
+                    }
+                  }
+                }
+                return sum;
+              }
+              let res1 = sumColumns(arr);
+              console.log(res1);
+
+              // ------------------------------------Sum------------------------------------------------
+              function sumAr(ar) {
+                let sum1 = 0;
+                let sum2 = 0;
+                for (let i = 0; i < ar.length; i++) {
+                  if (i % 2 === 0) {
+                    for (let w = 0; w < ar[i].length; w++) {
+                      if (w % 2 !== 0) {
+                        sum1 += ar[i][w];
+                      }
+                    }
+                  }
+                }
+                return sum1;
+              }
+              let res2 = sumAr(arr);
+              console.log(res2);
+
+              // ------------------------------------Sum------------------------------------------------
+              function sumAr2(ar) {
+                let sum = 0;
+                for (let i = 0; i < ar.length; i++) {
+                  if (i % 2 !== 0) {
+                    for (let j = 0; j < ar[i].length; j++) {
+                      if (j % 2 === 0) {
+                        sum += ar[i][j];
+                      }
+                    }
+                  }
+                }
+                return sum;
+              }
+              let res3 = sumAr2(arr);
+              console.log(res3);
             </script>
           </div>
         </div>

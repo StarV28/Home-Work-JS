@@ -1,48 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 5</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 5
+              <p>
+                Дано інформацію про прибуток К магазинів протягом тижня.
+                відсортувати тижні (рядки) за спаданням максимального елементи у
+                цьому тижні (рядку), тобто при порівнянні рядків потрібно
+                порівнювати максимальні елементи у кожному з цих рядків
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              // Function ------------RandomNum---------------------------------------------
+              function getRandNum(minValue, maxValue) {
+                return Math.floor(Math.random() * (maxValue - minValue) + 1);
+              }
+              // -----------Прибуток одного магазину--------------------------------------------------------
+              function generateRandomArr(arrLenghts, minValue, maxValue) {
+                let arr = [];
+                for (let i = 0; i < arrLenghts; i++) {
+                  const rundNum = getRandNum(maxValue, minValue);
+                  arr.push(rundNum);
+                }
+                return arr;
+              }
+              // ----------Прибуток всіх магазинів--------------------------------------------------------
+              function generateBigArr(rowsNum, columnsNum, maxValue, minValue) {
+                let tabl = [];
+                for (let i = 0; i < rowsNum; i++) {
+                  const rundRow = generateRandomArr(
+                    columnsNum,
+                    maxValue,
+                    minValue
+                  );
+                  tabl.push(rundRow);
+                }
+                return tabl;
+              }
+              let arr = generateBigArr(5, 7, 10000, 1);
+              console.log(arr);
+              //------------------відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків--------------------------
+              function sortShop(ar) {
+                for (let i = 0; i < ar.length; i++) {
+                  ar[i].sort((a, b) => b - a);
+                  ar.sort((a, b) => b[0] - a[0]);
+                }
+              }
+              sortShop(arr);
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>
