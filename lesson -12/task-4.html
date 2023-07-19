@@ -1,48 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 4</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 4
+              <p>
+                Дано масив імен. Застосовуючи відповідне сортування та бінарний
+                пошук визначити, чи є у масиві ім’я «Olga» і під яким індексом.
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              //----------------------------------------------------------------------
+              let nameArr = [
+                "Alla",
+                "Igor",
+                "Jon",
+                "Sem",
+                "Olga",
+                "Ivan",
+                "Stasja",
+                "Nina",
+              ];
+              nameArr.sort();
+              document.write(`<div>${nameArr}</div>`);
+              let element = "Olga";
+              //--------------------------------------------------------------------
+              function nameSort(ar, el) {
+                let start = 0;
+                let finish = ar.length - 1;
+                while (start <= finish) {
+                  const midl = Math.floor((start + finish) / 2);
+                  if (ar[midl] === el) return midl;
+                  if (ar[midl] < el) start = midl + 1;
+                  if (ar[midl] > el) start = midl - 1;
+                }
+                return -1;
+              }
+              let res = nameSort(nameArr, element);
+              //--------------------------------------------------------------------
+              let result =
+                nameSort(nameArr, element) === -1
+                  ? document.write("Not Olga")
+                  : document.write(`Olga at namber ${res}`);
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>

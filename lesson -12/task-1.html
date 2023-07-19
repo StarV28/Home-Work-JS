@@ -1,48 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 1</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 1
+              <p>
+                Дано масив 30 випадкових цілих чисел. Підрахувати скільки було
+                обмінів під час сортування бульбашкою
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              //------------------Array-----------------------------------------------------------
+              function swap(ar, a, b) {
+                let t = ar[a];
+                ar[a] = ar[b];
+                ar[b] = t;
+              }
+              let arr = [];
+              for (let i = 0; i < 30; i++) {
+                arr.push(Math.floor(Math.random() * 100 + 1));
+              }
+              //-------------------------------------------------------------------------------
+              function sortArr(ar) {
+                let changed;
+                let counter = 0;
+                do {
+                  changed = false;
+                  for (let i = 1; i < ar.length; i++) {
+                    let j = i - 1;
+                    if (ar[i] < ar[j]) {
+                      swap(arr, i, j);
+                      changed = true;
+                      counter++;
+                      document.write(`<div>${ar}</div>`);
+                    }
+                  }
+                } while (changed);
+                console.log(arr);
+                console.log(counter);
+              }
+              sortArr(arr);
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>
