@@ -1,48 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 1</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 1
+              <p>Реалізувати рекурсивну функцію знаходження степеня числа а</p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              function recursDegreeA(a, n) {
+                if (n === 1) return a;
+                else return recursDegreeA(a, n - 1) * n;
+              }
+              console.log(recursDegreeA(2, 5));
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>

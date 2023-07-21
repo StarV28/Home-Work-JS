@@ -46,7 +46,7 @@
                   const midl = Math.floor((start + finish) / 2);
                   if (ar[midl] === el) return midl;
                   if (ar[midl] < el) start = midl + 1;
-                  if (ar[midl] > el) start = midl - 1;
+                  if (ar[midl] > el) finish = midl - 1;
                 }
                 return -1;
               }

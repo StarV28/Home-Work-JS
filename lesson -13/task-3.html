@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 3</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 3
+              <p>
+                Задача 2. Реалізувати бінарний пошук (розглядали на попередніх
+                уроках) з використанням рекурсивного алгоритму.
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              let arr = [2, 5, 10, 12, 14, 25, 54, 80, 85, 90];
 
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+              function serchBinarRecurs(ar, el, st, en) {
+                if (en < st) return -1;
+                const m = Math.floor((st + en) / 2);
+                if (ar[m] === el) return m;
+                if (ar[m] > el) return serchBinarRecurs(ar, el, st, m - 1);
+                if (ar[m] < el) return serchBinarRecurs(ar, el, m + 1, en);
+              }
+              let res = serchBinarRecurs(arr, 54, 0, arr.length - 1);
+              console.log(res);
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>
