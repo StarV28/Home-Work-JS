@@ -1,48 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 5</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 5
+              <p>
+                Задача 4. З використанням замикань розробити ітератор, тобто
+                функцію, що буде поступово за окремими викликами видавати по
+                одну букву наперед заданого слова. З використанням нього
+                розробити гру «Прекладач». Виводимо для користувача опис цього
+                слова і по одну букву користувач вводить переклад цього слова.
+                Підрахувати кількість вгаданих букв.
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              //----------------------------------------------------------------
+              let word = "Hous";
+              //----------------------------------------------------------------
+              function getWord(el) {
+                let j = 0;
+                function getLetter() {
+                  if (j <= el.length) {
+                    let letter = word[j];
+                    j++;
+                    return letter;
+                  }
+                }
+                return getLetter;
+              }
+              let res = getWord(word);
+              //------------------------------------------------------------
+              alert("Вгадайте слово та перекладіть на англійську мову");
+              alert("Це то місто де живуть люди ;)");
+              let letter = prompt("Введіть букву з слова на англійській мові");
+              function getUserGuessLetter(el, usLet) {
+                let userArr = [];
+                for (let i = 0; i < el.length; i++) {
+                  res();
+                  if (usLet.toLowerCase() === res.toLowerCase()) {
+                    userArr.push(usLet);
+                    alert("Ви вгадали букву, рухаємось далі ;)");
+                  } else {
+                    alert("Ви не вгадали, спробуйте ще раз");
+                    letter;
+                  }
+                }
+              }
+              getUserGuessLetter(res, letter);
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>

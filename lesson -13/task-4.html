@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 4</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 4
+              <p>
+                Задача 3. З використанням замикань розробити ітератор, тобто
+                функцію, що буде поступово за окремими викликами видавати по
+                одне значення від заданого мінімального до заданого
+                максимального. Якщо значення досягне максимального, то наступним
+                буде мінімальне значення. З використанням цієї функції
+                реалізувати перебір номерів місяців.
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              function getIterMonth(monNum, min = 1, max = 12) {
+                function chekMonthNum() {
+                  if (monNum === max) monNum = min;
+                  else ++monNum;
+                  return monNum;
+                }
+                return chekMonthNum;
+              }
+              let res = getIterMonth(0);
+              for (let i = 0; i < 20; i++) {
+                document.write(`<div>${res()}</div>`);
+              }
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>
