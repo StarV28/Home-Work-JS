@@ -29,7 +29,7 @@
           <div class="page__dessegen">
             <script>
               //----------------------------------------------------------------
-              let word = "Hous";
+              let word = "hous";
               //----------------------------------------------------------------
               function getWord(el) {
                 let j = 0;
@@ -37,30 +37,38 @@
                   if (j <= el.length) {
                     let letter = word[j];
                     j++;
-                    return letter;
+                    return letter.toLowerCase();
                   }
                 }
                 return getLetter;
               }
               let res = getWord(word);
+
               //------------------------------------------------------------
-              alert("Вгадайте слово та перекладіть на англійську мову");
-              alert("Це то місто де живуть люди ;)");
-              let letter = prompt("Введіть букву з слова на англійській мові");
-              function getUserGuessLetter(el, usLet) {
-                let userArr = [];
-                for (let i = 0; i < el.length; i++) {
-                  res();
-                  if (usLet.toLowerCase() === res.toLowerCase()) {
-                    userArr.push(usLet);
-                    alert("Ви вгадали букву, рухаємось далі ;)");
+              // alert("Вгадайте слово та перекладіть на англійську мову");
+              // alert("Це то місто де живуть люди ;)");
+              function chekEnterUserLetter(str) {
+                let = userWord = [];
+                for (let i = 0; i < str.length; ) {
+                  let curentLetter = res();
+                  let letter = prompt(
+                    "Введіть букву з слова на англійській мові"
+                  );
+                  let userLet = letter.toLowerCase();
+                  if (curentLetter === userLet) {
+                    userWord.push(userLet),
+                      i++,
+                      alert("Ви вгадали букву, спробуйте ще раз");
+                    if (userWord === str) {
+                      return alert(`Ви вгадали слово ${userWord}`);
+                    }
                   } else {
-                    alert("Ви не вгадали, спробуйте ще раз");
-                    letter;
+                    alert("Ви не вгадали букву, спробуйте ще раз"),
+                      chekEnterUserLetter;
                   }
                 }
               }
-              getUserGuessLetter(res, letter);
+              chekEnterUserLetter(word);
             </script>
           </div>
         </div>
