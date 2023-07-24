@@ -43,32 +43,45 @@
                 return getLetter;
               }
               let res = getWord(word);
-
+              //---------------------------------------------------------------
+              let letter;
+              let userWord = [];
+              let allUserLetter = [];
+              let us;
+              let counter = 0;
               //------------------------------------------------------------
-              // alert("Вгадайте слово та перекладіть на англійську мову");
-              // alert("Це то місто де живуть люди ;)");
-              function chekEnterUserLetter(str) {
-                let = userWord = [];
-                for (let i = 0; i < str.length; ) {
-                  let curentLetter = res();
-                  let letter = prompt(
-                    "Введіть букву з слова на англійській мові"
-                  );
-                  let userLet = letter.toLowerCase();
-                  if (curentLetter === userLet) {
-                    userWord.push(userLet),
-                      i++,
-                      alert("Ви вгадали букву, спробуйте ще раз");
-                    if (userWord === str) {
-                      return alert(`Ви вгадали слово ${userWord}`);
-                    }
-                  } else {
-                    alert("Ви не вгадали букву, спробуйте ще раз"),
-                      chekEnterUserLetter;
-                  }
+              alert("Вгадайте слово та перекладіть на англійську мову");
+              alert("Це то місто де живуть люди ;)");
+              do {
+                letter = prompt("Введіть букву з слова на англійській мові");
+                if (res() === letter) {
+                  userWord.push(letter);
+                  allUserLetter.push(letter);
+                  counter++;
+                } else {
+                  notGuess();
                 }
+                us = userWord.join("");
+              } while (word !== us);
+              //----------------------------------------------------------------------------------------
+              alert(`Ви вгадали слово ${us}`);
+              document.write(`<div>${allUserLetter}</div>`);
+              document.write(`<div>${userWord.join("")}</div>`);
+              document.write(`<div>${counter}</div>`);
+
+              //-------------------------------------------------------------------------------------
+              function notGuess() {
+                alert("Ви не вгадали букву, спробуйте ще раз");
+                allUserLetter.push(letter);
+                letter = prompt("Введіть букву з слова на англійській мові");
+                allUserLetter.push(letter);
+                counter++;
+                if (word.includes(letter)) {
+                  userWord.push(letter);
+                  allUserLetter.push(letter);
+                  counter++;
+                } else return notGuess();
               }
-              chekEnterUserLetter(word);
             </script>
           </div>
         </div>
