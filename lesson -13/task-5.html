@@ -43,6 +43,7 @@
                 return getLetter;
               }
               let res = getWord(word);
+              let res2;
               //---------------------------------------------------------------
               let letter;
               let userWord = [];
@@ -53,8 +54,10 @@
               alert("Вгадайте слово та перекладіть на англійську мову");
               alert("Це то місто де живуть люди ;)");
               do {
-                letter = prompt("Введіть букву з слова на англійській мові");
-                if (res() === letter) {
+                letter = prompt(
+                  "Введіть букву з слова на англійській мові"
+                ).toLowerCase();
+                if ((res2 = res()) === letter) {
                   userWord.push(letter);
                   allUserLetter.push(letter);
                   counter++;
@@ -65,23 +68,51 @@
               } while (word !== us);
               //----------------------------------------------------------------------------------------
               alert(`Ви вгадали слово ${us}`);
-              document.write(`<div>${allUserLetter}</div>`);
-              document.write(`<div>${userWord.join("")}</div>`);
-              document.write(`<div>${counter}</div>`);
+              document.write(`<div>Букви які ви ввели: ${allUserLetter}</div>`);
+              document.write(`<div>Загадане слово: ${userWord.join("")}</div>`);
+              document.write(`<div>Кількість літер введених: ${counter}</div>`);
 
               //-------------------------------------------------------------------------------------
               function notGuess() {
                 alert("Ви не вгадали букву, спробуйте ще раз");
                 allUserLetter.push(letter);
                 letter = prompt("Введіть букву з слова на англійській мові");
-                allUserLetter.push(letter);
                 counter++;
-                if (word.includes(letter)) {
+                if (res2 === letter) {
                   userWord.push(letter);
                   allUserLetter.push(letter);
                   counter++;
                 } else return notGuess();
               }
+
+              //--- Створити ітератор по літерам слова
+              // function getLettersInWord(word) {}
+              // function translator(word, description) {
+              //   let taskInfo = alert(
+              //     `Перекладіть англійською мовою: ${description} (${word.length} букв)`
+              //   )
+              //   let wordInLetters = getLettersInWord(word)
+              //   let counter = 0
+              //   let userLettersArr = []
+              //   for (let letter = 0; letter < word.length; letter++) {
+              //     const userLetter = prompt(
+              //       `Введіть ${letter + 1} букву перекладу`
+              //     ).toLowerCase()
+              //     const wrightLetter = wordInLetters()
+
+              //     userLettersArr.push(userLetter)
+              //     if (wrightLetter === userLetter) counter++
+              //   }
+              //   return [userLettersArr, counter]
+              // }
+              // let word = 'spring'
+              // let description =
+              //   'Oдна з чотирьох пір року між зимою та літом, характерна для помірних широт '
+              // let [userLettersArr, counter] = translator(word, description)
+              // document.write(
+              //   `Переклад слова: ${word}. &lt;br&gt; Ви ввели букви: ${userLettersArr}.
+              // Кількість правильно вгаданих букв: ${counter}`
+              // )
             </script>
           </div>
         </div>
