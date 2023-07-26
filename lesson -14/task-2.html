@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 2</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 2
+              <p>
+                Задача 2. Розробити функцію, у яку передають об’єкт (день,
+                місяць, рік). Визначити, який буде рік через N місяців.
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              let userDate = {
+                day: 26,
+                month: 7,
+                year: 2023,
+              };
+              // --- 2) з об"єкта беремо тільки місяць
+              function getShiftedMonth({ month }, N) {
+                return ((month - 1 + N) % 12) + 1;
+              }
+              const N = 5;
+              // const N = parseInt(prompt("N="));
+              const shiftedMonth = getShiftedMonth(userDate, N);
+              document.write(
+                `Через місяців ${N} буде місяць № ${shiftedMonth}`
+              );
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>

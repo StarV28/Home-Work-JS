@@ -1,48 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 1</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 1
+              <p>
+                Задача 1. Описати масив об’єктів – сайтів розроблених компанією
+                з такими властивостями ----- Властивості ------ назва компанії
+                на час розробки (назву періодично змінюють) власник компанії
+                споснсори (масив спонсорів) * прізвище спонсора * ім’я спонсора
+                * сума вкладень спонсора рік випуску вартість сайту
+              </p>
+              <ul>
+                <li>Знайти:</li>
+                <li>1) загальну вартість усіх сайтів</li>
+                <li>
+                  2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+                </li>
+                <li>
+                  3) кількість сайтів, де сума спонсорських вкладень була
+                  більшою за 100000
+                </li>
+                <li>
+                  4) створити загальний список усіх спонсорів (поки можуть
+                  повторюватись, просто зібрати усі у масив)
+                </li>
+                <li>5) знайти рік, коли прибуток був найбільшим</li>
+                <li>6) упорядкувати список за спаданням прибутку</li>
+                <li>
+                  7) Створити 2 окремих списки з копіями об’єктів, що містять
+                  сайти з вартість до 10000 і більше 10000
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              let websites = [
+                {
+                  nameCompany: "One",
+                  owner: "Ivan Ivanov",
+                  sponsors: [
+                    {
+                      surnameSponsor: "Gogosh",
+                      nameSponsor: "Goge",
+                      sumInvest: 95000,
+                    },
+                    {
+                      surnameSponsor: "Kovbasa",
+                      nameSponsor: "Maksem",
+                      sumInvest: 300000,
+                    },
+                  ],
+                  releaseYear: 2007,
+                  siteCost: 4000000,
+                },
+                {
+                  nameCompany: "Two",
+                  owner: "Vlad Pupkin",
+                  sponsors: [
+                    {
+                      surnameSponsor: "Pupkin",
+                      nameSponsor: "Vlad",
+                      sumInvest: 150000,
+                    },
+                    {
+                      surnameSponsor: "Drigalo",
+                      nameSponsor: "Ujen",
+                      sumInvest: 200000,
+                    },
+                  ],
+                  releaseYear: 2015,
+                  siteCost: 1000000,
+                },
+                {
+                  nameCompany: "Three",
+                  owner: "Jon Jonin",
+                  sponsors: [
+                    {
+                      surnameSponsor: "Goldman",
+                      nameSponsor: "Savva",
+                      sumInvest: 70000,
+                    },
+                    {
+                      surnameSponsor: "Sedorov",
+                      nameSponsor: "Maksem",
+                      sumInvest: 10000,
+                    },
+                  ],
+                  releaseYear: 2000,
+                  siteCost: 200000,
+                },
+                {
+                  nameCompany: "For",
+                  owner: "Izya Golc",
+                  sponsors: [
+                    {
+                      surnameSponsor: "Zeldman",
+                      nameSponsor: "Fema",
+                      sumInvest: 70000,
+                    },
+                    {
+                      surnameSponsor: "Galushka",
+                      nameSponsor: "Iren",
+                      sumInvest: 150000,
+                    },
+                  ],
+                  releaseYear: 2020,
+                  siteCost: 50000,
+                },
+              ];
+              // console.log(websites[0].sponsors[1].sumInvest2);
+              //-------------загальну вартість усіх сайтів----------------------
+              let allPricesWebsite = websites.reduce(
+                (prevSum, site) => prevSum + site.siteCost,
+                0
+              );
+              document.write(
+                `<div>загальну вартість усіх сайтів: ${allPricesWebsite}</div>`
+              );
+              //-------------------- кількість сайтів, що було зроблено між 2000 та 2009 рр.-----------------------
+              let quantitySiteDoPeriod = websites.reduce(
+                (prevSum, site) =>
+                  site.releaseYear > 2000 && site.releaseYear < 2009
+                    ? prevSum + 1
+                    : prevSum,
+                0
+              );
+              document.write(
+                `<div>кількість сайтів, що було зроблено між 2000 та 2009 рр.: ${quantitySiteDoPeriod}</div>`
+              );
+              //-----------------кількість сайтів, де сума спонсорських вкладень була-------------------------------
+              //----------більшою за 100000--------------------------------------------------------------------------
+              let priceSponsorMore100000 = websites.reduce(
+                (prevCountSite, site) =>
+                  site.sponsors[0].sumInvest + site.sponsors[1].sumInvest >
+                  100000
+                    ? prevCountSite + 1
+                    : prevCountSite,
+                0
+              );
+              document.write(
+                `<div>кількість сайтів, де сума спонсорських вкладень була більшою за 100000: ${priceSponsorMore100000}</div>`
+              );
+              //-----------створити загальний список усіх спонсорів----------------------------
+              //----------(поки можуть повторюватись, просто зібрати усі у масив)---------
+              let allListSponsors = websites.map((sponsor) => {
+                for (let i = 0; i < sponsor.sponsors.length; i++) {
+                  return {
+                    lastName: sponsor.sponsors[i].surnameSponsor,
+                    firstName: sponsor.sponsors[i].nameSponsor,
+                  };
+                }
+              });
+              // console.log(allListSponsors);
+              //-------------знайти рік, коли прибуток був найбільшим------------------------------------------------------
+              let morePriceYear = websites.reduce((prevPriceMorYear, site) =>
+                prevPriceMorYear.siteCost < site.siteCost
+                  ? site.releaseYear
+                  : prevPriceMorYear
+              );
+              console.log(morePriceYear);
+              //----------упорядкувати список за спаданням прибутку----------------------
+              function swap(arr, a, b) {
+                let t = arr[a];
+                arr[a] = arr[b];
+                arr[b] = t;
+              }
 
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+              function sortObj(arr) {
+                for (let i = 0; i < arr.length; i++) {
+                  let min = i;
+                  for (let j = i + 1; j < arr.length; j++) {
+                    if (arr[j].siteCost > arr[min].siteCost) min = j;
+                  }
+                  if (min !== i) {
+                    swap(arr, i, min);
+                  }
+                }
+              }
+              sortObj(websites);
+              console.log(websites);
+              //---------Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 100тис і більше 100тис------------
+              let sitePricesCheck = websites.reduce(
+                (prevSite, site) => {
+                  site.siteCost > 100000
+                    ? prevSite[0].push(JSON.parse(JSON.stringify(site)))
+                    : prevSite[1].push(JSON.parse(JSON.stringify(site)));
+                  return prevSite;
+                },
+                [[], []]
+              );
+              console.log(sitePricesCheck);
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>
