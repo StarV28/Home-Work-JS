@@ -29,16 +29,20 @@
                 month: 7,
                 year: 2023,
               };
-              // --- 2) з об"єкта беремо тільки місяць
-              function getShiftedMonth({ month }, N) {
-                return ((month - 1 + N) % 12) + 1;
+              //----------------------------------------------------
+              function getSheftyear({ month, year }, N) {
+                let countUserMonth = userDate.month + N;
+                if (countUserMonth > 12) {
+                  userDate.year += Math.floor(countUserMonth / 12);
+                }
+                return userDate.year;
               }
-              const N = 5;
-              // const N = parseInt(prompt("N="));
-              const shiftedMonth = getShiftedMonth(userDate, N);
-              document.write(
-                `Через місяців ${N} буде місяць № ${shiftedMonth}`
+              let enterUserMonth = parseInt(
+                prompt("Введіть кількість месяців")
               );
+              let res = getSheftyear(userDate, enterUserMonth);
+              console.log(res);
+              document.write(`Буде ${res} рік`);
             </script>
           </div>
         </div>
