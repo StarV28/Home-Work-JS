@@ -523,14 +523,16 @@
                 let checkProducts = productAvailable.reduce(
                   (prevProduct, el) =>
                     (el = product.push({
-                      ...id,
-                      ...price,
-                      ...old_price,
-                      ...usd_price,
-                    }))
+                      id: el.id,
+                      price: el.price,
+                      old_price: el.old_price,
+                      usd_price: el.usd_price,
+                    })),
+                  0
                 );
+                return product;
               }
-              let result = getNewObjProducts(dataList);
+              let result = getNewObjProducts(getNewObjProducts);
               console.log(result);
             </script>
           </div>
