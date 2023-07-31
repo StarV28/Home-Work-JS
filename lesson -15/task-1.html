@@ -1,48 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 1</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 1
+              <p>
+                Задача 0. Дано два об’єкта. Обидва містять масив цілих чисел.
+                При цьому у одному з них є функція знаходження суми, а у іншому
+                – функція для знаходження добутку тих, які знаходяться між
+                заданими мінімальним і максимальних значенням. Використати
+                обидва методи стосовно обидвох об’єктів (використати call,
+                apply)
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              //---------Obj1 & obj2--------------------------
+              let obj1 = {
+                arrNumber: [1, 2, 5, 10, 20, 30, 45, 80, 90],
+                getSum: function () {
+                  return this.arrNumber.reduce(
+                    (prevSum, num) => (prevSum += num),
+                    0
+                  );
+                },
+              };
 
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+              let obj2 = {
+                arrNumber: [22, 55, 12, 65, 85, 42, 34, 78],
+                getProduct: function (minValue, maxValue) {
+                  let result = 1;
+                  // for (let i = 0; i < this.arrNumber.length; i++) {
+                  //   if (
+                  //     this.arrNumber[i] > minValue &&
+                  //     this.arrNumber[i] < maxValue
+                  //   ) {
+                  //     result *= this.arrNumber[i];
+                  //   }
+                  // }
+                  return this.arrNumber.reduce(
+                    (prevProd, num) =>
+                      num > minValue && num < maxValue
+                        ? (result *= num)
+                        : prevProd,
+                    0
+                  );
+                  // return result;
+                },
+              };
+              //-------Sum1----------------
+              let res = obj1.getSum();
+              console.log(res);
+              //------Product Obj1------------
+              let res1 = obj2.getProduct.call(obj1, 10, 45);
+              console.log(res1);
+              //------Product obj2-----------------------
+              let res2 = obj2.getProduct(50, 100);
+              console.log(res2);
+              //-------Sum obj2-----------------------------
+              let res3 = obj1.getSum.apply(obj2);
+              console.log(res3);
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>

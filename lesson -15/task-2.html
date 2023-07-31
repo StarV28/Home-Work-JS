@@ -1,48 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 2</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 2
+              <p>
+                Задача 1. Створити об’єкт «Тир». У масиві зберігаються 1, якщо у
+                цьому квадраті є заєць і 0 в іншому випадку.
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              //-----------------------------------------------
+              class ShootingGalary {
+                constructor() {
+                  this.filedLenght = parseInt(prompt("Введіть довжину поля"));
+                  this.countHare = parseInt(prompt("Введіть кількість зайців"));
+                  this.shootGal = this.getRandomShooting();
+                  this.userShoot = this.userShoot();
+                }
+                //--------------------------------------------
+                getRandomShooting(countHare, filedLenght) {
+                  countHare ??= this.countHare;
+                  filedLenght ??= this.filedLenght;
+                  let arr = new Array(filedLenght).fill(0);
+                  for (let i = 0; i < countHare; i++) {
+                    let randInd = Math.floor(Math.random() * filedLenght);
+                    if (arr[randInd] !== 1) arr[randInd] = 1;
+                  }
+                  return arr;
+                }
+                //--------------------------------------------
+                userShoot(countHare, shotCount, filedLenght, shootGal) {
+                  countHare ??= this.countHare;
+                  shotCount ??= this.countHare;
+                  filedLenght ??= this.filedLenght;
+                  shootGal ??= this.shootGal;
+                  while (
+                    shootGal.some((el) => el === 1) &&
+                    confirm("Продовжуєм охоту ?") &&
+                    shotCount !== 0
+                  ) {
+                    let shot = parseInt(
+                      prompt(`Введіть число від  1 до ${filedLenght}`) - 1
+                    );
+                    if (shootGal[shot] === 1) {
+                      shootGal[shot] = 0;
+                      countHare--;
+                      shotCount--;
+                      console.log(countHare);
+                      console.log(shotCount);
+                      console.log(shootGal);
+                      alert(
+                        `Ви вбили зайця, залишилось ${countHare} зайців, та ${shotCount} пострілів `
+                      );
+                      shot;
+                    } else {
+                      shotCount--;
+                      alert(
+                        `Ви не влучили у зайцяб, залишилось пострілів ${shotCount}`
+                      );
+                      shot;
+                      console.log(shootGal);
+                    }
+                  }
+                }
+              }
 
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+              let res1 = new ShootingGalary();
+              console.log(res1);
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>
