@@ -1,48 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 4</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 4
+              <p>
+                Задача 3. Розробити клас MultChecker для перевірки таблиці
+                множення
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              // ---------------Кількість правильних відповідей
+              // ---------------Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)
+              // ---------------Кількість неправильних відповідей
+              class MultChecker {
+                constructor(rightAnsw, incorAns) {
+                  this.numRightAnswer = rightAnsw;
+                  this.numCheck = parseFloat(prompt("Введить число"));
+                  this.numberUserShow = parseInt(
+                    prompt("Введіть кількість перевіроак таблиці множеня")
+                  );
+                  this.countIncorAnsw = incorAns;
+                }
+                //----Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)---------
+                generatExampl() {
+                  for (let i = 0; i < this.numberUserShow; i++) {
+                    let randomNum = Math.floor(Math.random() * 10);
+                    let result = this.numCheck * randomNum;
+                    let answUser = parseInt(
+                      prompt(
+                        `Дaйте відповідь: ${this.numCheck} * ${randomNum} = ?`
+                      )
+                    );
+                    if (result === answUser) {
+                      alert("YEs");
+                      this.numRightAnswer += 1;
+                    } else {
+                      alert("No");
+                      this.countIncorAnsw += 1;
+                    }
+                  }
+                }
+                showResultCount(numRightAnswer, countIncorAnsw) {
+                  console.log(this.numRightAnswer);
+                  console.log(this.countIncorAnsw);
+                }
+              }
+              let res = new MultChecker(0, 0);
+              res.generatExampl();
+              res.showResultCount();
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>

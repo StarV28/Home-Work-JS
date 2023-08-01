@@ -1,48 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 3</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Task 1</title>
-</head>
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 3
+              <p>Задача 2. Створити об’єкт «Авто».</p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              //-----------------------------Марка
+              //-----------------------------Розмір бака
+              //----------------------------Кількість наявних літрів
+              //----------------------------Кількість місць
+              //---------------------------Кількість пасажирів
+              //-------Obj Avto--------------
+              class Avto {
+                constructor(brand, sizeLugg, countLitr, numSeats, numPass) {
+                  this.brand = brand;
+                  this.sizeLugg = sizeLugg;
+                  this.countLitr = countLitr;
+                  this.numSeats = numSeats;
+                  this.numPass = numPass;
+                }
+                //----Заправка на вказану кількість літрів----------
+                tankFilling(countLitr) {
+                  this.countLitr ??= countLitr;
+                  let userNumLitr = parseInt(
+                    prompt(
+                      `Вкажіть кількість літрів яку хочете залити в бакб, зараз в бакці: ${this.countLitr}`
+                    )
+                  );
+                  if (this.countLitr < 40) {
+                    let lugg = this.countLitr + userNumLitr - 40;
+                    if (lugg === 0) {
+                      alert("Ваш бак повний");
+                    } else if (lugg > 0) {
+                      alert(
+                        `Ваш залишок пального ${lugg}, заберіть грошима на касі`
+                      );
+                    } else {
+                      alert(`В баці пального ${this.countLitr + userNumLitr}`);
+                    }
+                  } else {
+                    alert("Ваш бак повний");
+                  }
+                }
+                //-----Виведення кількості пасажирів--------------
+                getNumPass(numPass, numSeats) {
+                  this.numPass ??= numPass;
+                  this.numSeats ??= numSeats;
+                  return this.numSeats - this.numPass;
+                }
+                //-----Додавання пасажирів-----------------------
+                getAddPass(numPass, numSeats) {
+                  this.numPass ??= numPass;
+                  this.numSeats ??= numSeats;
+                  let newPass =
+                    this.numPass +
+                    parseInt(
+                      prompt(
+                        `Долайте кількість пасажирів при пасадці, з урахуванням що в Авто ${this.numSeats} пасажирів та вже сидить ${this.numPass} пасажира`
+                      )
+                    );
+                  let pass = this.numSeats - newPass;
+                  if (pass >= 0) {
+                    alert(`В авто залишилось ${pass} місць`);
+                  } else {
+                    alert("Більше немає місць");
+                  }
+                }
+                //-------------Висадка пасажирів------------------
+                goPass(numSeats, numPass) {
+                  this.numPass ??= numPass;
+                  this.numSeats ??= numSeats;
+                  let goPass = parseInt(
+                    prompt(
+                      `Введіть кількість пасажирів які вийшли, зараз в авто ${numPass}`
+                    )
+                  );
+                  let res1 = this.numPass - goPass;
+                  console.log(res1);
+                  alert(
+                    `Залишилось пасажирів ${res1}, вільних місць ${
+                      this.numSeats - res1
+                    }`
+                  );
+                }
+              }
 
-<body>
-  <div class="wrapper">
-    <header class="header">
-      Main Page
-    </header>
-    <main class="page">
-      <div class="page__container">
-        <ul class="page__list">
-          <li class="page__task">
-            <a href="task-1.html">Task </a>
-            <p></p>
-          </li>
-        </ul>
-        <div class="page__dessegen">
-          <script>
-
-
-            // Рішення s1
-
-            // Рішення s3
-
-            // Рішення s4
-
-
-            // Виведення результату
-
-          </script>
+              let resAvto = new Avto("WV", 40, 20, 5, 2);
+              // resAvto.tankFilling();
+              // console.log(resAvto.getNumPass());
+              // resAvto.getAddPass();
+              // resAvto.goPass();
+            </script>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer class="footer">
-      Cours JS Starovoit Vladymyr
-    </footer>
-  </div>
-</body>
-
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
 </html>
