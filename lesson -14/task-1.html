@@ -194,16 +194,16 @@
               sortObj(websites);
               console.log(websites);
               //---------Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 100тис і більше 100тис-----------
-              let sitePricesCheck = websites.reduce(
-                (prevSite, site) => {
-                  site.siteCost > 100000
-                    ? prevSite[0].push(JSON.parse(JSON.stringify(site)))
-                    : prevSite[1].push(JSON.parse(JSON.stringify(site)));
-                  return prevSite;
-                },
-                [[], []]
-              );
-              console.log(sitePricesCheck);
+              let objSiteOne = [];
+              let objSiteTwo = [];
+              let sitePricesCheck = websites.map((site) => {
+                site.siteCost > 100000
+                  ? objSiteOne.push(JSON.parse(JSON.stringify(site)))
+                  : objSiteTwo.push(JSON.parse(JSON.stringify(site))),
+                  0;
+              });
+              console.log(objSiteOne);
+              console.log(objSiteTwo);
             </script>
           </div>
         </div>
