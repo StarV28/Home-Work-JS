@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 6</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 6
+              <p>Задача 5. Розробити клас «Керівник танців»</p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <script>
+              //----------Масив імен хлопців----------
+              let arrNameMan = ["Ivan", "Vlad", "Fedot", "Stas"];
+              //---------Масив імен дівчат-----------
+              let arrNameWomen = ["Ira", "Alla", "Nina", "Sofe"];
+
+              class Teacher {
+                constructor(arMan, arWom) {
+                  this.arMan = arMan;
+                  this.arWom = arWom;
+                }
+                //----------------Метод випадкового вибору імені хлопця---------------------
+                //----------------Метод випадкового вибору імені дівчини--------------------
+                getRendIn(arrName) {
+                  let lengArr = arrName.length;
+                  let randIn = Math.floor(Math.random() * lengArr);
+                  return arrName[randIn];
+                }
+                //----------------Метод виведення пари для танців----------------------------
+                getShowOutPairs() {
+                  let pairs = `${this.getRendIn(this.arMan)} + ${this.getRendIn(
+                    this.arWom
+                  )}`;
+                  return pairs;
+                }
+                //-----------Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців------------
+                run() {
+                  setInterval(() => alert(this.getShowOutPairs()), 5000);
+                }
+              }
+              let res = new Teacher(arrNameMan, arrNameWomen);
+              res.run();
+            </script>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+  </body>
+</html>

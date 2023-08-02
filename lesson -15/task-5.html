@@ -20,7 +20,47 @@
             </li>
           </ul>
           <div class="page__dessegen">
-            <script></script>
+            <script>
+              let arr = [
+                {
+                  photo: "./img/moto.jpg",
+                  link: "https://www.google.com.ua/maps/@50.4332288,30.6413568,11z?hl=ru&entry=ttu",
+                },
+                {
+                  photo: "./img/two-moto.jpg",
+                  link: "https://www.youtube.com/",
+                },
+                {
+                  photo: "./img/vertical.jpg",
+                  link: "https://twitter.com/",
+                },
+              ];
+              class Baner {
+                constructor(arr, photo, link) {
+                  this.arr = arr;
+                  this.photo = photo;
+                  this.link = link;
+                }
+                //-------Метод випадкового вибору об’єкта (графічного зображення та посилання)---------
+                randMathChoice() {
+                  let arrObj = this.arr.length;
+                  let randomInd = Math.floor(Math.random() * arrObj + 1);
+                  return randomInd - 1;
+                }
+                //-------Метод виведення випадкового банера-------------------
+                result() {
+                  let randomInd = this.randMathChoice();
+                  document.write(
+                    ` <img src="${this.arr[randomInd].photo}"width="200" height="200" alt=""><br>`
+                  );
+                  document.write(
+                    `<a href="${this.arr[randomInd].link}" font-size="25px" color="red">${this.arr[randomInd].link}</a>`
+                  );
+                }
+              }
+              let res = new Baner(arr);
+              res.result();
+            </script>
           </div>
         </div>
       </main>
