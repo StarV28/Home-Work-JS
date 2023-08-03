@@ -38,62 +38,118 @@
               class TDate {
                 #day;
                 #month;
+                #year;
                 constructor(initDay, initMonth, InitYear) {
                   this.Day = initDay;
                   this.Month = initMonth;
-                  this.year = InitYear;
+                  this.Year = InitYear;
                 }
-                get Month() {
-                  return this.#month;
-                }
-                set Month(newValue) {
-                  if (newValue > 12) {
-                    throw new Error("Incorrect date entered");
+                //----------------DayMonth-------------------
+                getDayMonth() {
+                  let dayMonth = this.Month;
+                  switch (dayMonth) {
+                    case 1:
+                      dayMonth = 31;
+                      break;
+                    case 2:
+                      dayMonth = 28;
+                      break;
+                    case 3:
+                      dayMonth = 31;
+                      break;
+                    case 4:
+                      dayMonth = 30;
+                      break;
+                    case 5:
+                      dayMonth = 31;
+                      break;
+                    case 6:
+                      dayMonth = 30;
+                      break;
+                    case 7:
+                      dayMonth = 31;
+                      break;
+                    case 8:
+                      dayMonth = 31;
+                      break;
+                    case 9:
+                      dayMonth = 30;
+                      break;
+                    case 10:
+                      dayMonth = 31;
+                      break;
+                    case 11:
+                      dayMonth = 30;
+                      break;
+                    case 12:
+                      dayMonth = 31;
+                      break;
                   }
-                  this.#month = newValue;
+                  return dayMonth;
                 }
+                //-------------Day--------------------------
                 get Day() {
                   return this.#day;
                 }
                 set Day(newValue) {
-                  if (typeof newValue === String) {
+                  if (newValue === 0) {
                     throw new Error("Incorrect date entered");
                   }
                   this.#day = newValue;
                 }
+                //------------------Month----------------------------
+                get Month() {
+                  return this.#month;
+                }
+                set Month(newValue) {
+                  return (this.#month = newValue);
+                }
+                //---------------------Year--------------------------
+                get Year() {
+                  return this.#year;
+                }
+                set Year(newValue) {
+                  return (this.#year = newValue);
+                }
                 //-------Реалізувати методи збільшення/зменшення дати на певну кількість днів, місяців чи років.----------
                 getChangeMeth() {
+                  //----------------------------------
                   let newDay = this.Day;
+                  let dayMonth = this.getDayMonth();
+                  //------------------------------------
                   if (newDay > 0) {
-                    newDay;
+                    this.Month += Math.ceil(newDay / dayMonth);
+                    if (this.Month > 12) {
+                      this.Year += Math.floor(this.Month / 12);
+                      this.Month = 0 + Math.ceil(this.Month / 12);
+                    }
                     if (newDay - 31 > 0) {
-                      this.Month += Math.ceil(newDay / 31);
-                      for (let i = 31; i < this.Day; i++) {
-                        newDay = this.Day - 31;
+                      for (let i = dayMonth; i < newDay; i++) {
+                        newDay -= dayMonth;
                       }
-                      if (this.Month > 12) {
-                        this.year += Math.ceil(this.Month / 12);
-                      }
-                    } else {
-                      return newDay;
                     }
                   } else {
-                    if (newDay + 31 > 0) {
-                      this.Month -= Math.ceil(newDay / 31);
-                      for (let i = 31; i < this.Day; i++) {
-                        newDay = this.Day + 31;
-                      }
+                    if (newDay < 0) {
+                      this.Month += Math.ceil(newDay / dayMonth);
+                      if (newDay === 0) newDay = dayMonth - 1;
                       if (this.Month > 12) {
-                        this.year += Math.ceil(this.Month / 12);
+                        this.Year -= Math.ceil(this.month / 12);
+                        this.Month = 0 + Math.ceil(this.month / 12);
                       }
-                    } else {
-                      return newDay;
+                      for (newDay; newDay < 0; newDay++) {
+                        newDay += dayMonth;
+                      }
                     }
                   }
+                  return (this.Day = newDay);
+                }
+                toString() {
+                  this.getChangeMeth();
+                  return `Day: ${this.Day} Month: ${this.Month} Year: ${this.Year}`;
                 }
               }
               let res = new TDate(changeDay, changeMonth, changeYear);
-              console.log(res.getChangeMeth());
+              document.write(res.toString());
             </script>
           </div>
         </div>
