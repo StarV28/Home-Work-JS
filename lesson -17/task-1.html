@@ -16,11 +16,48 @@
           <ul class="page__list">
             <li class="page__task">
               Task 1
-              <p></p>
+              <p>
+                Створити клас, що дозволяє виконувати такі операції над
+                масивами: знаходження кількості додатних, кількості від’ємних,
+                кількість входжень деякого числа (статичні методи)
+              </p>
             </li>
           </ul>
           <div class="page__dessegen">
-            <script></script>
+            <script>
+              //--Створити клас, що дозволяє виконувати такі операції над масивами----
+              //---------знаходження кількості додатних------
+              //---------знаходження кількості від’ємних-------------
+              //---------знаходження кількість входжень деякого числа (статичні методи)
+
+              class Counter {
+                static getFindPosNum(arr) {
+                  let count = 0;
+                  let posNum = arr.reduce(
+                    (prevNum, num) => (num > 0 ? (count += 1) : prevNum),
+                    0
+                  );
+                  return count;
+                }
+                static getFindNegatNum(arr) {
+                  let count = 0;
+                  let negativeNum = arr.reduce((prevNum, num) =>
+                    num < 0 ? (count += 1) : prevNum
+                  );
+                  return count;
+                }
+              }
+              console.log(
+                Counter.getFindPosNum([
+                  -1, 10, 5, -6, 85, 12, -95, -87, 14, -64, 45,
+                ])
+              );
+              console.log(
+                Counter.getFindNegatNum([
+                  -1, 10, 5, -6, 85, 12, -95, -87, 14, -64, 45,
+                ])
+              );
+            </script>
           </div>
         </div>
       </main>
