@@ -88,8 +88,11 @@
                     )
                   );
                   let maxMony = this.getMaxExtradBankomat();
-                  if (maxMony - userMony <= 0) alert("Не вісточає кошт");
-                  alert(`Залишок на рахунку ${maxMony - userMony}`);
+                  if (maxMony - userMony <= 0) {
+                    return alert("Не вісточає кошт");
+                  } else {
+                    return alert(`Залишок на рахунку ${maxMony - userMony}`);
+                  }
                 }
               }
               let bankomat = new TBankomat(mony);
