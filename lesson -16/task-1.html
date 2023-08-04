@@ -29,11 +29,11 @@
             <script>
               //------------Створити клас TDate для роботи із датами у форматі “день.місяць.рік”. ---------------------
               //------------Дата представляється структурою із трьома полями.------------------------------------------
+              let changeMonth = 11;
+              let changeYear = 2023;
               let changeDay = parseInt(
                 prompt("Введіть кількість днів які ви хочете додати")
               );
-              let changeMonth = 7;
-              let changeYear = 2023;
 
               class TDate {
                 #day;
@@ -43,49 +43,6 @@
                   this.Day = initDay;
                   this.Month = initMonth;
                   this.Year = InitYear;
-                }
-                //----------------DayMonth-------------------
-                getDayMonth() {
-                  let dayMonth = this.Month;
-                  switch (dayMonth) {
-                    case 1:
-                      dayMonth = 31;
-                      break;
-                    case 2:
-                      dayMonth = 28;
-                      break;
-                    case 3:
-                      dayMonth = 31;
-                      break;
-                    case 4:
-                      dayMonth = 30;
-                      break;
-                    case 5:
-                      dayMonth = 31;
-                      break;
-                    case 6:
-                      dayMonth = 30;
-                      break;
-                    case 7:
-                      dayMonth = 31;
-                      break;
-                    case 8:
-                      dayMonth = 31;
-                      break;
-                    case 9:
-                      dayMonth = 30;
-                      break;
-                    case 10:
-                      dayMonth = 31;
-                      break;
-                    case 11:
-                      dayMonth = 30;
-                      break;
-                    case 12:
-                      dayMonth = 31;
-                      break;
-                  }
-                  return dayMonth;
                 }
                 //-------------Day--------------------------
                 get Day() {
@@ -111,33 +68,56 @@
                 set Year(newValue) {
                   return (this.#year = newValue);
                 }
+                //----------------DayMonth-------------------
+                getDayMonth() {
+                  let dayMonth = this.Month;
+                  if (dayMonth > 12) {
+                    dayMonth = 1;
+                    this.Month = 1;
+                    this.Year += 1;
+                  }
+                  if (dayMonth < 1) {
+                    dayMonth = 12;
+                    this.Month = 12;
+                    this.Year -= 1;
+                  }
+                  switch (dayMonth) {
+                    case (1, 3, 5, 7, 8, 10, 12):
+                      dayMonth = 31;
+                      break;
+                    case 2:
+                      dayMonth = 28;
+                      break;
+                    // case 3:
+                    //   dayMonth = 31;
+                    //   break;
+                    case (4, 6, 9, 11):
+                      dayMonth = 30;
+                      break;
+                  }
+                  return dayMonth;
+                }
                 //-------Реалізувати методи збільшення/зменшення дати на певну кількість днів, місяців чи років.----------
                 getChangeMeth() {
                   //----------------------------------
                   let newDay = this.Day;
                   let dayMonth = this.getDayMonth();
                   //------------------------------------
-                  if (newDay > 0) {
-                    this.Month += Math.ceil(newDay / dayMonth);
-                    if (this.Month > 12) {
-                      this.Year += Math.floor(this.Month / 12);
-                      this.Month = 0 + Math.ceil(this.Month / 12);
-                    }
+                  if (newDay > dayMonth) {
                     if (newDay - 31 > 0) {
                       for (let i = dayMonth; i < newDay; i++) {
                         newDay -= dayMonth;
+                        this.Month += 1;
+                        this.getDayMonth();
                       }
                     }
                   } else {
                     if (newDay < 0) {
-                      this.Month += Math.ceil(newDay / dayMonth);
                       if (newDay === 0) newDay = dayMonth - 1;
-                      if (this.Month > 12) {
-                        this.Year -= Math.ceil(this.month / 12);
-                        this.Month = 0 + Math.ceil(this.month / 12);
-                      }
                       for (newDay; newDay < 0; newDay++) {
                         newDay += dayMonth;
+                        this.Month -= 1;
+                        this.getDayMonth();
                       }
                     }
                   }

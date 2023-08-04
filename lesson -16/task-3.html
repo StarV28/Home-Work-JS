@@ -16,11 +16,86 @@
           <ul class="page__list">
             <li class="page__task">
               Task 3
-              <p></p>
+              <p>
+                Задача. Створити клас TBankomat, який моделює роботу банкомата.
+                Клас повинен містити поля для зберігання кількості купюр кожного
+                із номіналів від 5 до 200 гривень. Реалізувати методи
+                знаходження максимальної та мінімальної сум, які може видати
+                банкомат, та метод зняття деякої суми.
+              </p>
             </li>
           </ul>
           <div class="page__dessegen">
-            <script></script>
+            <script>
+              //-----Створити клас TBankomat, який моделює роботу банкомата.
+              //-----Клас повинен містити поля для зберігання кількості купюр кожного
+              //-----із номіналів від 5 до 200 гривень.
+
+              let mony = [
+                {
+                  denomination: 5,
+                  value: 20,
+                },
+                {
+                  denomination: 10,
+                  value: 10,
+                },
+                {
+                  denomination: 20,
+                  value: 5,
+                },
+                {
+                  denomination: 50,
+                  value: 10,
+                },
+                {
+                  denomination: 100,
+                  value: 5,
+                },
+                {
+                  denomination: 200,
+                  value: 5,
+                },
+              ];
+              //---------------------------------------
+              class TBankomat {
+                constructor(bills) {
+                  this.bills = bills;
+                }
+                // ----Реалізувати методи
+                //-----знаходження максимальної та мінімальної сум, які може видати
+                //-----банкома
+                //----------------------------------Min-----------------------
+                getMinExtradBankomat() {
+                  let minExBank = this.bills.find(
+                    (elem) => elem.denomination > 0 && elem.value > 0
+                  );
+                  return minExBank.denomination;
+                }
+                //---------------------------------Max------------------------
+                getMaxExtradBankomat() {
+                  return this.bills.reduce(
+                    (prevMony, mony) =>
+                      prevMony + mony.denomination * mony.value,
+                    0
+                  );
+                }
+                //-------------------------------метод зняття деякої суми.------------------
+                getUserMony() {
+                  let userMony = parseFloat(
+                    prompt(
+                      `Введіть суму яку ви хочете зняти, максимальна сума ${this.getMaxExtradBankomat()}`
+                    )
+                  );
+                  let maxMony = this.getMaxExtradBankomat();
+                  if (maxMony - userMony <= 0) alert("Не вісточає кошт");
+                  alert(`Залишок на рахунку ${maxMony - userMony}`);
+                }
+              }
+              let bankomat = new TBankomat(mony);
+              console.log(bankomat);
+              bankomat.getUserMony();
+            </script>
           </div>
         </div>
       </main>

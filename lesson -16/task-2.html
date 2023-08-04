@@ -16,11 +16,121 @@
           <ul class="page__list">
             <li class="page__task">
               Task 2
-              <p></p>
+              <p>Задача 3. Об’єкт “Фірма” (використати члени-класи)</p>
             </li>
           </ul>
           <div class="page__dessegen">
-            <script></script>
+            <script>
+              //--------------поля---------------
+              //-------------назва фірми;------------
+              //-------------дата заснування (рік, місяць);-------------
+              //-------------послуги (назва послуги, вартість, термін виконання);------------
+              //-------------адреси філіалів (країна, місто, вулиця, номер будинку);---------
+              class Firm {
+                constructor(nameFirm, dateEstab, services, addressBranch) {
+                  this.nameFirm = nameFirm;
+                  this.dateEstab = dateEstab;
+                  this.services = services;
+                  this.addressBranch = addressBranch;
+                }
+                //----------визначення кількості років існування фірми;-------------------------
+                get YearExisstFirm() {
+                  return 2023 - this.dateEstab.year;
+                }
+                //---------виведення всіх філіалів фірми у вказаному місті;-----------------------
+                getAllBranchFirm(userCity) {
+                  let arr = [];
+                  this.addressBranch.reduce((prevEl, el) => {
+                    if (el.city.includes(userCity)) {
+                      arr.push(el);
+                    }
+                  }, 0);
+                  return arr;
+                }
+                //--------виведення на екран послуг, що можуть бути виконані за вказану суму грошей та вказаний термін часу;---
+                getServicesTimeMony(userMony, userTime) {
+                  let res = [];
+                  this.services.reduce((prevEl, el) => {
+                    if (userTime === el.deadline && userMony === el.prices) {
+                      res.push(el);
+                    }
+                  }, 0);
+                  return res;
+                } //-------------------------------------------------------
+                toString() {
+                  let userCity = prompt(
+                    "Введіть місто з наданих: Limassol, Istanbul, Vienna,London"
+                  );
+                  let userMony = parseInt(
+                    prompt(
+                      "Вартість послуг становить 2000,100. Вкажіть вартість яка вас цікавить"
+                    )
+                  );
+                  let userTime = parseInt(
+                    prompt(
+                      "Термін виконання становить: 5,1 день. Вкажіть який термін вас цікавить"
+                    )
+                  );
+                  let resYear = this.YearExisstFirm;
+                  let resBranch = this.getAllBranchFirm(userCity);
+                  let resAllservece = this.getServicesTimeMony(
+                    userMony,
+                    userTime
+                  );
+                  console.log(resYear);
+                  console.log(resBranch);
+                  console.log(resAllservece);
+                  return;
+                }
+              }
+              let firmOne = new Firm(
+                { name: "Horns and Hooves" },
+                { month: 5, year: 2010 },
+                [
+                  { nameservices: "finans", prices: 2000, deadline: 5 },
+                  { nameservices: "Cryptocurrency", prices: 2000, deadline: 5 },
+                  { nameservices: "Cashing out", prices: 100, deadline: 1 },
+                  {
+                    nameservices: "Currency Exchange",
+                    prices: 100,
+                    deadline: 1,
+                  },
+                ],
+                [
+                  {
+                    country: "Cyprus",
+                    city: "Limassol",
+                    street: "Agkyras",
+                    namberHous: 25 / 10,
+                  },
+                  {
+                    country: "Turkey",
+                    city: "Istanbul",
+                    street: "Istiklyal",
+                    namberHous: 101,
+                  },
+                  {
+                    country: "Turkey",
+                    city: "Istanbul",
+                    street: "Istiklyal",
+                    namberHous: 7,
+                  },
+                  {
+                    country: "Austria",
+                    city: "Vienna",
+                    street: "Am Tabor",
+                    namberHous: 2,
+                  },
+                  {
+                    country: "England",
+                    city: "London",
+                    street: "Baker",
+                    namberHous: 4,
+                  },
+                ]
+              );
+              firmOne.toString();
+            </script>
           </div>
         </div>
       </main>
