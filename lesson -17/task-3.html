@@ -16,11 +16,57 @@
           <ul class="page__list">
             <li class="page__task">
               Task 3
-              <p></p>
+              <p>
+                Створити клас Нагадувач. Кожні вказані кількості секунд
+                (використати setInterval) програма нагадує про якусь подію (це
+                просто текст) і також виводиться порядковий номер скільки раз
+                вже нагадування було. Зробити так, щоб неможна було зробити
+                одночасно декілька об’єктів-нагадувачів. Методи зупинки таймера,
+                метод зміни повідомлення без зупинки таймера.
+              </p>
             </li>
           </ul>
           <div class="page__dessegen">
-            <script></script>
+            <script>
+              //-------------------Створити клас Нагадувач. Кожні вказані кількості секунд
+              //-------------------(використати setInterval) програма нагадує про якусь подію (це
+              //------------------- просто текст) і також виводиться порядковий номер скільки раз
+              //-------------------вже нагадування було.
+
+              class Reminber {
+                static reminderRef;
+                static interval = 2000;
+                static counter = 0;
+                constructor(massage) {
+                  if (Reminber.reminderRef) {
+                    return Reminber.reminderRef;
+                  }
+                  this.massage = massage;
+                  Reminber.reminderRef = this;
+                }
+                run() {
+                  Reminber.int = setInterval(() => {
+                    Reminber.counter += 1;
+                    alert(this.massage, Reminber.counter);
+                  }, Reminber.interval);
+                }
+                stopRun() {
+                  clearInterval(Reminber.int);
+                }
+                showInterval() {
+                  this.run();
+                  setTimeout(() => {
+                    if (confirm("Stop ?")) {
+                      this.stopRun();
+                    } else {
+                      this.showInterval();
+                    }
+                  }, 11000);
+                }
+              }
+              let res = new Reminber("Good Night");
+              // res.showInterval();
+            </script>
           </div>
         </div>
       </main>

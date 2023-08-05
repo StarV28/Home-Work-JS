@@ -99,6 +99,11 @@
                       nameSponsor: "Maksem",
                       sumInvest: 10000,
                     },
+                    {
+                      surnameSponsor: "Sedorov",
+                      nameSponsor: "Maksem",
+                      sumInvest: 30000,
+                    },
                   ],
                   releaseYear: 2000,
                   siteCost: 200000,
@@ -144,16 +149,16 @@
               );
               //-----------------кількість сайтів, де сума спонсорських вкладень була-------------------------------
               //----------більшою за 100000--------------------------------------------------------------------------
-              let priceSponsorMore100000 = websites.reduce(
-                (prevCountSite, site) =>
-                  site.sponsors[0].sumInvest + site.sponsors[1].sumInvest >
-                  100000
-                    ? prevCountSite + 1
-                    : prevCountSite,
-                0
-              );
+              let arrCounter = 0;
+              for (let i = 0; i < websites.length; i++) {
+                let arrSort = websites[i].sponsors.reduce((prevEl, el) =>
+                  prevEl.sumInvest + el.sumInvest > 100000
+                    ? (arrCounter += 1)
+                    : prevEl
+                );
+              }
               document.write(
-                `<div>кількість сайтів, де сума спонсорських вкладень була більшою за 100000: ${priceSponsorMore100000}</div>`
+                `<div>кількість сайтів, де сума спонсорських вкладень була більшою за 100000: ${arrCounter}</div>`
               );
               //-----------створити загальний список усіх спонсорів----------------------------
               //----------(поки можуть повторюватись, просто зібрати усі у масив)---------
@@ -165,7 +170,7 @@
                   };
                 }
               });
-              // console.log(allListSponsors);
+              console.log(allListSponsors);
               //-------------знайти рік, коли прибуток був найбільшим------------------------------------------------------
               let morePriceYear = websites.reduce((prevPriceMorYear, site) =>
                 prevPriceMorYear.siteCost < site.siteCost

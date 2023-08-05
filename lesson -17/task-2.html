@@ -16,11 +16,38 @@
           <ul class="page__list">
             <li class="page__task">
               Task 2
-              <p></p>
+              <p>
+                Створити службове авто (водій, марка, номер). Створити клас
+                таким чином, щоб можна було створити тільки один екземпляр цього
+                класу.
+              </p>
             </li>
           </ul>
           <div class="page__dessegen">
-            <script></script>
+            <script>
+              class CompCar {
+                static compCarRef;
+                constructor(draver, model, numberCar) {
+                  if (CompCar.compCarRef) {
+                    return CompCar.compCarRef;
+                  }
+                  this.draver = draver;
+                  this.model = model;
+                  this.numberCar = numberCar;
+
+                  CompCar.compCarRef = this;
+                }
+                get ShowCar() {
+                  console.log(this.draver);
+                  console.log(this.model);
+                  console.log(this.numberCar);
+                }
+              }
+              let car1 = new CompCar("Nina", "BMW", "KA3333KA");
+              car1.ShowCar;
+              let car2 = new CompCar("Ira", "WV", "EA2222EA");
+              car2.ShowCar;
+            </script>
           </div>
         </div>
       </main>

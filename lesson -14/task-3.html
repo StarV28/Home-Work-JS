@@ -520,8 +520,8 @@
               //------------------------------(id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price)
               function getNewObjProducts({ id, price, old_price, usd_price }) {
                 let product = [];
-                let checkProducts = productAvailable.reduce(
-                  (prevProduct, el) =>
+                let checkProducts = productAvailable.map(
+                  (el) =>
                     (el = product.push({
                       id: el.id,
                       price: el.price,
