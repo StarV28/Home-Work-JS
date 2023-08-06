@@ -14,10 +14,118 @@
       <main class="page">
         <div class="page__container">
           <ul class="page__list">
-            <li class="page__task">Task 4</li>
+            <li class="page__task">
+              Task 4
+              <p>
+                Особиста бібліотека. Картотека домашньої бібліотеки: дані книги
+                (автори (піб, рік народження, короткий опис), назва книги, жанр,
+                видавництво (назва, реєстраційний номер, рік засування)).
+                Реалізувати розділи бібліотеки організувати додавання/вилучення
+                книг та вибір книг за назвою, за ПІБ автора, за видавництвом.
+              </p>
+            </li>
           </ul>
           <div class="page__dessegen">
-            <script></script>
+            <script>
+              //-------------- Особиста бібліотека.-----------
+              //---------------Картотека домашньої бібліотеки:-------
+              //--------дані книги (автори (піб, рік народження, короткий опис)-----
+              //--------назва книги-----------------
+              //--------жанр----------------------
+              //--------видавництво (назва, реєстраційний номер, рік засування))-----
+
+              class Library {
+                constructor(initData) {
+                  Object.assign(this, initData);
+                }
+                //---------------------Add Book----------------------------
+                addBook(Book) {
+                  let newBook = this.myLibrary.push(Book);
+                }
+                //-------------------Delete Book-------------------------
+                deleteBook(nameBook) {}
+                //------------------------вибір книг за назвою--------------
+                // choiceBookName(nameBook) {
+                //   let choiceBook =
+                // }
+              }
+
+              //-------------------------------Book---------------------
+              class Book {
+                constructor(data) {
+                  this.author = new Author(data);
+                  this.edition = new Edition(data);
+
+                  this.nameBook = data.nameBook;
+                  this.genre = data.genre;
+                }
+              }
+              // -------------------------Author------------------
+              class Author {
+                constructor(data) {
+                  this.authorName = data.authorName;
+                  this.birthdayAuthor = data.birthdayAuthor;
+                  this.shortDescription = data.shortDescription;
+                }
+              }
+              //---------------------------Edition------------------
+              class Edition {
+                constructor(data) {
+                  this.edition = data.edition;
+                  this.registrNumber = data.registrNumber;
+                  this.yearCreation = data.yearCreation;
+                }
+              }
+              let myLibrary = [
+                new Book({
+                  nameBook: "The Twilight Saga",
+                  genre: "Fantasy",
+                  authorName: "Stephenie Meyer",
+                  birthdayAuthor: "1970",
+                  shortDescription: "Love, Modern",
+                  edition: "Atom",
+                  registrNumber: "9781904233657",
+                  yearCreation: "2007",
+                }),
+                new Book({
+                  nameBook: "The Memory Police ",
+                  genre: "Detectives",
+                  authorName: "Yoko Ogawa ",
+                  birthdayAuthor: "1990",
+                  shortDescription: "Detective, Sci-fi, Contemporary",
+                  edition: "Vintage",
+                  registrNumber: "9781784700447",
+                  yearCreation: "2020",
+                }),
+                new Book({
+                  nameBook: "100 Selected Stories ",
+                  genre: "Classic",
+                  authorName: "O. Henry",
+                  birthdayAuthor: "1965",
+                  shortDescription: "Classics, Short stories",
+                  edition: "Wordsworth Editions",
+                  registrNumber: "9781853262418",
+                  yearCreation: "1995",
+                }),
+              ];
+              let libraryOne = new Library(myLibrary);
+              console.log(libraryOne);
+              libraryOne.addBook(
+                new Book({
+                  nameBook: "The",
+                  genre: "Fantasy",
+                  authorName: "Stephenie Meyer",
+                  birthdayAuthor: "1970",
+                  shortDescription: "Love, Modern",
+                  edition: "Atom",
+                  registrNumber: "9781904233657",
+                  yearCreation: "2007",
+                })
+              );
+              console.log(libraryOne);
+              libraryOne.deleteBook("The");
+              console.log(libraryOne);
+            </script>
           </div>
         </div>
       </main>

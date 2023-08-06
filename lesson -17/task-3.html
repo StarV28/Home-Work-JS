@@ -44,28 +44,35 @@
                   this.massage = massage;
                   Reminber.reminderRef = this;
                 }
+                //---------------------------Run------------------------------
                 run() {
-                  Reminber.int = setInterval(() => {
+                  Reminber.intervalID = setInterval(() => {
                     Reminber.counter += 1;
                     alert(this.massage, Reminber.counter);
                   }, Reminber.interval);
                 }
+                //------------ Методи зупинки таймера----------
                 stopRun() {
-                  clearInterval(Reminber.int);
+                  clearInterval(Reminber.intervalID);
                 }
+                //------------- метод зміни повідомлення без зупинки таймера------------
+                changeMAssage() {
+                  setTimeout(() => {
+                    this.massage = "Good By";
+                  }, 7000);
+                }
+                //--------------Запуск--------------------------------
                 showInterval() {
                   this.run();
+                  this.changeMAssage();
                   setTimeout(() => {
-                    if (confirm("Stop ?")) {
-                      this.stopRun();
-                    } else {
-                      this.showInterval();
-                    }
+                    this.stopRun();
+                    alert("Stop");
                   }, 11000);
                 }
               }
-              let res = new Reminber("Good Night");
-              // res.showInterval();
+              let res = new Reminber("Good Morning");
+              res.showInterval();
             </script>
           </div>
         </div>
