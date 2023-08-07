@@ -43,7 +43,7 @@
                   this.myLibrary.push(Book);
                 }
                 //-------------------Delete Book-------------------------
-                getDeleteBook(nameBook) {
+                deleteBook(nameBook) {
                   this.myLibrary.filter((elem) => elem.nameBook !== nameBook);
                 }
                 //------------------------вибір книг за назвою--------------
@@ -130,7 +130,7 @@
               );
               console.log(libraryOne);
 
-              libraryOne.getDeleteBook("The");
+              libraryOne.deleteBook("The");
               console.log(libraryOne);
 
               libraryOne.getChoiceBookName("The Memory Police");
