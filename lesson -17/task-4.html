@@ -33,108 +33,125 @@
               //--------назва книги-----------------
               //--------жанр----------------------
               //--------видавництво (назва, реєстраційний номер, рік засування))-----
-
-              class Library {
-                constructor(myLibrary) {
-                  this.myLibrary = myLibrary;
+              class library {
+                constructor(initData) {
+                  // this.listBook = listBook;
+                  Object.assign(this, initData);
                 }
-                //---------------------Add Book----------------------------
-                addBook(Book) {
-                  this.myLibrary.push(Book);
+                //------------Реалізувати розділи бібліотеки організувати додавання------
+                addBook(book) {
+                  this.listBook.push(book);
                 }
-                //-------------------Delete Book-------------------------
+                //-----------------------вилучення книг---------------------------
                 deleteBook(nameBook) {
-                  this.myLibrary.filter((elem) => elem.nameBook !== nameBook);
+                  this.listBook = this.listBook.filter(
+                    (elem) => elem.nameBook !== nameBook
+                  );
                 }
-                //------------------------вибір книг за назвою--------------
-                getChoiceBookName(nameBook) {
-                  let choiceBook = this.myLibrary.filter(
+                //------------вибір книг за назвою--------------------------------
+                choiceNameBook(nameBook) {
+                  this.listBook = this.listBook.filter(
                     (elem) => elem.nameBook === nameBook
                   );
-                  return choiceBook;
+                }
+                //---------------за ПІБ автора--------------------------------------
+                choiceNameAuthor(name) {
+                  this.listBook = this.listBook.filter(
+                    (elem) => elem.author.name === name
+                  );
+                }
+                //----------------за видавництвом.---------------------------------
+                choicePablishName(pabName) {
+                  this.listBook = this.listBook.filter(
+                    (elem) => elem.publish.pabName === pabName
+                  );
                 }
               }
 
-              //-------------------------------Book---------------------
               class Book {
-                constructor(data) {
-                  this.author = new Author(data);
-                  this.edition = new Edition(data);
-
-                  this.nameBook = data.nameBook;
-                  this.genre = data.genre;
+                constructor(initData) {
+                  this.author = new Author(initData);
+                  this.publish = new Publish(initData);
+                  this.nameBook = initData.nameBook;
+                  this.gener = initData.gener;
                 }
               }
-              // -------------------------Author------------------
               class Author {
-                constructor(authorName, birthdayAuthor, shortDescription) {
-                  this.authorName = authorName;
-                  this.birthdayAuthor = birthdayAuthor;
-                  this.shortDescription = shortDescription;
+                constructor({ name, yearBirth, descrip }) {
+                  this.name = name;
+                  this.yearBirth = yearBirth;
+                  this.descrip = descrip;
                 }
               }
-              //---------------------------Edition------------------
-              class Edition {
-                constructor(edition, registrNumber, yearCreation) {
-                  this.edition = edition;
-                  this.registrNumber = registrNumber;
-                  this.yearCreation = yearCreation;
+              class Publish {
+                constructor({ pabName, registrNum, startYear }) {
+                  this.pabName = pabName;
+                  this.registrNum = registrNum;
+                  this.startYear = startYear;
                 }
               }
-              let myLibrary = [
+
+              let listBook = [
                 new Book({
-                  nameBook: "The Twilight Saga",
-                  genre: "Fantasy",
-                  authorName: "Stephenie Meyer",
-                  birthdayAuthor: "1970",
-                  shortDescription: "Love, Modern",
-                  edition: "Atom",
-                  registrNumber: "9781904233657",
-                  yearCreation: "2007",
+                  name: "Ivan Ivanov",
+                  yearBirth: 1967,
+                  descrip: "Ffff,gggggdddd sss",
+                  nameBook: "FFF",
+                  gener: "Fantasy",
+                  pabName: "Atom",
+                  registrNum: 123456789,
+                  startYear: 1990,
                 }),
                 new Book({
-                  nameBook: "The Memory Police ",
-                  genre: "Detectives",
-                  authorName: "Yoko Ogawa ",
-                  birthdayAuthor: "1990",
-                  shortDescription: "Detective, Sci-fi, Contemporary",
-                  edition: "Vintage",
-                  registrNumber: "9781784700447",
-                  yearCreation: "2020",
+                  name: "Fedor Fedorov",
+                  yearBirth: 1980,
+                  descrip: "Gggdtt bhggfyy, erthjnck",
+                  nameBook: "RRR",
+                  gener: "Detectiv",
+                  pabName: "Roga",
+                  registrNum: 987456321,
+                  startYear: 1990,
                 }),
                 new Book({
-                  nameBook: "100 Selected Stories ",
-                  genre: "Classic",
-                  authorName: "O. Henry",
-                  birthdayAuthor: "1965",
-                  shortDescription: "Classics, Short stories",
-                  edition: "Wordsworth Editions",
-                  registrNumber: "9781853262418",
-                  yearCreation: "1995",
+                  name: "Petr Petrov",
+                  yearBirth: 1987,
+                  descrip: ":Kdsjkbglsj slkdjghls, gousdfgoa",
+                  nameBook: "DDD",
+                  gener: "Roman",
+                  pabName: "Laska",
+                  registrNum: 547896321,
+                  startYear: 2013,
                 }),
               ];
-              let libraryOne = new Library(myLibrary);
-              console.log(libraryOne);
+              console.log(listBook);
 
-              libraryOne.addBook(
-                new Book({
-                  nameBook: "The",
-                  genre: "Fantasy",
-                  authorName: "Stephenie Meyer",
-                  birthdayAuthor: "1970",
-                  shortDescription: "Love, Modern",
-                  edition: "Atom",
-                  registrNumber: "9781904233657",
-                  yearCreation: "2007",
-                })
-              );
-              console.log(libraryOne);
+              let newLibrary = new library({ listBook });
+              console.log(newLibrary);
 
-              libraryOne.deleteBook("The");
-              console.log(libraryOne);
+              let newBookOne = new Book({
+                name: "Alex Sidorov",
+                yearBirth: 1955,
+                descrip: "FGguoa kkeih hdugu bbcus",
+                nameBook: "OPU",
+                gener: "Horar",
+                pabName: "Atom",
+                registrNum: 123454685,
+                startYear: 2020,
+              });
+              newLibrary.addBook(newBookOne);
+              console.log(newLibrary);
 
-              libraryOne.getChoiceBookName("The Memory Police");
-              console.log(libraryOne.getChoiceBookName("The Memory Police"));
+              newLibrary.deleteBook("OPU");
+              console.log(newLibrary);
+
+              // newLibrary.choiceNameBook("RRR");
+              // console.log(newLibrary);
+
+              // newLibrary.choiceNameAuthor("Fedor Fedorov");
+              // console.log(newLibrary);
+
+              newLibrary.choicePablishName("Roga");
+              console.log(newLibrary);
             </script>
           </div>
         </div>
