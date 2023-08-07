@@ -35,19 +35,24 @@
               //--------видавництво (назва, реєстраційний номер, рік засування))-----
 
               class Library {
-                constructor(initData) {
-                  Object.assign(this, initData);
+                constructor(myLibrary) {
+                  this.myLibrary = myLibrary;
                 }
                 //---------------------Add Book----------------------------
                 addBook(Book) {
-                  let newBook = this.myLibrary.push(Book);
+                  this.myLibrary.push(Book);
                 }
                 //-------------------Delete Book-------------------------
-                deleteBook(nameBook) {}
+                getDeleteBook(nameBook) {
+                  this.myLibrary.filter((elem) => elem.nameBook !== nameBook);
+                }
                 //------------------------вибір книг за назвою--------------
-                // choiceBookName(nameBook) {
-                //   let choiceBook =
-                // }
+                getChoiceBookName(nameBook) {
+                  let choiceBook = this.myLibrary.filter(
+                    (elem) => elem.nameBook === nameBook
+                  );
+                  return choiceBook;
+                }
               }
 
               //-------------------------------Book---------------------
@@ -62,18 +67,18 @@
               }
               // -------------------------Author------------------
               class Author {
-                constructor(data) {
-                  this.authorName = data.authorName;
-                  this.birthdayAuthor = data.birthdayAuthor;
-                  this.shortDescription = data.shortDescription;
+                constructor(authorName, birthdayAuthor, shortDescription) {
+                  this.authorName = authorName;
+                  this.birthdayAuthor = birthdayAuthor;
+                  this.shortDescription = shortDescription;
                 }
               }
               //---------------------------Edition------------------
               class Edition {
-                constructor(data) {
-                  this.edition = data.edition;
-                  this.registrNumber = data.registrNumber;
-                  this.yearCreation = data.yearCreation;
+                constructor(edition, registrNumber, yearCreation) {
+                  this.edition = edition;
+                  this.registrNumber = registrNumber;
+                  this.yearCreation = yearCreation;
                 }
               }
               let myLibrary = [
@@ -110,6 +115,7 @@
               ];
               let libraryOne = new Library(myLibrary);
               console.log(libraryOne);
+
               libraryOne.addBook(
                 new Book({
                   nameBook: "The",
@@ -123,8 +129,12 @@
                 })
               );
               console.log(libraryOne);
-              libraryOne.deleteBook("The");
+
+              libraryOne.getDeleteBook("The");
               console.log(libraryOne);
+
+              libraryOne.getChoiceBookName("The Memory Police");
+              console.log(libraryOne.getChoiceBookName("The Memory Police"));
             </script>
           </div>
         </div>
