@@ -90,18 +90,20 @@
 
               class History {
                 constructor() {
-                  this.add = new AddChecker();
-                  this.mult = new MultChecker();
+                  this.testList = [];
                 }
-                getAddHist() {
-                  let res = [this.add.userAnswers(), this.mult.userAnswers()];
-                  return res;
+                testRes(testData) {
+                  this.testList.push(testData);
                 }
               }
-              let histRes = new History(MultChecker, AddChecker);
-              histRes.getAddHist();
-              console.log(histRes);
+              // let histRes = new History();
+              // histRes.testRes(5);
+              // console.log(histRes);
               //--------------------TestManager-----------------------
+              class TestData {
+                static testDataRef
+                constructor()
+              }
             </script>
           </div>
         </div>
