@@ -132,3 +132,46 @@
 }
 
 //==================Task Page============================================================
+.page__dessegen {
+  padding: rem(20) rem(20);
+}
+.page__input {
+  input {
+    width: rem(100);
+    height: rem(30);
+    padding-left: rem(15);
+    border: 1px solid orangered;
+    margin-right: rem(30);
+    font-size: rem(18);
+    color: green;
+    font-weight: 700;
+  }
+}
+.page__button {
+  color: black;
+}
+.button {
+  font-size: rem(22);
+  background-color: grey;
+  width: rem(150);
+  height: rem(50);
+  margin-right: rem(20);
+  border-radius: rem(5);
+  @media (any-hover: hover) {
+    &:hover {
+      box-shadow: 2px 2px 5px;
+    }
+  }
+}
+.page__input-res {
+  input {
+    width: rem(150);
+    height: rem(30);
+    padding-left: rem(15);
+    border: 1px solid orangered;
+    margin-right: rem(30);
+    font-size: rem(18);
+    color: red;
+    font-weight: 700;
+  }
+}

@@ -9,7 +9,6 @@
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -42,13 +41,13 @@ body {
 }
 @media (max-width: 767px) {
   html,
-body {
+  body {
     font-size: calc(12px + 11.2 * ((100vw - 320px) / 1600));
   }
 }
 @media (min-width: 767px) {
   html,
-body {
+  body {
     font-size: calc(12px + 4 * (100vw / 1600));
   }
 }
@@ -102,19 +101,12 @@ h6 {
 /*--------------------*/
 .wrapper {
   min-height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   overflow: hidden;
 }
 .wrapper > main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 [class*=__container] {
@@ -144,23 +136,13 @@ h6 {
   padding: 0.625rem 0rem;
 }
 .page__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 0.625rem;
 }
 .page__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 1.25rem;
 }
 .page__item a {
@@ -181,14 +163,12 @@ h6 {
   padding: 1.5625rem 0.9375rem;
   background-color: rgba(204, 191, 191, 0.177);
   border-radius: 0.625rem;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 @media (any-hover: hover) {
   .page__task:hover {
     background-color: rgba(187, 27, 27, 0.134);
-    -webkit-box-shadow: 5px 8px 8px 8px rgba(0, 0, 0, 0.256);
-            box-shadow: 5px 8px 8px 8px rgba(0, 0, 0, 0.256);
+    box-shadow: 5px 8px 8px 8px rgba(0, 0, 0, 0.256);
   }
   .page__task:hover a {
     text-shadow: 1px 5px 5px;
@@ -227,4 +207,48 @@ h6 {
   font-weight: 400;
   line-height: 1.5;
   color: #fff;
+}
+
+.page__dessegen {
+  padding: 1.25rem 1.25rem;
+}
+
+.page__input input {
+  width: 6.25rem;
+  height: 1.875rem;
+  padding-left: 0.9375rem;
+  border: 1px solid orangered;
+  margin-right: 1.875rem;
+  font-size: 1.125rem;
+  color: green;
+  font-weight: 700;
+}
+
+.page__button {
+  color: black;
+}
+
+.button {
+  font-size: 1.375rem;
+  background-color: grey;
+  width: 9.375rem;
+  height: 3.125rem;
+  margin-right: 1.25rem;
+  border-radius: 0.3125rem;
+}
+@media (any-hover: hover) {
+  .button:hover {
+    box-shadow: 2px 2px 5px;
+  }
+}
+
+.page__input-res input {
+  width: 9.375rem;
+  height: 1.875rem;
+  padding-left: 0.9375rem;
+  border: 1px solid orangered;
+  margin-right: 1.875rem;
+  font-size: 1.125rem;
+  color: red;
+  font-weight: 700;
 }
