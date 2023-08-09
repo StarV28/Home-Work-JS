@@ -40,70 +40,88 @@
           <div class="page__dessegen">
             <script>
               //---------------Class MultChecker---------------------
-
-              // let userAnswer = parseInt(prompt());
               class MultChecker {
                 constructor() {
-                  this.secondNum = Math.floor(Math.random() * 10 + 1);
                   this.firstNum = Math.floor(Math.random() * 10 + 1);
-                  this.userAnswer = 0;
-                  this.corectAnswer = 0;
+                  this.secondNum = Math.floor(Math.random() * 10 + 1);
+                  this.userAnswer = this.getUserAnswers();
+                  this.corectAnswer = this.secondNum * this.firstNum;
                   this.operation = "*";
                 }
 
                 //--------USer Answer-------------
-                userAnswers() {
+                getUserAnswers() {
                   let user = parseInt(
                     prompt(`${this.secondNum} * ${this.firstNum}`)
                   );
-                  this.userAnswer = user;
-                  this.corectAnswer = this.secondNum * this.firstNum;
+                  return user;
                 }
               }
-              // let resMultChek = new MultChecker();
-              // resMultChek.userAnswers();
-              // console.log(resMultChek);
-
               //------------------------AddChecker-----------------------
               class AddChecker {
                 constructor() {
-                  this.secondNum = Math.floor(Math.random() * 10 + 1);
                   this.firstNum = Math.floor(Math.random() * 10 + 1);
-                  this.userAnswer = 0;
-                  this.corectAnswer = 0;
+                  this.secondNum = Math.floor(Math.random() * 10 + 1);
+                  this.userAnswer = this.getUserAnswers();
+                  this.corectAnswer = this.secondNum + this.firstNum;
                   this.operation = "+";
                 }
                 //--------USer Answer-------------
-                userAnswers() {
+                getUserAnswers() {
                   let user = parseInt(
                     prompt(`${this.secondNum} + ${this.firstNum}`)
                   );
-                  this.userAnswer = user;
-                  this.corectAnswer = this.secondNum + this.firstNum;
+                  return user;
                 }
               }
-              // let resAddChecker = new AddChecker();
-              // resAddChecker.userAnswers();
-              // console.log(resAddChecker);
-
               //-----------------------History-----------------------
-
               class History {
                 constructor() {
                   this.testList = [];
                 }
-                testRes(testData) {
-                  this.testList.push(testData);
+                testRes(test) {
+                  this.testList.push(test);
                 }
               }
-              // let histRes = new History();
-              // histRes.testRes(5);
-              // console.log(histRes);
               //--------------------TestManager-----------------------
               class TestData {
-                static testDataRef
-                constructor()
+                constructor(history) {
+                  this.history = new History(history);
+                }
+                resData() {
+                  this.history.testRes(new MultChecker());
+                  this.history.testRes(new AddChecker());
+                }
               }
+              let resultTestData = new TestData(History, AddChecker);
+              // resultTestData.resData();
+              // console.log(resultTesData);
+              //--------------------TestManager----------------------
+              class TestManager {
+                static testManagerRef;
+                constructor(history, n) {
+                  if (TestManager.testManagerRef)
+                    return TestManager.testManagerRef;
+
+                  this.history = new History(history);
+                  // this.callRandClass = this.callRandClass(n);
+
+                  TestManager.testManagerRef = this;
+                }
+
+                callRandClass(n) {
+                  for (let i = 0; i < n; i++) {
+                    let randNumber = Math.floor(Math.random() * 2 + 1);
+                    let res =
+                      randNumber !== 1
+                        ? this.history.testRes(new MultChecker())
+                        : this.history.testRes(new AddChecker());
+                  }
+                }
+              }
+              let resultManager = new TestManager(History, 1);
+              resultManager.callRandClass(1);
+              console.log(resultManager);
             </script>
           </div>
         </div>
