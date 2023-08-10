@@ -16,15 +16,54 @@
           <ul class="page__list">
             <li class="page__task">
               Task 2
-              <p></p>
+              <p>
+                Задача 2. Зробити конвертер валют (курси валют – константи у
+                скрипті)
+              </p>
             </li>
           </ul>
           <div class="page__dessegen">
-            <script></script>
+            <div class="page__input">
+              <input id="grn" type="number" placeholder="grn" value="" />
+            </div>
+            <div class="page__button">
+              <button type="button" class="button">КОНВЕРТУВАТИ</button>
+            </div>
+            <div class="page__input-res">
+              <input
+                type="number"
+                class="result-evro"
+                value=""
+                placeholder="Є"
+              />
+              <input
+                type="number"
+                class="result-dolar"
+                value=""
+                placeholder="$"
+              />
+            </div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      const cursEvro = 41.5;
+      const cursDolar = 37.6;
+      //------------------------Convert------------------------------------
+      function getConvert() {
+        let grn = parseInt(document.getElementById("grn").value);
+        let resEvro = grn / cursEvro;
+        let resDolar = grn / cursDolar;
+        document.querySelector(".result-evro").value = resEvro.toFixed(2);
+        document.querySelector(".result-dolar").value = resDolar.toFixed(2);
+      }
+      //-----------------------Display on Screen----------------------------
+      function screen() {
+        document.querySelector(".button").onclick = getConvert;
+      }
+      screen();
+    </script>
   </body>
 </html>

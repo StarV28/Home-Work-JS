@@ -16,15 +16,79 @@
           <ul class="page__list">
             <li class="page__task">
               Task 5
-              <p></p>
+              <p>
+                Задача 7. Подорож складається з 3 етапів. На кожному етапі
+                користувач може вибрати один з видів транспорту (авто, автобус,
+                літак - випадаючий список), харчування (сніданок, обід, вечеря –
+                checkbоx) та одного з 3-х гідів(використати - radio buttons).
+                Ціни визначте самі. Підрахувати загальну вартість.
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <div class="dessegen__etap-one etap-one">
+              <select id="section-one" class="etap-one__section">
+                <option value="1" selected>Airplane</option>
+                <option value="2">Car</option>
+                <option value="3">Train</option>
+              </select>
+              <div class="checkbox">
+                <input
+                  id="etap-one__breakfast"
+                  class="etap-one__input"
+                  type="checkbox"
+                  value="1"
+                />
+                <label class="etap-one__label"
+                  ><span class="etap-one__chek">Breakfast</span></label
+                >
+                <input
+                  id="etap-one__Lunch"
+                  class="etap-one__input"
+                  type="checkbox"
+                  value="2"
+                />
+                <label class="etap-one__label"
+                  ><span class="etap-one__chek">Lunch</span></label
+                >
+                <input
+                  id="etap-one__diner"
+                  class="etap-one__input"
+                  type="checkbox"
+                  value="3"
+                />
+                <label class="etap-one__label"
+                  ><span class="etap-one__chek">Diner</span></label
+                >
+              </div>
+            </div>
+            <div class="etap-one__radio">
+              <input
+                type="radio"
+                class="rating__item"
+                value="1"
+                name="rating"
+              />
+              <input
+                type="radio"
+                class="rating__item"
+                value="2"
+                name="rating"
+              />
+              <input
+                type="radio"
+                class="rating__item"
+                value="3"
+                name="rating"
+              />
+            </div>
+            <div class="dessegen__etap-two"></div>
+            <div class="dessegen__etap-three"></div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script></script>
   </body>
 </html>

@@ -36,12 +36,16 @@
             </div>
             <div class="page__button">
               <button id="sum" type="button" class="button">Додати</button>
-              <button type="button" class="button">Відняти</button>
-              <button type="button" class="button">Помножити</button>
-              <button type="button" class="button">Поділити</button>
+              <button id="subtract" type="button" class="button">
+                Відняти
+              </button>
+              <button id="multi" type="button" class="button">Помножити</button>
+              <button id="division" type="button" class="button">
+                Поділити
+              </button>
             </div>
             <div class="page__input-res">
-              <input type="number" name="result" id="result" value="0" />
+              <input type="number" name="result" id="result" value="" />
             </div>
           </div>
         </div>
@@ -49,7 +53,8 @@
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
     <script>
-      function funcCalc() {
+      //----------------Sum--------------
+      function getSumc() {
         const firstNum = parseInt(
           document.getElementById("first-number").value
         );
@@ -57,9 +62,49 @@
           document.getElementById("Second-number").value
         );
         let res = firstNum + secondNum;
-        document.getElementById("sum").value = res;
+        document.getElementById("result").value = res;
       }
-      funcCalc();
+      //---------------subtract------------------
+      function subtract() {
+        const firstNum = parseInt(
+          document.getElementById("first-number").value
+        );
+        const secondNum = parseInt(
+          document.getElementById("Second-number").value
+        );
+        let res = firstNum - secondNum;
+        document.getElementById("result").value = res;
+      }
+      //----------------multi-------------------
+      function multi() {
+        const firstNum = parseInt(
+          document.getElementById("first-number").value
+        );
+        const secondNum = parseInt(
+          document.getElementById("Second-number").value
+        );
+        let res = firstNum * secondNum;
+        document.getElementById("result").value = res;
+      }
+      //--------------------division---------------
+      function division() {
+        const firstNum = parseInt(
+          document.getElementById("first-number").value
+        );
+        const secondNum = parseInt(
+          document.getElementById("Second-number").value
+        );
+        let res = firstNum / secondNum;
+        document.getElementById("result").value = res;
+      }
+
+      function calc() {
+        document.getElementById("sum").onclick = getSumc;
+        document.getElementById("subtract").onclick = subtract;
+        document.getElementById("multi").onclick = multi;
+        document.getElementById("division").onclick = division;
+      }
+      calc();
     </script>
   </body>
 </html>

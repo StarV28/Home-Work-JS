@@ -9,16 +9,37 @@
   </head>
 
   <body>
+    <script>
+      window.onload = function output() {
+        let wishList = ["Peace", "Car", "Dog", "Hous", "GirlS"];
+        randWishList(wishList);
+      };
+
+      function randWishList(arr) {
+        for (let i = 0; i < 3; i++) {
+          let randNum = Math.floor(Math.random() * 5);
+          const newDiv = document.createElement("div");
+          newDiv.innerText = arr[randNum];
+          document.querySelector(".page__dessegen").append(newDiv);
+        }
+      }
+    </script>
     <div class="wrapper">
       <header class="header">Main Page</header>
       <main class="page">
         <div class="page__container">
           <ul class="page__list">
-            <li class="page__task">Task 4</li>
+            <li class="page__task">
+              Task 4
+              <p>
+                Задача 4. Наперед задано у скрипті масив зі списком бажань.
+                Після завантаження сторінки випадковим чином вибираються 3 і
+                відображаються у окремих div (їх треба створити і додати на
+                сторінку)
+              </p>
+            </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
-          </div>
+          <div class="page__dessegen"></div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>

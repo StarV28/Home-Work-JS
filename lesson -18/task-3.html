@@ -16,15 +16,42 @@
           <ul class="page__list">
             <li class="page__task">
               Task 3
-              <p></p>
+              <p>
+                Задача 3. Користувач задає рік народження. Визначити кількість
+                років користувача.
+              </p>
             </li>
           </ul>
           <div class="page__dessegen">
-            <script></script>
+            <ul>
+              <li>Введіть свій вік</li>
+            </ul>
+            <div class="page__input">
+              <input type="number" id="userYesr" value="" />
+            </div>
+            <div class="page__input-res">
+              <input
+                id="userAge"
+                type="number"
+                value=""
+                placeholder="Your Age"
+              />
+            </div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      function userYear() {
+        let userYear = parseInt(document.getElementById("userYesr").value);
+        let resUserAge = 2023 - userYear;
+        document.getElementById("userAge").value = resUserAge;
+      }
+      function userAge() {
+        document.getElementById("userYesr").oninput = userYear;
+      }
+      userAge();
+    </script>
   </body>
 </html>
