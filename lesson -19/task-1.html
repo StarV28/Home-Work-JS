@@ -16,15 +16,53 @@
           <ul class="page__list">
             <li class="page__task">
               Task 1
-              <p></p>
+              <p>
+                Задача 1. Дано 10 рядків тексту «Hello!» у окремих div. При кліку на якийсь із них усі наступні повинні
+                бути зафарбовані у червоний колір.
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <div class="dessegen__container"></div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      class Hello {
+        constructor() {
+          this.render();
+        }
+        render() {
+          this.divHello = document.createElement("div");
+          document.querySelector(".dessegen__container").append(this.divHello);
+          this.divHello.classList.add("dessegen__hello");
+          this.divHello.setAttribute("next", "1");
+          this.divHello.innerText = "Hello";
+          this.divHello.onclick = this.funcColorRed.bind(this);
+        }
+        funcColorRed() {
+          let divEl = this.divHello;
+          while (divEl.nextElementSibling) {
+            divEl = divEl.nextElementSibling;
+            divEl.style.backgroundColor = "red";
+          }
+        }
+      }
+
+      let res = [
+        new Hello(),
+        new Hello(),
+        new Hello(),
+        new Hello(),
+        new Hello(),
+        new Hello(),
+        new Hello(),
+        new Hello(),
+        new Hello(),
+        new Hello(),
+      ];
+    </script>
   </body>
 </html>

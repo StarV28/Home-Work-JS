@@ -318,3 +318,25 @@ h6 {
 .list__res-one {
   font-size: 2.1875rem;
 }
+
+.dessegen__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.625rem;
+}
+
+.dessegen__hello {
+  cursor: pointer;
+  font-size: 1.5625rem;
+  color: green;
+  font-weight: 700;
+  width: 9.375rem;
+  height: 3.125rem;
+  border-radius: 0.3125rem;
+  text-align: center;
+}
+@media (any-hover: hover) {
+  .dessegen__hello:hover {
+    box-shadow: 2px 2px 5px;
+  }
+}

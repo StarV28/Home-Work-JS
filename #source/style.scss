@@ -271,3 +271,24 @@
 .list__res-one {
   font-size: rem(35);
 }
+//--------------------Hello---------------
+.dessegen__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(10);
+}
+.dessegen__hello {
+  cursor: pointer;
+  font-size: rem(25);
+  color: green;
+  font-weight: 700;
+  width: rem(150);
+  height: rem(50);
+  border-radius: rem(5);
+  text-align: center;
+  @media (any-hover: hover) {
+    &:hover {
+      box-shadow: 2px 2px 5px;
+    }
+  }
+}
