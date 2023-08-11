@@ -175,3 +175,99 @@
     font-weight: 700;
   }
 }
+//---------------------Radio & CheckBox & Input-------------
+.dessegen {
+  display: flex;
+  column-gap: rem(50);
+  // .dessegen__etap-one
+
+  &__etap-one {
+  }
+}
+.etap-one,
+.etap-two,
+.etap-three {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(20);
+  width: rem(300);
+
+  h3 {
+    font-size: rem(18);
+    color: green;
+  }
+  // .etap-one__section
+
+  &__section {
+    width: rem(150);
+  }
+
+  // .etap-one__checkbox
+
+  &__checkbox {
+    display: flex;
+    column-gap: rem(10);
+  }
+
+  // .etap-one__radio
+
+  &__radio {
+    display: flex;
+    column-gap: rem(10);
+    align-items: center;
+  }
+}
+.checkbox {
+  // .checkbox__input
+
+  &__input {
+  }
+
+  // .checkbox__label
+
+  &__label {
+    font-size: rem(16);
+    color: orangered;
+  }
+
+  // .checkbox__chek
+
+  &__chek {
+  }
+}
+.radio {
+  // .rating__item
+
+  &__item {
+  }
+
+  // .radio__label
+
+  &__label {
+    font-size: rem(16);
+    color: orangered;
+  }
+}
+.etap-one {
+  // .etap-one__list
+
+  &__list {
+  }
+}
+.list {
+  // .list__res-one
+
+  &__res-one {
+    font-size: rem(22);
+    color: rgb(199, 8, 8);
+    font-style: italic;
+  }
+}
+.page__button {
+  display: flex;
+  column-gap: rem(30);
+  align-items: center;
+}
+.list__res-one {
+  font-size: rem(35);
+}

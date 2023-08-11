@@ -17,78 +17,150 @@
             <li class="page__task">
               Task 5
               <p>
-                Задача 7. Подорож складається з 3 етапів. На кожному етапі
-                користувач може вибрати один з видів транспорту (авто, автобус,
-                літак - випадаючий список), харчування (сніданок, обід, вечеря –
-                checkbоx) та одного з 3-х гідів(використати - radio buttons).
-                Ціни визначте самі. Підрахувати загальну вартість.
+                Задача 7. Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з видів
+                транспорту (авто, автобус, літак - випадаючий список), харчування (сніданок, обід, вечеря – checkbоx) та
+                одного з 3-х гідів(використати - radio buttons). Ціни визначте самі. Підрахувати загальну вартість.
               </p>
             </li>
           </ul>
           <div class="page__dessegen dessegen">
             <div class="dessegen__etap-one etap-one">
-              <select id="section-one" class="etap-one__section">
-                <option value="1" selected>Airplane</option>
-                <option value="2">Car</option>
-                <option value="3">Train</option>
+              <h3>Kiev - Odessa</h3>
+              <select id="section-one" class="etap-one__section select">
+                <option value="2000">Airplane</option>
+                <option value="1500">Car</option>
+                <option value="1200">Train</option>
               </select>
-              <div class="checkbox">
-                <input
-                  id="etap-one__breakfast"
-                  class="etap-one__input"
-                  type="checkbox"
-                  value="1"
-                />
-                <label class="etap-one__label"
-                  ><span class="etap-one__chek">Breakfast</span></label
-                >
-                <input
-                  id="etap-one__Lunch"
-                  class="etap-one__input"
-                  type="checkbox"
-                  value="2"
-                />
-                <label class="etap-one__label"
-                  ><span class="etap-one__chek">Lunch</span></label
-                >
-                <input
-                  id="etap-one__diner"
-                  class="etap-one__input"
-                  type="checkbox"
-                  value="3"
-                />
-                <label class="etap-one__label"
-                  ><span class="etap-one__chek">Diner</span></label
-                >
+              <div class="etap-one__checkbox checkbox">
+                <input id="checkbox__breakfast" class="checkbox__input" type="checkbox" value="700" />
+                <label class="checkbox__label">
+                  <span class="checkbox__chek">Breakfast</span>
+                </label>
+                <input id="checkbox__Lunch" class="checkbox__input" type="checkbox" value="1200" />
+                <label class="checkbox__label">
+                  <span class="checkbox__chek">Lunch</span>
+                </label>
+                <input id="checkbox__diner" class="checkbox__input" type="checkbox" value="1200" />
+                <label class="checkbox__label">
+                  <span class="checkbox__chek">Diner</span>
+                </label>
+              </div>
+              <div class="etap-one__radio radio">
+                <input type="radio" class="radio__item" value="3000" name="radio__item01" />
+                <label class="radio__label">Guide 1</label>
+                <input type="radio" class="radio__item" value="2000" name="radio__item01" />
+                <label class="radio__label">Guide 2</label>
+                <input type="radio" class="radio__item" value="10000" name="radio__item01" />
+                <label class="radio__label">Guide 3</label>
               </div>
             </div>
-            <div class="etap-one__radio">
-              <input
-                type="radio"
-                class="rating__item"
-                value="1"
-                name="rating"
-              />
-              <input
-                type="radio"
-                class="rating__item"
-                value="2"
-                name="rating"
-              />
-              <input
-                type="radio"
-                class="rating__item"
-                value="3"
-                name="rating"
-              />
+            <div class="dessegen__etap-two etap-two">
+              <h3>Odessa - Lviv</h3>
+              <select id="section-two" class="etap-two__section select">
+                <option value="3000" selected>Airplane</option>
+                <option value="2200">Car</option>
+                <option value="1800">Train</option>
+              </select>
+              <div class="etap-two__checkbox checkbox">
+                <input id="checkbox__breakfast" class="checkbox__input" type="checkbox" value="600" />
+                <label class="checkbox__label">
+                  <span class="checkbox__chek">Breakfast</span>
+                </label>
+                <input id="checkbox__Lunch" class="checkbox__input" type="checkbox" value="1000" />
+                <label class="checkbox__label">
+                  <span class="checkbox__chek">Lunch</span>
+                </label>
+                <input id="checkbox__diner" class="checkbox__input" type="checkbox" value="900" />
+                <label class="checkbox__label">
+                  <span class="checkbox__chek">Diner</span>
+                </label>
+              </div>
+              <div class="etap-two__radio radio">
+                <input type="radio" class="radio__item" value="2000" name="radio__item02" />
+                <label class="radio__label">Guide 1</label>
+                <input type="radio" class="radio__item" value="1500" name="radio__item02" />
+                <label class="radio__label">Guide 2</label>
+                <input type="radio" class="radio__item" value="800" name="radio__item02" />
+                <label class="radio__label">Guide 3</label>
+              </div>
             </div>
-            <div class="dessegen__etap-two"></div>
-            <div class="dessegen__etap-three"></div>
+            <div class="dessegen__etap-three etap-three">
+              <h3>Lviv - Praga</h3>
+              <select id="section-three" class="etap-three__section select">
+                <option value="5000" selected>Airplane</option>
+                <option value="3500">Car</option>
+                <option value="3000">Train</option>
+              </select>
+              <div class="etap-three__checkbox checkbox">
+                <input id="checkbox__breakfast" class="checkbox__input" type="checkbox" value="1200" />
+                <label class="checkbox__label">
+                  <span class="checkbox__chek">Breakfast</span>
+                </label>
+                <input id="checkbox__Lunch" class="checkbox__input" type="checkbox" value="2000" />
+                <label class="checkbox__label">
+                  <span class="checkbox__chek">Lunch</span>
+                </label>
+                <input id="checkbox__diner" class="checkbox__input" type="checkbox" value="1700" />
+                <label class="checkbox__label">
+                  <span class="checkbox__chek">Diner</span>
+                </label>
+              </div>
+              <div class="etap-three__radio radio">
+                <input type="radio" class="radio__item" value="4000" name="radio__item03" />
+                <label class="radio__label">Guide 1</label>
+                <input type="radio" class="radio__item" value="3000" name="radio__item03" />
+                <label class="radio__label">Guide 2</label>
+                <input type="radio" class="radio__item" value="2500" name="radio__item03" />
+                <label class="radio__label">Guide 3</label>
+              </div>
+            </div>
+          </div>
+          <div class="page__button">
+            <button class="button">Sum Tour</button>
+            <ul class="etap-one__list list">
+              <li class="list__res-one"></li>
+            </ul>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
-    <script></script>
+    <script>
+      //-------------Sum Selector----------------------------
+      function getResSelect() {
+        let resSelekt = document.querySelectorAll(".select");
+        let sum = 0;
+        for (const select of resSelekt) {
+          if (select) sum += parseInt(select.value);
+        }
+        return sum;
+      }
+      //-------------Sum CheckBox---------------------------
+      function getResCheckBox() {
+        let resCheck = document.getElementsByTagName("input");
+        let sum = 0;
+        for (const check of resCheck) {
+          if (check.checked) sum += parseInt(check.value);
+        }
+        return sum;
+      }
+      //-----------Sum Radio---------------------------------
+      function getResRadio() {
+        let resRadio = document.querySelectorAll(".radio__item");
+        let sum = 0;
+        for (const radio of resRadio) {
+          if (radio.checked) sum += parseInt(radio.value);
+        }
+        return sum;
+      }
+      function result() {
+        let sumAll = getResSelect() + getResCheckBox() + getResRadio() + "grn";
+        document.querySelector(".list__res-one").innerHTML = sumAll;
+      }
+      function btn() {
+        document.querySelector(".button").onclick = result;
+      }
+      btn();
+    </script>
   </body>
 </html>

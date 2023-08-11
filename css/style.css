@@ -252,3 +252,69 @@ h6 {
   color: red;
   font-weight: 700;
 }
+
+.dessegen {
+  display: flex;
+  -moz-column-gap: 3.125rem;
+       column-gap: 3.125rem;
+}
+.etap-one,
+.etap-two,
+.etap-three {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+  width: 18.75rem;
+}
+.etap-one h3,
+.etap-two h3,
+.etap-three h3 {
+  font-size: 1.125rem;
+  color: green;
+}
+.etap-one__section,
+.etap-two__section,
+.etap-three__section {
+  width: 9.375rem;
+}
+.etap-one__checkbox,
+.etap-two__checkbox,
+.etap-three__checkbox {
+  display: flex;
+  -moz-column-gap: 0.625rem;
+       column-gap: 0.625rem;
+}
+.etap-one__radio,
+.etap-two__radio,
+.etap-three__radio {
+  display: flex;
+  -moz-column-gap: 0.625rem;
+       column-gap: 0.625rem;
+  align-items: center;
+}
+
+.checkbox__label {
+  font-size: 1rem;
+  color: orangered;
+}
+.radio__label {
+  font-size: 1rem;
+  color: orangered;
+}
+
+.list__res-one {
+  font-size: 1.375rem;
+  color: rgb(199, 8, 8);
+  font-style: italic;
+}
+
+.page__button {
+  display: flex;
+  -moz-column-gap: 1.875rem;
+       column-gap: 1.875rem;
+  align-items: center;
+}
+
+.list__res-one {
+  font-size: 2.1875rem;
+}
