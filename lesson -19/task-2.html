@@ -16,15 +16,46 @@
           <ul class="page__list">
             <li class="page__task">
               Task 2
-              <p></p>
+              <p>
+                Задача 2. Дано 5 елементів input. При введенні значення у якийсь із них необхідно автоматично
+                заповнювати інші (усі попередні у спадному порядку(кожен попередній має значення на 1 менше за
+                наступний), усі наступні на 1 більше (кожен наступне на 1 більше за попереднього)
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <div class="dessegen__container"></div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      class Input {
+        constructor() {
+          this.render();
+        }
+        entryNum() {
+          let inEl = parseInt(this.inputEl.value);
+          let nexetInEl = this.inputEl.nextElementSibling;
+          // inEl += nexetInEl.value;
+          nexetInEl.value = inEl;
+          console.log(inEl);
+          let prevInEl = this.inputEl.previousElementSibling;
+          console.log(prevInEl);
+          // prevInEl.value = inEl - 1;
+        }
+        render() {
+          this.inputEl = document.createElement("input");
+          document.querySelector(".dessegen__container").append(this.inputEl);
+          this.inputEl.setAttribute("type", "number");
+          this.inputEl.style.width = "100px";
+          this.inputEl.style.padding = "10px";
+          this.inputEl.oninput = this.entryNum.bind(this);
+        }
+        listner() {}
+      }
+      let res = [new Input(), new Input(), new Input(), new Input(), new Input()];
+    </script>
   </body>
 </html>
