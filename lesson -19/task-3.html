@@ -16,15 +16,60 @@
           <ul class="page__list">
             <li class="page__task">
               Task 3
-              <p></p>
+              <p>
+                Задача 3. Дано 5 випадковим чином згенерованих нумерованих списків з рандомними числами (кількість
+                елементів у списку випадкова від 1 до 10, елементи випадкові – від 1 до 100). При натисненні на кнопку
+                нумеровані списки з парною кількістю елементів зафарбувати у зелений колір, інші у червоний.
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <div class="dessegen__container"></div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      class OlList {
+        constructor() {
+          this.render();
+        }
+        //------------------------------
+        randNum(min, max) {
+          return Math.floor(Math.random() * max + min);
+        }
+        //--------------------------------------------------
+        changeColor() {
+          let liAll = document.getElementsByTagName("li");
+          for (const elLi of liAll) {
+            if (elLi.value % 2 === 0) {
+              elLi.style.color = "green";
+            } else elLi.style.color = "red";
+          }
+        }
+        //------------------------------------------
+        render() {
+          for (let i = 0; i < 5; i++) {
+            let rendN = this.randNum(1, 10);
+            let olEl = document.createElement("ol");
+            document.querySelector(".dessegen__container").append(olEl);
+            for (let j = 0; j < rendN; j++) {
+              let liEl = document.createElement("li");
+              olEl.append(liEl);
+              let rand100 = this.randNum(1, 100);
+              liEl.innerText = rand100;
+              liEl.setAttribute("value", rand100);
+            }
+          }
+          let btn = document.createElement("button");
+          btn.className = "button";
+          btn.innerText = "Push Me";
+          document.querySelector(".dessegen__container").append(btn);
+          btn.onclick = this.changeColor.bind(this);
+        }
+      }
+      let res = new OlList();
+    </script>
   </body>
 </html>

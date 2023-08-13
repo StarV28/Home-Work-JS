@@ -36,14 +36,18 @@
           this.render();
         }
         entryNum() {
-          let inEl = parseInt(this.inputEl.value);
-          let nexetInEl = this.inputEl.nextElementSibling;
-          // inEl += nexetInEl.value;
-          nexetInEl.value = inEl;
-          console.log(inEl);
-          let prevInEl = this.inputEl.previousElementSibling;
-          console.log(prevInEl);
-          // prevInEl.value = inEl - 1;
+          let inEl = this.inputEl;
+          let inputVal = parseInt(this.inputEl.value);
+          while (inEl.nextElementSibling) {
+            inEl = inEl.nextElementSibling;
+            inputVal += 1;
+            inEl.value = inputVal;
+          }
+          while (inEl.previousElementSibling) {
+            inEl = inEl.previousElementSibling;
+            inputVal -= 1;
+            inEl.value = inputVal;
+          }
         }
         render() {
           this.inputEl = document.createElement("input");
@@ -55,7 +59,17 @@
         }
         listner() {}
       }
-      let res = [new Input(), new Input(), new Input(), new Input(), new Input()];
+      let res = [
+        new Input(),
+        new Input(),
+        new Input(),
+        new Input(),
+        new Input(),
+        new Input(),
+        new Input(),
+        new Input(),
+        new Input(),
+      ];
     </script>
   </body>
 </html>
