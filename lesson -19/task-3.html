@@ -41,11 +41,14 @@
         }
         //--------------------------------------------------
         changeColor() {
-          let liAll = document.getElementsByTagName("li");
-          for (const elLi of liAll) {
-            if (elLi.value % 2 === 0) {
-              elLi.style.color = "green";
-            } else elLi.style.color = "red";
+          let liNum = document.getElementsByTagName("li");
+          for (const elem of liNum) {
+            let numLi = parseInt(elem.textContent);
+            if (numLi % 2 === 0) {
+              elem.style.color = "green";
+            } else {
+              elem.style.color = "red";
+            }
           }
         }
         //------------------------------------------
@@ -59,7 +62,7 @@
               olEl.append(liEl);
               let rand100 = this.randNum(1, 100);
               liEl.innerText = rand100;
-              liEl.setAttribute("value", rand100);
+              liEl.setAttribute("data", rand100);
             }
           }
           let btn = document.createElement("button");

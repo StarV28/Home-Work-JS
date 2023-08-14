@@ -14,14 +14,80 @@
       <main class="page">
         <div class="page__container">
           <ul class="page__list">
-            <li class="page__task">Task 4</li>
+            <li class="page__task"
+              >Task 4
+              <p>
+                Задача 5. Відображаємо картки товарів, які користувач може вибирати. Вибраний товар має зелену рамку
+                (при кліку робити toogle з класом вибраного елемента)
+              </p>
+            </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <div class="dessegen__container">
+              </div>
+            </div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      class Card {
+        constructor({title,image,name,price}) {
+          this.title = title
+          this.image = image
+          this.name = name
+          this.price = price
+          this.render()
+        } 
+        //------------------------
+        render() {
+          //-------------------Box--------------
+          let cardBox = document.createElement("div");
+          cardBox.className = "dessegen__card card";
+          document.querySelector(".dessegen__container").append(cardBox);
+          // cardBox.style.display= 'flex'
+          // cardBox.style.flexDirection= 'column'
+          // cardBox.style.width = '200px'
+
+          //------------------Title--------------
+          let title = document.createElement('h1')
+          title.className = 'card__title'
+          cardBox.append(title)
+          title.innerText = this.title
+
+          //-----------------IMG-----------------
+          let foto = document.createElement('img')
+          foto.className = 'card__img'
+          foto.setAttribute('src', this.image)
+          cardBox.append(foto)
+
+          //---------------Container A-----------
+          let container = document.createElement('div')
+          container.className = 'card__cont cont'
+          cardBox.append(container)
+
+          //------------------Name------------------
+          let name = document.createElement('a')
+          name.setAttribute('href', '#')
+          name.className = 'cont__name'
+          container.append(name)
+          name.innerText = this.name
+
+          //-------------------Price--------------
+          let price = document.createElement('a')
+          price.className = 'cont__price'
+          price.setAttribute('href', '#')
+          container.append(price)
+          price.innerText = this.price
+        }
+        
+      }
+
+      //----------------------------------------------------
+      let asus = {title: "ASUS", image: "../img/lesson-19/lt.jpg", name: "Ноутбук ASUS Laptop X515EA-EJ1414 (90NB0TY2-M23260) Transparent Silver", price: "600$"}
+      let card1 = new Card(asus);
+      // console.log(card1);
+    </script>
   </body>
 </html>
