@@ -24,6 +24,7 @@
           </ul>
           <div class="page__dessegen dessegen">
             <div class="dessegen__container">
+              <div class="dessegen__card"></div>
               </div>
             </div>
           </div>
@@ -43,29 +44,26 @@
         //------------------------
         render() {
           //-------------------Box--------------
-          let cardBox = document.createElement("div");
-          cardBox.className = "dessegen__card card";
-          document.querySelector(".dessegen__container").append(cardBox);
-          // cardBox.style.display= 'flex'
-          // cardBox.style.flexDirection= 'column'
-          // cardBox.style.width = '200px'
+          this.cardBox = document.createElement("div");
+          this.cardBox.className = "card";
+          document.querySelector(".dessegen__card").append(this.cardBox);
 
           //------------------Title--------------
           let title = document.createElement('h1')
           title.className = 'card__title'
-          cardBox.append(title)
+          this.cardBox.append(title)
           title.innerText = this.title
 
           //-----------------IMG-----------------
           let foto = document.createElement('img')
           foto.className = 'card__img'
           foto.setAttribute('src', this.image)
-          cardBox.append(foto)
+          this.cardBox.append(foto)
 
           //---------------Container A-----------
           let container = document.createElement('div')
           container.className = 'card__cont cont'
-          cardBox.append(container)
+          this.cardBox.append(container)
 
           //------------------Name------------------
           let name = document.createElement('a')
@@ -80,14 +78,52 @@
           price.setAttribute('href', '#')
           container.append(price)
           price.innerText = this.price
+
+          //------------------OnClick-----------------
+          this.cardBox.onclick = this.addClassName.bind(this)
+        }
+       
+        addClassName() {
+          this.cardBox.classList.toggle('active')
         }
         
       }
 
       //----------------------------------------------------
-      let asus = {title: "ASUS", image: "../img/lesson-19/lt.jpg", name: "Ноутбук ASUS Laptop X515EA-EJ1414 (90NB0TY2-M23260) Transparent Silver", price: "600$"}
-      let card1 = new Card(asus);
-      // console.log(card1);
+      let lapTop = [
+        {
+          title: "Top Sale", 
+          image: "../img/lesson-19/lt.jpg", 
+          name: "Ноутбук ASUS Laptop X515EA-EJ1414",
+           price: "600$"
+          },
+        {
+          title: "Top Sale", 
+          image: "../img/lesson-19/lt.jpg", 
+          name: "Ноутбук ASUS Laptop X515EA-EJ1414",
+           price: "700$"
+          },
+        {
+          title: "Action", 
+          image: "../img/lesson-19/lt.jpg", 
+          name: "Ноутбук ASUS Laptop X515EA-EJ1414",
+           price: "300$"
+          },
+        {
+          title: "Top Sale", 
+          image: "../img/lesson-19/lt.jpg", 
+          name: "Ноутбук ASUS Laptop X515EA-EJ1414",
+           price: "1000$"
+          },
+      ]
+
+      //----------------------------Function----------------------------------
+          function cardList(arr) {
+            for (const elem of arr) {
+              new Card(elem)
+            }
+          }
+          cardList(lapTop)
     </script>
   </body>
 </html>

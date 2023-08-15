@@ -116,8 +116,8 @@ h6 {
 
 .header {
   text-align: center;
-  padding: 1.25rem 0rem;
-  font-size: 1.375rem;
+  padding: 20px 0;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.5;
   background-color: rgba(21, 6, 6, 0.579);
@@ -125,31 +125,31 @@ h6 {
 }
 
 .page {
-  padding-top: 1.25rem;
+  padding-top: 20px;
 }
 .page__title h1 {
-  font-size: 1.375rem;
+  font-size: 22px;
   font-weight: 500;
   line-height: 1.5;
 }
 .page__body {
-  padding: 0.625rem 0rem;
+  padding: 10px 0;
 }
 .page__list {
   display: flex;
   flex-direction: column;
-  row-gap: 0.625rem;
+  row-gap: 10px;
 }
 .page__item {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 20px;
 }
 .page__item a {
   background-color: rgba(204, 191, 191, 0.177);
-  padding: 1.25rem 0.625rem;
-  border-radius: 0.9375rem;
-  font-size: 1rem;
+  padding: 20px 10px;
+  border-radius: 15px;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   color: red;
@@ -160,9 +160,9 @@ h6 {
   }
 }
 .page__task {
-  padding: 1.5625rem 0.9375rem;
+  padding: 25px 15px;
   background-color: rgba(204, 191, 191, 0.177);
-  border-radius: 0.625rem;
+  border-radius: 10px;
   transition: all 0.3s;
 }
 @media (any-hover: hover) {
@@ -175,51 +175,51 @@ h6 {
   }
 }
 .page__task a {
-  font-size: 1.125rem;
+  font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
   color: purple;
   letter-spacing: 1px;
 }
 .page__task p {
-  font-size: 0.875rem;
+  font-size: 14px;
   line-height: 1.5;
   font-weight: 400;
   color: red;
 }
 .page__dessegen {
   background-color: rgba(204, 191, 191, 0.177);
-  border-radius: 0.3125rem;
-  margin: 1.25rem 0;
+  border-radius: 5px;
+  margin: 20px 0;
 }
 .page__dessegen p {
-  padding: 0.625rem 0rem;
+  padding: 10px 0;
 }
 .page__dessegen div {
-  padding: 1.25rem 0rem;
+  padding: 20px 0;
 }
 
 .footer {
   background-color: rgba(21, 6, 6, 0.579);
   text-align: center;
-  padding: 0.625rem 0rem;
-  font-size: 0.875rem;
+  padding: 10px 0;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
   color: #fff;
 }
 
 .page__dessegen {
-  padding: 1.25rem 1.25rem;
+  padding: 20px 20px;
 }
 
 .page__input input {
-  width: 6.25rem;
-  height: 1.875rem;
-  padding-left: 0.9375rem;
+  width: 100px;
+  height: 30px;
+  padding-left: 15px;
   border: 1px solid orangered;
-  margin-right: 1.875rem;
-  font-size: 1.125rem;
+  margin-right: 30px;
+  font-size: 18px;
   color: green;
   font-weight: 700;
 }
@@ -229,12 +229,12 @@ h6 {
 }
 
 .button {
-  font-size: 1.375rem;
+  font-size: 22px;
   background-color: grey;
-  width: 12.5rem;
-  height: 3.125rem;
-  margin-right: 1.25rem;
-  border-radius: 0.3125rem;
+  width: 200px;
+  height: 50px;
+  margin-right: 20px;
+  border-radius: 5px;
 }
 @media (any-hover: hover) {
   .button:hover {
@@ -243,100 +243,177 @@ h6 {
 }
 
 .page__input-res input {
-  width: 9.375rem;
-  height: 1.875rem;
-  padding-left: 0.9375rem;
+  width: 150px;
+  height: 30px;
+  padding-left: 15px;
   border: 1px solid orangered;
-  margin-right: 1.875rem;
-  font-size: 1.125rem;
+  margin-right: 30px;
+  font-size: 18px;
   color: red;
   font-weight: 700;
 }
 
 .dessegen {
   display: flex;
-  -moz-column-gap: 3.125rem;
-       column-gap: 3.125rem;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
 }
 .etap-one,
 .etap-two,
 .etap-three {
   display: flex;
   flex-direction: column;
-  row-gap: 1.25rem;
-  width: 18.75rem;
+  row-gap: 20px;
+  width: 300px;
 }
 .etap-one h3,
 .etap-two h3,
 .etap-three h3 {
-  font-size: 1.125rem;
+  font-size: 18px;
   color: green;
 }
 .etap-one__section,
 .etap-two__section,
 .etap-three__section {
-  width: 9.375rem;
+  width: 150px;
 }
 .etap-one__checkbox,
 .etap-two__checkbox,
 .etap-three__checkbox {
   display: flex;
-  -moz-column-gap: 0.625rem;
-       column-gap: 0.625rem;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 .etap-one__radio,
 .etap-two__radio,
 .etap-three__radio {
   display: flex;
-  -moz-column-gap: 0.625rem;
-       column-gap: 0.625rem;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
   align-items: center;
 }
 
 .checkbox__label {
-  font-size: 1rem;
+  font-size: 16px;
   color: orangered;
 }
 .radio__label {
-  font-size: 1rem;
+  font-size: 16px;
   color: orangered;
 }
 
 .list__res-one {
-  font-size: 1.375rem;
+  font-size: 22px;
   color: rgb(199, 8, 8);
   font-style: italic;
 }
 
 .page__button {
   display: flex;
-  -moz-column-gap: 1.875rem;
-       column-gap: 1.875rem;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
   align-items: center;
 }
 
 .list__res-one {
-  font-size: 2.1875rem;
+  font-size: 35px;
 }
 
 .dessegen__container {
   display: flex;
   flex-direction: column;
-  row-gap: 0.625rem;
+  row-gap: 10px;
 }
 
 .dessegen__hello {
   cursor: pointer;
-  font-size: 1.5625rem;
+  font-size: 25px;
   color: green;
   font-weight: 700;
-  width: 9.375rem;
-  height: 3.125rem;
-  border-radius: 0.3125rem;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
   text-align: center;
 }
 @media (any-hover: hover) {
   .dessegen__hello:hover {
     box-shadow: 2px 2px 5px;
   }
+}
+
+.dessegen__card {
+  display: flex;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.card__title {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 2;
+  width: 100px;
+  text-align: center;
+  background-color: yellow;
+  border-radius: 25px;
+}
+.card__img {
+  width: 150px;
+  height: 150px;
+}
+.cont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.cont a {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: green;
+  margin-left: 10px;
+}
+
+.active {
+  border: 2px solid rebeccapurple;
+  transform: scale(1.1);
+}
+
+.dessegen__list {
+  width: 250px;
+  border: 1px solid black;
+}
+.dessegen__list {
+  width: 250px;
+  border: 1px solid black;
+}
+
+.dessegen__list_sport {
+  height: 30px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dessegen__list_sport:not(:last-child) {
+  margin-bottom: 5px;
+}
+.dessegen__list_sport li {
+  padding-left: 5px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.dessegen__list_sport img {
+  cursor: pointer;
+  width: 55px;
+  height: 25px;
+  transform: rotate(-180deg);
 }

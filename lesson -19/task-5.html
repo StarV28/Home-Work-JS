@@ -16,15 +16,93 @@
           <ul class="page__list">
             <li class="page__task">
               Task 5
-              <p></p>
+              <p>
+                Задача 6. Дано список спортсменів. Потрібно сформувати список тих, які будуть брати
+                участь у змаганні. При цьому є два стовпці. В одному відображені всі спортсмени, в
+                іншому – список тих, хто був вибраний. При натисканні на зелену стрілку спортсмен
+                переміщається у список для змагань. При натисканні на червону стрілку спортсмен
+                переміщається у загальний список.
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <div class="dessegen__list list-all"></div>
+            <div class="dessegen__list list-select"></div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      class SportMenList {
+        constructor({name, imageGr, imageR}) {
+          this.name = name;
+          this.imageGr = imageGr;
+          this.imageR = imageR;
+          this.render();
+        }
+        render() {
+          //-----------------Box Sportmen---------------------
+          this.ulCont = document.createElement("ul");
+          this.ulCont.className = "dessegen__list_sport";
+          document.querySelector(".dessegen__list").append(this.ulCont);
+
+          //------------------Sportmen-------------------------
+          let liContent = document.createElement("li");
+          this.ulCont.append(liContent);
+          liContent.innerText = this.name;
+
+          //-----------------------ImageGr----------------
+          let arrowGr = document.createElement("img");
+          this.ulCont.append(arrowGr);
+          arrowGr.setAttribute("src", this.imageGr);
+
+          //------------------------ImageR---------
+          let arrowR = document.createElement("img");
+          arrowR.setAttribute("src", this.imageR);
+
+          //---------------OnClick--------------
+        }
+      }
+      let sportMens = [
+        {
+          name: "John Depp",
+          imageGr: "../img/lesson-19/arrow-green.svg",
+          imageR: "../img/lesson-19/arrow-red.svg",
+        },
+        {
+          name: "Sara Wik",
+          imageGr: "../img/lesson-19/arrow-green.svg",
+          imageR: "../img/lesson-19/arrow-red.svg",
+        },
+        {
+          name: "Den Miro",
+          imageGr: "../img/lesson-19/arrow-green.svg",
+          imageR: "../img/lesson-19/arrow-red.svg",
+        },
+        {
+          name: "Alan Woo",
+          imageGr: "../img/lesson-19/arrow-green.svg",
+          imageR: "../img/lesson-19/arrow-red.svg",
+        },
+        {
+          name: "Olga Sich",
+          imageGr: "../img/lesson-19/arrow-green.svg",
+          imageR: "../img/lesson-19/arrow-red.svg",
+        },
+        {
+          name: "Ivan hal",
+          imageGr: "../img/lesson-19/arrow-green.svg",
+          imageR: "../img/lesson-19/arrow-red.svg",
+        },
+      ];
+
+      function spMen(arr) {
+        for (const elem of arr) {
+          new SportMenList(elem);
+        }
+      }
+      spMen(sportMens);
+    </script>
   </body>
 </html>

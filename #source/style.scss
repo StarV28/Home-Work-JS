@@ -20,20 +20,20 @@
 
 .header {
   text-align: center;
-  padding: rem(20) rem(0);
-  font-size: rem(22);
+  padding: 20px 0;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.5;
   background-color: rgba(21, 6, 6, 0.579);
   color: #fff;
 }
 .page {
-  padding-top: rem(20);
+  padding-top: 20px;
   // .page__title
 
   &__title {
     h1 {
-      font-size: rem(22);
+      font-size: 22px;
       font-weight: 500;
       line-height: 1.5;
     }
@@ -42,7 +42,7 @@
   // .page__body
 
   &__body {
-    padding: rem(10) rem(0);
+    padding: 10px 0;
   }
 
   // .page__lest
@@ -50,7 +50,7 @@
   &__list {
     display: flex;
     flex-direction: column;
-    row-gap: rem(10);
+    row-gap: 10px;
   }
 
   // .page__item
@@ -58,12 +58,12 @@
   &__item {
     display: flex;
     flex-direction: column;
-    gap: rem(20);
+    gap: 20px;
     a {
       background-color: rgba(204, 191, 191, 0.177);
-      padding: rem(20) rem(10);
-      border-radius: rem(15);
-      font-size: rem(16);
+      padding: 20px 10px;
+      border-radius: 15px;
+      font-size: 16px;
       line-height: 1.5;
       font-weight: 400;
       color: red;
@@ -78,9 +78,9 @@
   //  .page__task
 
   &__task {
-    padding: rem(25) rem(15);
+    padding: 25px 15px;
     background-color: rgba(204, 191, 191, 0.177);
-    border-radius: rem(10);
+    border-radius: 10px;
     transition: all 0.3s;
     @media (any-hover: hover) {
       &:hover {
@@ -92,14 +92,14 @@
       }
     }
     a {
-      font-size: rem(18);
+      font-size: 18px;
       line-height: 1.5;
       font-weight: 400;
       color: purple;
       letter-spacing: 1px;
     }
     p {
-      font-size: rem(14);
+      font-size: 14px;
       line-height: 1.5;
       font-weight: 400;
       color: red;
@@ -110,13 +110,13 @@
 
   &__dessegen {
     background-color: rgba(204, 191, 191, 0.177);
-    border-radius: rem(5);
-    margin: rem(20) 0;
+    border-radius: 5px;
+    margin: 20px 0;
     p {
-      padding: rem(10) rem(0);
+      padding: 10px 0;
     }
     div {
-      padding: rem(20) rem(0);
+      padding: 20px 0;
     }
   }
 }
@@ -124,8 +124,8 @@
 .footer {
   background-color: rgba(21, 6, 6, 0.579);
   text-align: center;
-  padding: rem(10) rem(0);
-  font-size: rem(14);
+  padding: 10px 0;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
   color: #fff;
@@ -133,16 +133,16 @@
 
 //==================Task Page============================================================
 .page__dessegen {
-  padding: rem(20) rem(20);
+  padding: 20px 20px;
 }
 .page__input {
   input {
-    width: rem(100);
-    height: rem(30);
-    padding-left: rem(15);
+    width: 100px;
+    height: 30px;
+    padding-left: 15px;
     border: 1px solid orangered;
-    margin-right: rem(30);
-    font-size: rem(18);
+    margin-right: 30px;
+    font-size: 18px;
     color: green;
     font-weight: 700;
   }
@@ -151,12 +151,12 @@
   color: black;
 }
 .button {
-  font-size: rem(22);
+  font-size: 22px;
   background-color: grey;
-  width: rem(200);
-  height: rem(50);
-  margin-right: rem(20);
-  border-radius: rem(5);
+  width: 200px;
+  height: 50px;
+  margin-right: 20px;
+  border-radius: 5px;
   @media (any-hover: hover) {
     &:hover {
       box-shadow: 2px 2px 5px;
@@ -165,12 +165,12 @@
 }
 .page__input-res {
   input {
-    width: rem(150);
-    height: rem(30);
-    padding-left: rem(15);
+    width: 150px;
+    height: 30px;
+    padding-left: 15px;
     border: 1px solid orangered;
-    margin-right: rem(30);
-    font-size: rem(18);
+    margin-right: 30px;
+    font-size: 18px;
     color: red;
     font-weight: 700;
   }
@@ -178,7 +178,7 @@
 //---------------------Radio & CheckBox & Input-------------
 .dessegen {
   display: flex;
-  column-gap: rem(50);
+  column-gap: 50px;
   // .dessegen__etap-one
 
   &__etap-one {
@@ -189,31 +189,31 @@
 .etap-three {
   display: flex;
   flex-direction: column;
-  row-gap: rem(20);
-  width: rem(300);
+  row-gap: 20px;
+  width: 300px;
 
   h3 {
-    font-size: rem(18);
+    font-size: 18px;
     color: green;
   }
   // .etap-one__section
 
   &__section {
-    width: rem(150);
+    width: 150px;
   }
 
   // .etap-one__checkbox
 
   &__checkbox {
     display: flex;
-    column-gap: rem(10);
+    column-gap: 10px;
   }
 
   // .etap-one__radio
 
   &__radio {
     display: flex;
-    column-gap: rem(10);
+    column-gap: 10px;
     align-items: center;
   }
 }
@@ -226,7 +226,7 @@
   // .checkbox__label
 
   &__label {
-    font-size: rem(16);
+    font-size: 16px;
     color: orangered;
   }
 
@@ -244,7 +244,7 @@
   // .radio__label
 
   &__label {
-    font-size: rem(16);
+    font-size: 16px;
     color: orangered;
   }
 }
@@ -258,33 +258,33 @@
   // .list__res-one
 
   &__res-one {
-    font-size: rem(22);
+    font-size: 22px;
     color: rgb(199, 8, 8);
     font-style: italic;
   }
 }
 .page__button {
   display: flex;
-  column-gap: rem(30);
+  column-gap: 30px;
   align-items: center;
 }
 .list__res-one {
-  font-size: rem(35);
+  font-size: 35px;
 }
 //--------------------Hello---------------
 .dessegen__container {
   display: flex;
   flex-direction: column;
-  row-gap: rem(10);
+  row-gap: 10px;
 }
 .dessegen__hello {
   cursor: pointer;
-  font-size: rem(25);
+  font-size: 25px;
   color: green;
   font-weight: 700;
-  width: rem(150);
-  height: rem(50);
-  border-radius: rem(5);
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
   text-align: center;
   @media (any-hover: hover) {
     &:hover {
@@ -294,29 +294,83 @@
 }
 //---------------------------------------
 .dessegen__card {
+  display: flex;
+  column-gap: 15px;
 }
 .card {
   display: flex;
-  flex: 0 1 rem(200);
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 0.3s;
   &__title {
-    font-size: rem(21);
+    font-size: 21px;
     font-weight: 700;
     line-height: 2;
+    width: 100px;
+    text-align: center;
+    background-color: yellow;
+    border-radius: 25px;
   }
   &__img {
-    width: rem(150);
-    height: rem(150);
+    width: 150px;
+    height: 150px;
   }
   &__cont {
-    display: flex;
-    flex-direction: column;
   }
 }
 .cont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
   a {
-    font-size: rem(18);
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
     color: green;
+    margin-left: 10px;
+  }
+}
+.active {
+  border: 2px solid rebeccapurple;
+  transform: scale(1.1);
+}
+//-----------------------------19.6----------
+.dessegen {
+  // .dessegen__list-one
+
+  &__list {
+    width: 250px;
+    border: 1px solid black;
+  }
+
+  // .dessegen__list-two
+
+  &__list {
+    width: 250px;
+    border: 1px solid black;
+  }
+}
+.dessegen__list_sport {
+  height: 30px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  li {
+    padding-left: 5px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  img {
+    cursor: pointer;
+    width: 55px;
+    height: 25px;
+    transform: rotate(-180deg);
   }
 }
