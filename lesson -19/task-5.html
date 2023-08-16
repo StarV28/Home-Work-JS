@@ -53,17 +53,40 @@
           liContent.innerText = this.name;
 
           //-----------------------ImageGr----------------
-          let arrowGr = document.createElement("img");
-          this.ulCont.append(arrowGr);
-          arrowGr.setAttribute("src", this.imageGr);
+          this.arrowGr = document.createElement("img");
+          this.ulCont.append(this.arrowGr);
+          this.arrowGr.setAttribute("src", this.imageGr);
 
           //------------------------ImageR---------
-          let arrowR = document.createElement("img");
-          arrowR.setAttribute("src", this.imageR);
+          this.arrowR = document.createElement("img");
+          this.arrowR.setAttribute("src", this.imageR);
 
           //---------------OnClick--------------
+          this.arrowGr.onclick = this.changeSportMen.bind(this);
+          this.arrowR.onclick = this.changeSportMenSelect.bind(this);
+        }
+
+        //---------------changeSportMen------------------
+        changeSportMen() {
+          let boxSelec = document.querySelector(".list-select");
+          let elSelect = this.arrowGr.closest(".dessegen__list_sport");
+          this.arrowGr.remove();
+          elSelect.append(this.arrowR);
+          boxSelec.append(elSelect);
+          elSelect.classList.toggle("red-arrow");
+        }
+
+        //---------------changeSportMenSelect------------------
+        changeSportMenSelect() {
+          let boxSelec = document.querySelector(".list-all");
+          let elSelect = this.arrowR.closest(".dessegen__list_sport");
+          this.arrowR.remove();
+          elSelect.append(this.arrowGr);
+          boxSelec.append(elSelect);
+          elSelect.classList.toggle("green-arrow");
         }
       }
+
       let sportMens = [
         {
           name: "John Depp",

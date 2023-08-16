@@ -417,3 +417,11 @@ h6 {
   height: 25px;
   transform: rotate(-180deg);
 }
+
+.red-arrow img {
+  transform: rotate(0deg);
+}
+
+.green-arrow img {
+  transform: rotate(-180deg);
+}
