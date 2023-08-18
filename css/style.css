@@ -425,3 +425,8 @@ h6 {
 .green-arrow img {
   transform: rotate(-180deg);
 }
+
+.star {
+  position: absolute;
+  overflow: hidden;
+}
