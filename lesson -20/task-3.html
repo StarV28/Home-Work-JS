@@ -16,15 +16,47 @@
           <ul class="page__list">
             <li class="page__task">
               Task 3
-              <p></p>
+              <p>
+                Задача 3. На формі вводять 7 числових значень (вік, зріст, вага, заробітна плата,
+                стаж, номер відділу, порядковий номер). Додати подію обробки події click на форму і
+                якщо клік на внутрішньому input, то автоматично замінювати значення його на 0.
+                Використати делегування
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <form id="form-input" action="#" class="dessegen__form form">
+              <div class="form__container"
+                ><input value="" type="number" placeholder="вік" class="form__input"
+              /></div>
+              <div class="form__container"
+                ><input value="" type="number" placeholder="зріст" class="form__input"
+              /></div>
+              <div class="form__container"
+                ><input value="" type="number" placeholder="вага" class="form__input"
+              /></div>
+              <div class="form__container"
+                ><input value="" type="number" placeholder="заробітна плата" class="form__input"
+              /></div>
+              <div class="form__container"
+                ><input value="" type="number" placeholder="стаж" class="form__input"
+              /></div>
+              <div class="form__container"
+                ><input value="" type="number" placeholder="номер відділу" class="form__input"
+              /></div>
+              <div class="form__container"
+                ><input value="" type="number" placeholder="порядковий номер" class="form__input"
+              /></div>
+            </form>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      document.getElementById("form-input").onclick = function (e) {
+        if (e.target.tagName === "INPUT") e.target.value = "0";
+      };
+    </script>
   </body>
 </html>

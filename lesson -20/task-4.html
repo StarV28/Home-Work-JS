@@ -14,14 +14,61 @@
       <main class="page">
         <div class="page__container">
           <ul class="page__list">
-            <li class="page__task">Task 4</li>
+            <li class="page__task"
+              >Task 4
+              <p>
+                Задача 4. На сторінці міститься певна кількість кнопок і інпутів. Підраховувати
+                загальну кількість кліків окремо на кнопках і окремо на інпутах.
+              </p>
+            </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <form id="dessegen__form" action="#" class="dessegen__form form">
+              <div class="form__box">
+                <input placeholder="click Me ;)" type="text" class="box__input" />
+                <button type="button" class="box__button">click Me ;)</button>
+              </div>
+              <div class="form__box">
+                <input placeholder="click Me ;)" type="text" class="box__input" />
+                <button type="button" class="box__button">click Me ;)</button>
+              </div>
+              <div class="form__box">
+                <input placeholder="click Me ;)" type="text" class="box__input" />
+                <button type="button" class="box__button">click Me ;)</button>
+              </div>
+              <div class="form__box">
+                <input placeholder="click Me ;)" type="text" class="box__input" />
+                <button type="button" class="box__button">click Me ;)</button>
+              </div>
+              <div class="form__box">
+                <input placeholder="click Me ;)" type="text" class="box__input" />
+                <button type="button" class="box__button">click Me ;)</button>
+              </div>
+              <div class="form__box box">
+                <ul class="box__list">
+                  <li id="btn" class="box__item"></li>
+                  <li id="inp" class="box__item"></li>
+                </ul>
+              </div>
+            </form>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      let countBtn = 0;
+      let countInp = 0;
+      document.getElementById("dessegen__form").onclick = function (e) {
+        if (e.target.tagName === "BUTTON") {
+          countBtn += 1;
+          document.getElementById("btn").innerText = `Click = ${countBtn}`;
+        }
+        if (e.target.tagName === "INPUT") {
+          countInp += 1;
+          document.getElementById("inp").innerText = `Click = ${countInp}`;
+        }
+      };
+    </script>
   </body>
 </html>

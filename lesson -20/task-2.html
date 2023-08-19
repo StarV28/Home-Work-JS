@@ -11,20 +11,90 @@
   <body>
     <div class="wrapper">
       <header class="header">Main Page</header>
-      <main class="page">
+      <main id="page" class="page">
         <div class="page__container">
           <ul class="page__list">
             <li class="page__task">
               Task 2
-              <p></p>
+              <p>
+                Задача 2. Байрактар. З верхньої частини екрану у випадковій позиції по горизонталі
+                з’являються танки, які їдуть вниз. При кліку на танк він вибухає і зникає з екрану.
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div id="container" class="page__dessegen">
+            <label name="numTank">Введіть кількість танків</label>
+            <input
+              id="tankNum"
+              autocomplete="off"
+              type="number"
+              name="numTank"
+              class="input"
+              value=""
+            />
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      class Tank {
+        constructor(tank, pow) {
+          this.tank = tank;
+          this.pow = pow;
+          this.render();
+        }
+        //-----------------randomNum------------
+        randomNum(min = 0, max = 100) {
+          return min + Math.floor(Math.random() * (max - min + 1));
+        }
+        //----------------PositionTank-----------
+        posTank() {
+          this.tank.style.top = 0;
+          this.tank.style.left = this.randomNum() + "%";
+        }
+        //---------------Render----------------
+        render() {
+          let tank = document.createElement("img");
+          tank.setAttribute("src", this.tank);
+          tank.className = "tank";
+          document.querySelector(".page").append(tank);
+          tank.style.position = "absolute";
+          this.tank = tank;
+          this.posTank();
+        }
+
+        //--------------ShowTAnk-----------------
+        showTank() {
+          let count = 0;
+          let pow = this.pow;
+          console.log(pow);
+          let intervalId = setInterval(() => {
+            this.tank.style.top = count + "px";
+            count += 5;
+            if (count > outerHeight - 200) clearInterval(intervalId);
+          }, 100);
+          page.onclick = function (e) {
+            if (e.target.tagName === "IMG") {
+              e.target.setAttribute("src", pow);
+              clearInterval(intervalId);
+              setTimeout(() => {
+                e.target.remove();
+              }, 1000);
+            }
+          };
+        }
+      }
+
+      container.oninput = function countStar(e) {
+        if (e.target.tagName === "INPUT") {
+          let elem = parseInt(document.getElementById("tankNum").value);
+          while (elem !== 0) {
+            new Tank("../img/lesson-20/Tank-1.svg", "../img/lesson-20/Pow.svg").showTank();
+            elem--;
+          }
+        }
+      };
+    </script>
   </body>
 </html>

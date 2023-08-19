@@ -390,3 +390,40 @@
   position: absolute;
   overflow: hidden;
 }
+
+.tank {
+  width: 65px;
+}
+
+.form__input {
+  width: 150px;
+  height: 30px;
+  border: 1px solid rgb(84, 250, 84);
+  padding-left: 15px;
+}
+
+.box__input {
+  width: 70px;
+  height: 30px;
+  margin-right: 20px;
+  border: 1px solid purple;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.box__button {
+  width: 100px;
+  height: 40px;
+  background-color: purple;
+  border-radius: 8px;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+}
+.box__item {
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-style: italic;
+  color: rgb(104, 8, 8);
+}
