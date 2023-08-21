@@ -427,3 +427,38 @@
   font-style: italic;
   color: rgb(104, 8, 8);
 }
+
+.dessegen {
+  flex-direction: column;
+  // .dessegen__select
+
+  &__select {
+    display: flex;
+    column-gap: 15px;
+  }
+}
+.select__button {
+  background-color: orangered;
+  width: 70px;
+  height: 35px;
+  border-radius: 10px;
+  color: #fff;
+  text-transform: uppercase;
+  @media (any-hover: hover) {
+    &:hover {
+      box-shadow: 2px 2px 5px gray;
+    }
+  }
+}
+
+.result__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  background-color: #fff;
+  width: 450px;
+  padding: 10px 15px;
+  li {
+    font-size: 18px;
+  }
+}

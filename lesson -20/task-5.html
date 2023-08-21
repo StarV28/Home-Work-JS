@@ -16,15 +16,117 @@
           <ul class="page__list">
             <li class="page__task">
               Task 5
-              <p></p>
+              <p>
+                Задача. Дано список автомобілів (марка, рік випуску, ціна). Сформувати елементи для
+                фільтрування з використанням випадаючого списку (контент цих випадаючих списків
+                сформувати у залежності від переданого списку).
+              </p>
+              <p style="color: blue; font-size: 21px"
+                >Нажаль я цю задачу так і не вирішив.Розумію що логіку не вибудува, якщо можно
+                поясніть де я не туди рухався чи може я в загалі не туді рухався.</p
+              >
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <div id="select-box" class="dessegen__select select">
+              <select id="brand" name="brand" class="select__brand">
+                <option value="BMW">BMW</option>
+                <option value="WV">WV</option>
+                <option value="Mercedes" selected>Mercedes</option>
+                <option value="Ford">Ford</option>
+              </select>
+              <select id="year" name="yeard" class="select__year">
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013" selected>2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+              </select>
+              <select id="price" name="price" class="select__price">
+                <option value="20000" selected>20000 $</option>
+                <option value="25000">25000 $</option>
+                <option value="30000">30000 $</option>
+                <option value="50000">50000 $</option>
+              </select>
+              <button type="button" class="select__button">Apply</button>
+            </div>
+            <div class="dessegen__result result">
+              <ul class="result__list"> </ul>
+            </div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      //-------------------ElemValueOfChange------------------------
+      class ElemValueOfChange {
+        constructor(initData) {
+          Object.assign(this, initData);
+        }
+        onChoiceBrand() {
+          const choiceBrand = new CustomEvent("choiceBrand", {
+            datail: {
+              optionSelect: this.brand.value,
+            },
+          });
+          this.brand.dispatchEvent(choiceBrand);
+        }
+        onChoiceYear() {
+          const choiceYear = new CustomEvent("choiceYear", {
+            datail: {
+              optionSelect: this.year.value,
+            },
+          });
+          this.year.dispatchEvent(choiceYear);
+        }
+        onChoicePrice() {
+          const choicePrice = new CustomEvent("choicePrice", {
+            datail: {
+              optionSelect: this.price.value,
+            },
+          });
+          this.price.dispatchEvent(choicePrice);
+        }
+        creatList() {
+          let selectBox = document.getElementById("select-box");
+          let brandRes = selectBox.addEventListener("change", this.onChoiceBrand.bind(this));
+          let yearRes = selectBox.addEventListener("change", this.onChoiceYear.bind(this));
+          let priceRes = selectBox.addEventListener("change", this.onChoicePrice.bind(this));
+          return `${brandRes} - ${yearRes} - ${priceRes}`;
+        }
+      }
+      //----------------------------------
+      class AdList {
+        constructor({initData}) {
+          Object.assign(this, initData);
+          this.render();
+        }
+        render() {
+          let li = document.createElement("li");
+          document.querySelector(".result__list").append(li);
+          li.innerText = this.initData;
+        }
+      }
+
+      let brand = document.getElementById("brand");
+      let year = document.getElementById("year");
+      let price = document.getElementById("price");
+
+      let r = new ElemValueOfChange({brand, year, price});
+      // let r2 = new AdList(r.creatList());
+
+      function result() {
+        let btn = document.querySelector(".select__button");
+        btn.onclick = new AdList(r.creatList());
+      }
+      result();
+    </script>
   </body>
 </html>
