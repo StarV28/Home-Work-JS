@@ -21,10 +21,6 @@
                 фільтрування з використанням випадаючого списку (контент цих випадаючих списків
                 сформувати у залежності від переданого списку).
               </p>
-              <p style="color: blue; font-size: 21px"
-                >Нажаль я цю задачу так і не вирішив.Розумію що логіку не вибудува, якщо можно
-                поясніть де я не туди рухався чи може я в загалі не туді рухався.</p
-              >
             </li>
           </ul>
           <div class="page__dessegen dessegen">
@@ -120,13 +116,14 @@
       let price = document.getElementById("price");
 
       let r = new ElemValueOfChange({brand, year, price});
-      // let r2 = new AdList(r.creatList());
 
-      function result() {
-        let btn = document.querySelector(".select__button");
-        btn.onclick = new AdList(r.creatList());
-      }
-      result();
+      let dessegen = document.querySelector(".dessegen");
+      dessegen.addEventListener("click", function (e) {
+        if (e.target.tagName === "BUTTON") {
+          r.onChoiceBrand();
+          console.log(r.onChoiceBrand());
+        }
+      });
     </script>
   </body>
 </html>
