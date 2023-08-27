@@ -21,6 +21,10 @@
                 фільтрування з використанням випадаючого списку (контент цих випадаючих списків
                 сформувати у залежності від переданого списку).
               </p>
+              <p style="font-size: 22px; color: purple">
+                Якщо буде не важко, я не доробив цю задачу і зовсім не розумію де я помиляюсь.
+                Точнійше я схоже не зміг зрозуміти логіка та принцип роботи new CustomEvent
+              </p>
             </li>
           </ul>
           <div class="page__dessegen dessegen">
@@ -120,8 +124,7 @@
       let dessegen = document.querySelector(".dessegen");
       dessegen.addEventListener("click", function (e) {
         if (e.target.tagName === "BUTTON") {
-          r.onChoiceBrand();
-          console.log(r.onChoiceBrand());
+          new AdList(r.creatList());
         }
       });
     </script>
