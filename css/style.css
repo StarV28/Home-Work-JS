@@ -504,3 +504,47 @@ h6 {
 .result__list li {
   font-size: 18px;
 }
+
+.dessegen__client {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+.dessegen__client ul {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.dessegen__client ul li {
+  border: 1px solid grey;
+  padding: 2px 5px;
+}
+
+.boxMoney {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.boxMoney input {
+  width: 150px;
+  border: 1px solid grey;
+  padding: 2px 5px;
+}
+.boxMoney button {
+  width: 150px;
+  border: 2px solid red;
+  padding: 2px 7px;
+}
+@media (any-hover: hover) {
+  .boxMoney button:hover {
+    box-shadow: 2px 5px 5px red;
+  }
+}
+
+.active-credit {
+  font-weight: 600;
+  color: red;
+  box-shadow: 2px 2px 2px red;
+}

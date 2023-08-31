@@ -462,3 +462,45 @@
     font-size: 18px;
   }
 }
+//-------------21--------------
+.dessegen__client {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10px;
+    li {
+      border: 1px solid grey;
+      padding: 2px 5px;
+    }
+  }
+}
+.boxMoney {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  input {
+    width: 150px;
+    border: 1px solid grey;
+    padding: 2px 5px;
+  }
+
+  button {
+    width: 150px;
+    border: 2px solid red;
+    padding: 2px 7px;
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 2px 5px 5px red;
+      }
+    }
+  }
+}
+.active-credit {
+  font-weight: 600;
+  color: red;
+  box-shadow: 2px 2px 2px red;
+}
