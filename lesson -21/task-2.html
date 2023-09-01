@@ -16,15 +16,278 @@
           <ul class="page__list">
             <li class="page__task">
               Task 2
-              <p></p>
+              <p>
+                Задача 2. Створити клас Bank, у якому зберігається масив клієнтів. Виконати такі
+                операції Вивести усіх простих клієнтів; Вивести усіх клієнтів GoldenClient; Знати
+                сумарну кількість грошей на рахунку;
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <div class="dessegen__client"></div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      class Client {
+        constructor(initData) {
+          Object.assign(this, initData);
+        }
+        render() {
+          let client = document.createElement("ul");
+          client.className = "client";
+          document.querySelector(".dessegen__client").append(client);
+
+          let idLi = document.createElement("li");
+          idLi.innerText = this.idClient;
+          client.append(idLi);
+
+          let idSpanNum = document.createElement("span");
+          idSpanNum.innerText = this.idNum;
+          idLi.append(idSpanNum);
+
+          let name = document.createElement("li");
+          name.innerText = this.name;
+          client.append(name);
+
+          let surNameLi = document.createElement("li");
+          surNameLi.innerText = this.surName;
+          client.append(surNameLi);
+
+          let moneyLi = document.createElement("li");
+          moneyLi.innerText = this.money;
+          client.append(moneyLi);
+
+          let moneSpanNum = document.createElement("span");
+          moneSpanNum.innerText = this.moneyNum;
+          moneyLi.append(moneSpanNum);
+          this.accountClientMoney = moneSpanNum;
+
+          let boxMoney = document.createElement("ul");
+          boxMoney.className = "boxMoney";
+          document.querySelector(".dessegen__client").append(boxMoney);
+
+          let inputMoney = document.createElement("input");
+          inputMoney.setAttribute("type", "number");
+          inputMoney.setAttribute("placeholder", "Enter money");
+          boxMoney.append(inputMoney);
+          this.inpMon = inputMoney;
+
+          let btnAddMoney = document.createElement("button");
+          btnAddMoney.innerText = "ADD MONEY";
+          boxMoney.append(btnAddMoney);
+          this.btnAddMoney = btnAddMoney;
+
+          let btnRemoveMoney = document.createElement("button");
+          btnRemoveMoney.innerText = "WITHDRAW MONEY";
+          boxMoney.append(btnRemoveMoney);
+          this.btnRemoveMoney = btnRemoveMoney;
+          this.client = client;
+        }
+        //---------Money--------------------
+        addBtn() {
+          this.btnAddMoney.addEventListener("click", (e) => {
+            if (e.target) {
+              if (parseInt(this.inpMon.value) >= 0) {
+                this.accountClientMoney.innerText =
+                  parseInt(this.inpMon.value) + parseInt(this.accountClientMoney.innerText);
+              }
+            }
+          });
+          this.btnRemoveMoney.addEventListener("click", (e) => {
+            if (e.target) {
+              if (parseInt(this.accountClientMoney.innerText) - parseInt(this.inpMon.value) >= 0) {
+                this.accountClientMoney.innerText =
+                  parseInt(this.accountClientMoney.innerText) - parseInt(this.inpMon.value);
+              }
+            }
+          });
+        }
+        //----------------ToString----------------------
+        toString() {
+          return `${this.render()} ${this.addBtn()}`;
+        }
+      }
+      let clientOne = new Client({
+        idClient: "ID: ",
+        idNum: 12345,
+        name: "Name: Makar",
+        surName: "Surname: Makarov",
+        money: "Account:$ ",
+        moneyNum: 200,
+      });
+      let clientTwo = new Client({
+        idClient: "ID: ",
+        idNum: 12346,
+        name: "Name: Ivan",
+        surName: "Surname: Ivanov",
+        money: "Account:$ ",
+        moneyNum: 300,
+      });
+      let clientThree = new Client({
+        idClient: "ID: ",
+        idNum: 12347,
+        name: "Name: Irina",
+        surName: "Surname: Petrova",
+        money: "Account:$ ",
+        moneyNum: 500,
+      });
+
+      //--------Class Children----Gold Client----------
+      class GoldClient extends Client {
+        constructor(initData) {
+          super(initData);
+          Object.assign(this, initData);
+        }
+        renderGold() {
+          let limit = document.createElement("li");
+          limit.innerText = this.limit;
+          this.client.append(limit);
+          this.limit = limit;
+
+          let limitNum = document.createElement("span");
+          limitNum.innerText = this.limitNumbr;
+          limit.append(limitNum);
+          this.limitNum = limitNum;
+
+          let percent = document.createElement("li");
+          percent.innerText = this.percent;
+          this.client.append(percent);
+          this.perc = percent;
+
+          let percentNum = document.createElement("span");
+          percent.append(percentNum);
+          this.percNum = percentNum;
+        }
+        //------------------------------------
+
+        //------------------------------------
+        creditMoney() {
+          this.btnAddMoney.addEventListener("click", () => {
+            if (parseInt(this.limitNum.innerText) >= this.limitNumbr) {
+              this.accountClientMoney.innerText =
+                parseInt(this.accountClientMoney.innerText) + parseInt(this.inpMon.value);
+            } else {
+              this.limitNum.innerText =
+                parseInt(this.limitNum.innerText) + parseInt(this.inpMon.value);
+              this.percNum.innerText = (
+                (this.limitNumbr - parseInt(this.limitNum.innerText)) *
+                0.05
+              ).toFixed(2);
+            }
+            if (parseInt(this.limitNum.innerText) > this.limitNumbr) {
+              this.accountClientMoney.innerText = this.limitNum.innerText - this.limitNumbr;
+              this.limitNum.innerText = this.limitNumbr;
+            }
+          });
+          this.btnRemoveMoney.addEventListener("click", () => {
+            if (parseInt(this.accountClientMoney.innerText) > 0) {
+              this.accountClientMoney.innerText =
+                parseInt(this.accountClientMoney.innerText) - parseInt(this.inpMon.value);
+            } else {
+              this.accountClientMoney.innerText = 0;
+              this.percNum.innerText = (
+                (this.limitNumbr - parseInt(this.limitNum.innerText)) *
+                0.05
+              ).toFixed(2);
+              this.limitNum.innerText =
+                parseInt(this.limitNum.innerText) - parseInt(this.inpMon.value);
+              if (parseInt(this.limitNum.innerText) < 0) {
+                this.limitNum.innerText = 0;
+              }
+            }
+          });
+        }
+        toString() {
+          super.toString();
+          return `${this.renderGold()} ${this.creditMoney()};`;
+        }
+      }
+
+      let clientGoldOne = new GoldClient({
+        idClient: "ID: ",
+        idNum: 1234578,
+        name: "Name: Goge",
+        surName: "Surname: Pupkin",
+        money: "Account: $ ",
+        moneyNum: 2000,
+        limit: "Credit limit: $ ",
+        limitNumbr: 5000,
+        percent: "The use of credit money 5%: ",
+      });
+      let clientGoldTwo = new GoldClient({
+        idClient: "ID: ",
+        idNum: 1234585,
+        name: "Name: Inna",
+        surName: "Surname: Golcman",
+        money: "Account: $ ",
+        moneyNum: 4000,
+        limit: "Credit limit: $ ",
+        limitNumbr: 10000,
+        percent: "The use of credit money 5%: ",
+      });
+
+      class Bank {
+        constructor(clients) {
+          this.clients = clients;
+        }
+        //-----------------------
+        serchClients() {
+          return this.clients.filter(
+            (elem) => elem instanceof Client && !(elem instanceof GoldClient)
+          );
+        }
+        //-------------------------
+        serchGoldClient() {
+          return this.clients.filter((elem) => elem instanceof GoldClient);
+        }
+        //------------------------
+        sumMoneyBank() {
+          return this.clients.reduce((prevEl, elem) => prevEl + elem.moneyNum, 0);
+        }
+        //-----------------------------
+        render() {
+          let boxBank = document.createElement("ul");
+          boxBank.className = "bank";
+          document.querySelector(".dessegen__client").append(boxBank);
+
+          let titleClient = document.createElement("h4");
+          titleClient.innerText = "CLient";
+          boxBank.append(titleClient);
+
+          for (const client of this.serchClients()) {
+            let clientLi = document.createElement("li");
+            clientLi.innerText = `${client.name} ${client.surName} `;
+            boxBank.append(clientLi);
+          }
+
+          let titleClientGold = document.createElement("h4");
+          titleClientGold.innerText = "Gold Client";
+          boxBank.append(titleClientGold);
+
+          for (const goldCl of this.serchGoldClient()) {
+            let goldClLi = document.createElement("li");
+            goldClLi.innerText = `${goldCl.name} ${goldCl.surName}`;
+            boxBank.append(goldClLi);
+          }
+
+          let titleSum = document.createElement("h4");
+          titleSum.innerText = "Total amount in accounts";
+          boxBank.append(titleSum);
+
+          let totalSum = document.createElement("li");
+          totalSum.innerText = this.sumMoneyBank();
+          boxBank.append(totalSum);
+        }
+        //--------------------------------
+        toString() {
+          return `${this.render()}`;
+        }
+      }
+      let bank = new Bank([clientOne, clientTwo, clientThree, clientGoldOne, clientGoldTwo]);
+      bank.toString();
+    </script>
   </body>
 </html>

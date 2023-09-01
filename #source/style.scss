@@ -504,3 +504,13 @@
   color: red;
   box-shadow: 2px 2px 2px red;
 }
+.bank {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  h4 {
+    font-size: 21px;
+    font-weight: 600;
+    color: rgb(51, 4, 4);
+  }
+}
