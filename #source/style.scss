@@ -43,6 +43,7 @@
 
   &__body {
     padding: 10px 0;
+    position: relative;
   }
 
   // .page__lest
@@ -513,4 +514,63 @@
     font-weight: 600;
     color: rgb(51, 4, 4);
   }
+}
+
+.image {
+  width: 45px;
+  height: 45px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  label {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  // .school__input
+
+  input {
+    border: 2px solid purple;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  &__button {
+    width: 100px;
+    height: 45px;
+    background-color: grey;
+    border: 2px solid purple;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s;
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 2px 5px 2px purple;
+      }
+    }
+  }
+  ul {
+    li {
+      color: red;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}
+.school,
+.school-two {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.active-err {
+  font-size: 21;
+  font-weight: 600;
+  color: red;
 }

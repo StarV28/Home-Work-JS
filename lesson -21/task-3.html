@@ -16,15 +16,87 @@
           <ul class="page__list">
             <li class="page__task">
               Task 3
-              <p></p>
+              <p> Задача 3. Розробити Класи </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
-          </div>
+          <div class="page__dessegen"></div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      class Hous {
+        constructor(initData) {
+          Object.assign(this, initData);
+          this.render();
+        }
+        //-------------------------------------------------------------------------------------------
+        randomNum(max, min = 10) {
+          return 1 + Math.floor(Math.random() * (max - min));
+        }
+        //-------------------------------------------------------------------------------------------
+        intervalFunc() {
+          let intervalID = setInterval(() => {
+            this.changeStyle();
+          }, this.interval);
+        }
+        //-------------------------------------------------------------------------------------------
+        changeStyle() {
+          this.pathImage.style.top = this.dotY;
+          this.pathImage.style.left = this.dotX;
+          this.pathImage.style.width = this.randomNum(500) + "px";
+          this.pathImage.style.height = this.randomNum(500) + "px";
+        }
+        //-------------------------------------------------------------------------------------------
+        render() {
+          let pathImage = document.createElement("img");
+          pathImage.setAttribute("src", this.image);
+          pathImage.className = "image";
+          document.body.append(pathImage);
+          pathImage.style.position = "absolute";
+          this.pathImage = pathImage;
+        }
+      }
+      let hous = new Hous({
+        dotX: "550px",
+        dotY: "300px",
+        image: "../img/lesson-21/house.jpg",
+        interval: 1000,
+      });
+      hous.intervalFunc();
+      //-------------------------------------------------------------------------------------------
+      class Dog extends Hous {
+        constructor(initData) {
+          super(initData);
+          Object.assign(this, initData);
+        }
+        changeStyle() {
+          this.pathImage.style.top = this.dotY;
+          this.pathImage.style.left = this.randomNum(outerWidth) + "px";
+        }
+      }
+      let dog = new Dog({
+        dotY: "300px",
+        image: "../img/lesson-21/dog.svg",
+        interval: 1000,
+      });
+      dog.intervalFunc();
+      //-------------------------------------------------------------------------------------------
+      class Bird extends Hous {
+        constructor(initData) {
+          super(initData);
+          Object.assign(this, initData);
+        }
+        changeStyle() {
+          this.pathImage.style.top = this.randomNum(outerHeight) + "px";
+          this.pathImage.style.left = this.randomNum(outerWidth) + "px";
+        }
+      }
+      let bird = new Bird({
+        image: "../img/lesson-21/bird.svg",
+        interval: 1000,
+      });
+      bird.intervalFunc();
+    </script>
   </body>
 </html>

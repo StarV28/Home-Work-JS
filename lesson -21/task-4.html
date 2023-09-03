@@ -14,14 +14,173 @@
       <main class="page">
         <div class="page__container">
           <ul class="page__list">
-            <li class="page__task">Task 4</li>
+            <li class="page__task"
+              >Task 4
+              <p>
+                Задача 4. Користувач задає місяць навчання учня (перевіряти чи є числом, чи від 1 до
+                12, чи не канікули) та оцінку (перевіряти чи є числом, чи від 1 до 100). Вивести чи
+                зможе він виправити оцінку (якщо оцінка погана і це не останній місяць у семестрі) .
+                Обробку усіх помилок зробити з використанням відповідних класів.
+              </p>
+            </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <form action="" id="form" class="dessegen__form form">
+              <div class="dessegen__school school">
+                <label name="month">Введіть місяць навчального року</label>
+                <input type="text" id="month" name="month" class="school__input" />
+              </div>
+              <div class="dessegen__school school-two">
+                <label name="bul-stady">Введіть оцінку учня</label>
+                <input type="text" id="bulStudy" name="bul-stady" class="school-two__input" />
+              </div>
+            </form>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      //-----------------------------------------------------------------------------------------------
+      class IsNotNumberError extends Error {
+        constructor() {
+          super();
+          this.message = "Error Введіть число";
+          this.name = "IsNotNumberError";
+        }
+      }
+      //-----------------------------------------------------------------------------------------------
+      class IsNotMonthError extends Error {
+        constructor() {
+          super();
+          this.message = "Error Введіть місяць числом";
+          this.name = "IsNottMonth";
+        }
+      }
+      //-----------------------------------------------------------------------------------------------
+      class IsNotCorectMonthError extends Error {
+        constructor() {
+          super();
+          this.message = "Error Цей місяць не є навчальним";
+          this.name = "IsNotCorectMonth";
+        }
+      }
+      //-----------------------------------------------------------------------------------------------
+      class IsNotCorectBalError extends Error {
+        constructor() {
+          super();
+          this.message = "Error Цей бал не є коректним введіть від 1 до 100";
+          this.name = "IsNotCorectBal";
+        }
+      }
+      //-----------------Class New Student----------------------------------------------------
+      class Student {
+        constructor() {
+          this.render();
+        }
+        validateMonth() {
+          this.month = document.getElementById("month").value;
+          //------------------------------------------------
+          try {
+            if (isNaN(this.month)) {
+              throw new IsNotNumberError();
+            }
+            if (this.month < 1 || this.month > 12) {
+              throw new IsNotMonthError();
+            }
+            if ((this.month >= 6 && this.month < 9) || this.month === 1) {
+              throw new IsNotCorectMonthError();
+            }
+
+            // //--------------------------------------------------
+          } catch (err) {
+            if (err instanceof IsNotNumberError) {
+              let masageErr = document.createElement("p");
+              masageErr.innerText = err.message;
+              document.querySelector(".school").append(masageErr);
+              masageErr.className = "active-err";
+              month.value = "";
+            } else if (err instanceof IsNotMonthError) {
+              let masageErr = document.createElement("p");
+              masageErr.innerText = err.message;
+              document.querySelector(".school").append(masageErr);
+              masageErr.className = "active-err";
+              month.value = "";
+            } else if (err instanceof IsNotCorectMonthError) {
+              let masageErr = document.createElement("p");
+              masageErr.innerText = err.message;
+              document.querySelector(".school").append(masageErr);
+              masageErr.className = "active-err";
+              month.value = "";
+            }
+            return false;
+          }
+          return true;
+        }
+        validateBul() {
+          this.bulStudy = document.getElementById("bulStudy").value;
+          //-------------------------------------------------------------------------------
+          try {
+            if (isNaN(this.bulStudy) || this.bulStudy < 1 || this.bulStudy > 100) {
+              throw new IsNotCorectBalError();
+            }
+          } catch (err) {
+            if (err instanceof IsNotCorectBalError) {
+              let masageErr = document.createElement("p");
+              masageErr.innerText = err.message;
+              document.querySelector(".school-two").append(masageErr);
+              masageErr.className = "active-err";
+              bulStudy.value = "";
+            }
+            return false;
+          }
+          return true;
+        }
+        //---------------------------------------------------------------------------------
+        getResult() {
+          document.getElementById("form").addEventListener("click", (e) => {
+            if (e.target.tagName === "BUTTON") {
+              if (this.validateMonth() === true && this.validateBul() === true) {
+                if (
+                  parseInt(this.month) !== 5 &&
+                  parseInt(this.month) !== 12 &&
+                  parseInt(this.bulStudy) <= 7
+                ) {
+                  document.getElementById("list").append(this.student);
+                } else {
+                  document.getElementById("list").append(this.studentNot);
+                }
+              }
+            }
+          });
+        }
+
+        //--------------------------------------------------------------------------------
+        render() {
+          let btn = document.createElement("button");
+          btn.innerText = "Перевірити";
+          btn.className = "form__button";
+          btn.setAttribute("type", "button");
+          document.getElementById("form").append(btn);
+          this.btn = btn;
+
+          let ulList = document.createElement("ul");
+          document.querySelector(".form").append(ulList);
+          ulList.setAttribute("id", "list");
+          this.ulList = ulList;
+
+          let student = document.createElement("li");
+          student.innerText = "Можно виправити оцінку";
+          this.student = student;
+
+          let studentNot = document.createElement("li");
+          studentNot.innerText = "Не можливо виправити оцінку";
+          this.studentNot = studentNot;
+        }
+      }
+      let studentOne = new Student();
+      studentOne.getResult();
+      // console.log(studentOne);
+    </script>
   </body>
 </html>
