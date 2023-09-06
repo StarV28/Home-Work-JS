@@ -16,15 +16,83 @@
           <ul class="page__list">
             <li class="page__task">
               Task 1
-              <p></p>
+              <p>
+                Задача 1. Визначити привітання у залежності від часу доби (Доброго дня, Доброго
+                ранку, Доброго вечора)
+              </p>
+              <p> Задача 2. Вивести дату у форматі “місяць – рік – вихідний/робочий” </p>
+              <p> Задача 4. Вивести назву дня </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <div class="dessegen__one"></div>
+            <div class="dessegen__two"></div>
+            <div class="dessegen__three"></div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      //----------------------------------------------------------------------------------------------
+      function greetings() {
+        let date = new Date();
+        let dateHours = date.getHours();
+        let greetingsShowUser = document.createElement("div");
+        greetingsShowUser.className = "data-one";
+
+        document.querySelector(".dessegen__one").append(greetingsShowUser);
+        if (dateHours >= 5 && dateHours < 12) {
+          greetingsShowUser.innerText = "Good Morning";
+        } else if (dateHours >= 12 && dateHours < 18) {
+          greetingsShowUser.innerText = "Good Afternoon";
+        } else if (dateHours >= 17) {
+          greetingsShowUser.innerText = "Good Evening";
+        }
+      }
+      window.onload = () => {
+        greetings();
+      };
+      //-----------------------------------------------------------------------------------------------
+      class WorkWekDays {
+        constructor(date) {
+          this.date = date;
+          this.month = this.date.getMonth();
+          this.year = this.date.getFullYear();
+          this.day = this.date.getDay();
+          this.render();
+        }
+        chekDays() {
+          return this.day > 5 || this.day === 0 ? "Wewkend" : "Work Day";
+        }
+        toString() {
+          return `${this.month + 1} month ${this.year} year  ${this.chekDays()}`;
+        }
+        render() {
+          let res = document.createElement("dis");
+          res.className = "date-two";
+          res.innerText = this.toString();
+          document.querySelector(".dessegen__two").append(res);
+        }
+      }
+      let result = new WorkWekDays(new Date());
+      //-------------------------------------------------------------------------------------------------
+      let daysWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      let dayNow = new Date();
+
+      function dayRes() {
+        let nowDay;
+        for (const el of daysWeek) {
+          if (daysWeek[dayNow.getDay()]) {
+            nowDay = daysWeek[dayNow.getDay()];
+          }
+        }
+        nowDay = document.createElement("div");
+        nowDay.className = "data-three";
+        nowDay.innerText = daysWeek[dayNow.getDay()];
+        document.querySelector(".dessegen__three").append(nowDay);
+      }
+      dayRes(dayNow, daysWeek);
+    </script>
   </body>
 </html>

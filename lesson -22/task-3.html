@@ -16,15 +16,58 @@
           <ul class="page__list">
             <li class="page__task">
               Task 3
-              <p></p>
+              <p
+                >Задача 5. Користувач вводить дату народження. Визначити, скільки йому повних
+                років.</p
+              >
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <form action="#" class="dessegen__form form-one">
+              <label name="date-user" class="form__label">Enter your year of birth</label>
+              <input
+                id="user-date"
+                type="text"
+                name="date-user"
+                placeholder="2010"
+                class="form-one__input"
+                value=""
+              />
+              <button id="user-happy-btn" type="button" class="form__button-one">CHECK</button>
+            </form>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      class UserAge {
+        constructor(date) {
+          this.date = date;
+          this.render();
+        }
+        //----------------------------------------------
+        countUserAge() {
+          let btn = document.getElementById("user-happy-btn");
+          btn.addEventListener("click", (e) => {
+            let targetBtn = e.target;
+            if (targetBtn === document.getElementById("user-happy-btn")) {
+              let res = Date.parse(document.getElementById("user-date").value);
+              let result = this.date - res;
+              let userhappyDay = Math.floor(result / (365 * 24 * 60 * 60 * 1000));
+              this.answer.innerText = `Your ${userhappyDay}`;
+            }
+          });
+        }
+        render() {
+          let answer = document.createElement("div");
+          answer.className = "answer";
+          document.querySelector(".form-one").append(answer);
+          this.answer = answer;
+        }
+      }
+      let userAge = new UserAge(Date.now());
+      userAge.countUserAge();
+    </script>
   </body>
 </html>

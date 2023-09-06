@@ -616,3 +616,89 @@ h6 {
   font-weight: 600;
   color: red;
 }
+
+.data-one {
+  font-size: 38px;
+  font-weight: 700;
+  color: peru;
+  letter-spacing: 2px;
+}
+
+.date-two {
+  font-size: 38px;
+  font-weight: 700;
+  color: purple;
+  letter-spacing: 2px;
+}
+
+.data-three {
+  font-size: 38px;
+  font-weight: 700;
+  color: green;
+  letter-spacing: 2px;
+}
+
+.season {
+  font-size: 38px;
+  font-weight: 700;
+  color: green;
+  letter-spacing: 2px;
+}
+
+.form-one {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.form-one label {
+  font-size: 21px;
+  font-weight: 500;
+  color: black;
+}
+.form-one input {
+  width: 100px;
+  border: 1px solid rgba(128, 128, 128, 0.275);
+  height: 35px;
+  padding: 5px 5px;
+}
+.form-one button {
+  width: 100px;
+  height: 35px;
+  border: 1px solid rgba(128, 128, 128, 0.275);
+  padding: 5px 5px;
+  font-weight: 500;
+}
+@media (any-hover: hover) {
+  .form-one button:hover {
+    box-shadow: 2px 2px 2px rgba(39, 38, 38, 0.275);
+  }
+}
+
+.answer {
+  font-size: 21px;
+  font-weight: 500;
+  color: black;
+}
+
+.form-two {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.form-two__lebel {
+  font-size: 21px;
+  font-weight: 500;
+  color: black;
+}
+.form-two__input {
+  width: 120px;
+  border: 1px solid rgba(128, 128, 128, 0.275);
+  height: 35px;
+  padding: 5px 5px;
+}
+
+.user-rest {
+  font-size: 21px;
+  font-weight: 500;
+  color: green;
+}

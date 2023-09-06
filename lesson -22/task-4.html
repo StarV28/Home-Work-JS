@@ -14,14 +14,50 @@
       <main class="page">
         <div class="page__container">
           <ul class="page__list">
-            <li class="page__task">Task 4</li>
+            <li class="page__task"
+              >Task 4
+              <p>
+                Задача 6. Користувач іде у відпустку на 56 днів. Визначити дату на момент його
+                повернення.
+              </p>
+            </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <form id="form" action="#" class="dessegen__form form-two">
+              <label name="user-rest" class="form-two__lebel"> Enter your vacation day </label>
+              <input
+                id="rest-user"
+                type="text"
+                name="user-rest"
+                class="form-two__input"
+                placeholder="D A Y"
+                value=""
+              />
+            </form>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      //-------------------------------------------------------------------------------------
+      function userRest() {
+        addEventListener("change", (e) => {
+          let target = e.target;
+          if (target === document.getElementById("rest-user")) {
+            let usInVal = parseInt(target.value);
+            let date = new Date();
+            date.setDate(date.getDate() + usInVal);
+            date.getDate();
+
+            let dateUsRes = document.createElement("div");
+            dateUsRes.className = "user-rest";
+            document.getElementById("form").append(dateUsRes);
+            dateUsRes.innerText = date.toDateString(date.getDate(date));
+          }
+        });
+      }
+      userRest();
+    </script>
   </body>
 </html>

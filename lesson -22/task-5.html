@@ -16,15 +16,70 @@
           <ul class="page__list">
             <li class="page__task">
               Task 5
-              <p></p>
+              <p
+                >Задача 12. Сформувати масив з 1000 елементів від 1 до 800. Порівняти час сортування
+                бульбашкою і вставкою.
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
-          </div>
+          <div class="page__dessegen"> </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      //-----------------------------------------------------------------
+      let arreyOne = [];
+      for (let i = 0; i < 1000; i++) {
+        let random = 1 + Math.floor(Math.random() * 800 - 1);
+        arreyOne.push(random);
+      }
+      //------------------------------------------------------------------
+      function bubbleSort(arr) {
+        let swap;
+        do {
+          swap = false;
+          arr.forEach((item, ind) => {
+            if (item > arr[ind + 1]) {
+              let t = item;
+              arr[ind] = arr[ind + 1];
+              arr[ind + 1] = t;
+              swap = true;
+            }
+          });
+        } while (swap);
+      }
+      let dateBublStart = Date.now();
+      bubbleSort(arreyOne);
+      let dateBublFinish = Date.now();
+      let resBubbl = dateBublFinish - dateBublStart;
+      console.log(resBubbl);
+
+      //------------------------------------------------------------------
+      let arreyTwo = [];
+      for (let i = 0; i < 1000; i++) {
+        let random = 1 + Math.floor(Math.random() * 800 - 1);
+        arreyTwo.push(random);
+      }
+      //---------------------------------------------------------------------
+      function insertSort(arr) {
+        for (let i = 0; i < arr.length; i++) {
+          let w = arr[i],
+            j = i - 1;
+          while (j >= 0 && arr[j] > w) {
+            arr[j + 1] = arr[j];
+            j--;
+          }
+          arr[j + 1] = w;
+        }
+        return arr;
+      }
+      //---------------------------------------------------------------------
+      let dateInserStart = Date.now();
+      insertSort(arreyTwo);
+      let dateInserFinish = Date.now();
+      let resInsert = dateInserFinish - dateInserStart;
+      console.log(resInsert);
+    </script>
   </body>
 </html>

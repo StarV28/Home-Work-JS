@@ -16,15 +16,44 @@
           <ul class="page__list">
             <li class="page__task">
               Task 2
-              <p></p>
+              <p> Задача 2. Вивести дату у форматі “місяць – рік – вихідний/робочий” </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen">
+            <div class="dessegen__one"></div>
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      class Season {
+        constructor(date) {
+          this.date = date;
+          this.month = this.date.getMonth() + 1;
+          this.render();
+        }
+        checkSeason() {
+          let month = this.month;
+          if (month === 12 && month < 3 && month !== 0) {
+            this.season.innerText = "Winter";
+          } else if (month >= 3 && month < 6) {
+            this.season.innerText = "Spring";
+          } else if (month >= 6 && month < 9) {
+            this.season.innerText = "Summer";
+          } else {
+            this.season.innerText = "Autumn";
+          }
+        }
+        render() {
+          let season = document.createElement("div");
+          season.className = "season";
+          document.querySelector(".dessegen__one").append(season);
+          this.season = season;
+        }
+      }
+      let res = new Season(new Date());
+      res.checkSeason();
+    </script>
   </body>
 </html>
