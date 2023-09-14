@@ -16,15 +16,34 @@
           <ul class="page__list">
             <li class="page__task">
               Task 1
-              <p></p>
+              <p>
+                Задача 5. Дано список з віком учнів. Підрахувати скільки разів кожне значення
+                зустрічається у списку і максимальне.
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
-          </div>
+          <div class="page__dessegen"> </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      let agesUser = [12, 15, 13, 12, 15, 17, 18, 14, 13, 15, 16, 12, 14, 12, 15, 13, 16];
+      let agesMap = new Map();
+      for (const age of agesUser) {
+        agesMap.set(age, (agesMap.get(age) ?? 0) + 1);
+      }
+      function showMaxAge(arr) {
+        ageMax = -Infinity;
+        arr.forEach((value, el) => {
+          if (el > ageMax) {
+            ageMax = el;
+          }
+        });
+        return ageMax;
+      }
+      console.log(agesMap);
+      console.log(showMaxAge(agesMap));
+    </script>
   </body>
 </html>

@@ -14,14 +14,96 @@
       <main class="page">
         <div class="page__container">
           <ul class="page__list">
-            <li class="page__task">Task 4</li>
+            <li class="page__task"
+              >Task 4
+              <p>
+                Задача 8. Дано масив студентів (піб, курс, факультет). Підрахувати кількість різних
+                факультетів, та кількість студентів кожного з курсів.
+              </p>
+            </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
-          </div>
+          <div class="page__dessegen"> </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      let arrStudent = [
+        {
+          name: "Ivan",
+          surname: "Ivanov",
+          cours: 5,
+          faculty: "Physical and mathematical",
+        },
+        {
+          name: "Petro",
+          surname: "Petrov",
+          cours: 1,
+          faculty: "Philosophy",
+        },
+        {
+          name: "Marija",
+          surname: "Feldman",
+          cours: 3,
+          faculty: "Jurisprudence",
+        },
+        {
+          name: "Igor",
+          surname: "Starov",
+          cours: 1,
+          faculty: "Physical and mathematical",
+        },
+        {
+          name: "Ira",
+          surname: "Gorova",
+          cours: 3,
+          faculty: "Jurisprudence",
+        },
+        {
+          name: "Olga",
+          surname: "Kurilova",
+          cours: 5,
+          faculty: "Physical and mathematical",
+        },
+        {
+          name: "Vlad",
+          surname: "Vavilov",
+          cours: 2,
+          faculty: "Jurisprudence",
+        },
+        {
+          name: "Oleg",
+          surname: "Govor",
+          cours: 4,
+          faculty: "Philosophy",
+        },
+        {
+          name: "Alla",
+          surname: "Kobula",
+          cours: 4,
+          faculty: "Philosophy",
+        },
+        {
+          name: "Veke",
+          surname: "Jonson",
+          cours: 4,
+          faculty: "Jurisprudence",
+        },
+      ];
+      //----------------------------------------------------------------------------
+      function fucltys(arr) {
+        return new Set(arrStudent.map((el) => el.faculty)).size;
+      }
+      console.log(fucltys(arrStudent));
+      //------------------------------------------------------------------------------
+      function studentCount(arr) {
+        let studMap = new Map();
+        arr.forEach((elem) => {
+          studMap.set(elem.cours, (studMap.get(elem.cours) ?? 0) + 1);
+        });
+        return studMap;
+      }
+      console.log(studentCount(arrStudent));
+    </script>
   </body>
 </html>

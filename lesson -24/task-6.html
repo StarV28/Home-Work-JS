@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 5</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 5
+              <p>
+                Задача 10 Дано два списки прізвищ студентів, що відвідують гуртки з математики і
+                історії. Підрахувати скільки студентів з гуртка з історії також відвідують гурток з
+                математики. Також підрахувати скільки всього студентів відвідують хоча б один
+                гурток.
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen"> </div>
+        </div>
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+    <script>
+      let mathematic = ["ivanov", "Petrov", "Kyshnir", "Zaporogec", "Golovan"];
+      let history = ["Didenko", "Popok", "Jonson", "Kyshnir", "Zaporogec"];
+      let setA = new Set(mathematic);
+      let setB = new Set(history);
+      function userHistAndMathem(setA, setB) {
+        const intersection = new Set();
+        for (const elem of setB) {
+          if (setA.has(elem)) {
+            intersection.add(elem);
+          }
+        }
+        return intersection.size;
+      }
+      console.log(userHistAndMathem(setA, setB));
+      function countStudClub(set) {
+        return set.size;
+      }
+      console.log(countStudClub(setA));
+    </script>
+  </body>
+</html>

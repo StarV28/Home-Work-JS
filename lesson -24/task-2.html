@@ -16,15 +16,65 @@
           <ul class="page__list">
             <li class="page__task">
               Task 2
-              <p></p>
+              <p>
+                Задача 6. Дано масив книг (назва, рік видання, автор). Підрахувати кількість книг
+                для кожного автора.
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
-          </div>
+          <div class="page__dessegen"> </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      let book = [
+        {
+          nameBook: "RRRR",
+          publishyear: 1990,
+          author: "Len Aaaaa",
+        },
+        {
+          nameBook: "DDDD",
+          publishyear: 2001,
+          author: "Jac Dffsss",
+        },
+        {
+          nameBook: "FFFF",
+          publishyear: 2015,
+          author: "Len Aaaaa",
+        },
+        {
+          nameBook: "GGGG",
+          publishyear: 1999,
+          author: "Len Aaaaa",
+        },
+        {
+          nameBook: "TTTT",
+          publishyear: 2020,
+          author: "Jac Dffsss",
+        },
+        {
+          nameBook: "AAAA",
+          publishyear: 2018,
+          author: "Ivan Ivanov",
+        },
+        {
+          nameBook: "QQQQ",
+          publishyear: 2007,
+          author: "Ivan Ivanov",
+        },
+      ];
+      //-------------------------------------------------------------------
+      function authorCount(arr) {
+        let mapBook = new Map();
+        for (const el of arr) {
+          mapBook.set(el.author, (mapBook.get(el.author) ?? 0) + 1);
+          console.log();
+        }
+        return mapBook;
+      }
+      console.log(authorCount(book));
+    </script>
   </body>
 </html>

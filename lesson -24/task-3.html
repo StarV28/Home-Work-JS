@@ -16,15 +16,35 @@
           <ul class="page__list">
             <li class="page__task">
               Task 3
-              <p></p>
+              <p>
+                Задача 7. Дано інформацію про відвідувачів деякого сайту (для кожного відвідувача зберігається логін). Підрахувати для кожного клієнта кількість відвідувань.
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
+          <div class="page__dessegen dessegen"
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      let arrUsersVisit = [
+      'user2', 'user3','user2','user1','user4','user3','user2','user4','user5','user2','user3','user4','user5','user3','user5','user4','user2','user4','user3','user5','user3','user2','user1',
+      ]
+      arrUsersVisit.sort()
+      let usersMapVisit = new Map()
+      for (const user of arrUsersVisit) {
+        usersMapVisit.set(user, (usersMapVisit.get(user) ?? 0) + 1)
+      }
+      function userVisit(map) {
+        map.forEach((value, el) => {
+          let res = document.createElement('div')
+          res.className = 'user-visit'
+          res.innerText = `${el} visit: ${value}`
+          document.querySelector('.dessegen').append(res)
+        })        
+      }
+      userVisit(usersMapVisit)
+    </script>
   </body>
 </html>

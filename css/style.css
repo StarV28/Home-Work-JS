@@ -702,3 +702,10 @@ h6 {
   font-weight: 500;
   color: green;
 }
+
+.user-visit {
+  font-size: 21px;
+  font-weight: 600;
+  font-style: italic;
+  color: green;
+}

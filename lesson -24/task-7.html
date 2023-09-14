@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 7</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 7
+              <p>
+                Задача 11. Користувач може змінювати колір фону, що вибирає користувач з
+                використанням /input type="color"/ Зберігати цей колір і відновлювати при наступному
+                відкритті. Також зберігати і відображати кількість змін протягом одного сеансу.
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen">
+            <input type="color" value="#ff0000" class="input" />
+          </div>
+        </div>
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+    <script>
+      window.onload = function changeColor() {
+        let wrapper = document.querySelector(".wrapper");
+        wrapper.style.backgroundColor = localStorage.getItem("color");
+        let inpValue = document.querySelector(".input");
+
+        inpValue.addEventListener("input", function () {
+          wrapper.style.backgroundColor = localStorage.getItem("color");
+          localStorage.setItem("color", inpValue.value);
+          let colorChange = parseInt(sessionStorage.getItem("colorSession") ?? 0) + 1;
+          sessionStorage.setItem("colorSession", JSON.stringify(colorChange));
+        });
+        let countColor = document.createElement("div");
+        countColor.className = "countColor";
+        document.querySelector(".page__dessegen").append(countColor);
+        inpValue.addEventListener("change", function () {
+          countColor.innerText = `Change color: ${JSON.parse(
+            sessionStorage.getItem("colorSession")
+          )}`;
+        });
+      };
+    </script>
+  </body>
+</html>

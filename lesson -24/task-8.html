@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 8</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="header">Main Page</header>
+      <main class="page">
+        <div class="page__container">
+          <ul class="page__list">
+            <li class="page__task">
+              Task 8
+              <p>
+                Задача 12. Зберігати у пам’яті список справ, які користувачу треба виконати
+                (зберігати у localStorage). Періодично випадковим чином вибирати якусь з справ і
+                виводити користувачу (з використанням confirm). Якщо користувач натискає на «Ок», то
+                видаляти цю задачу
+              </p>
+            </li>
+          </ul>
+          <div class="page__dessegen"> </div>
+        </div>
+      </main>
+      <footer class="footer">Cours JS Starovoit Vladymyr</footer>
+    </div>
+    <script>
+      window.onload = function () {
+        let task1 = localStorage.setItem("task1", "Прийшов час випити стакан води");
+        let task2 = localStorage.setItem("task2", "Прийшов час їсти");
+        let task3 = localStorage.setItem("task3", "Зроби платіж за комунальні послуги");
+        let task4 = localStorage.setItem("task4", "Прийом ліків");
+        let task5 = localStorage.setItem("task5", "Тренування");
+        counter = 5;
+        let intervalID = setInterval(() => {
+          let rand = `task${counter}`;
+          confirm(localStorage.getItem(rand));
+          if (true) {
+            localStorage.removeItem(rand);
+          }
+          counter--;
+          if (counter === 0) {
+            clearInterval(intervalID);
+          }
+        }, 5000);
+      };
+    </script>
+  </body>
+</html>
