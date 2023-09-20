@@ -16,15 +16,69 @@
           <ul class="page__list">
             <li class="page__task">
               Task 2
-              <p></p>
+              <p>
+                Задача 2. Дано Shop -- клас, що містить список товарів (масив об’єктів класу Product
+                (назва, ціна, кількість одиниць)). Додати можливість ітератора до класу Shop, щоб
+                при ітеруванні для кожного елемента виводився рядок «товар-загальна вартість»
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
-          </div>
+          <div class="page__dessegen"> </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      //--------Shop------клас------------------------
+      //-------(масив об’єктів класу Product (назва, ціна, кількість одиниць)------------
+      //-------Додати можливість ітератора до класу Shop--------------------
+      //------при ітеруванні для кожного елемента виводився рядок «товар-загальна вартість»-----------------
+      class Product {
+        constructor(name, price, countProd) {
+          Object.assign(this, {name, price, countProd});
+        }
+      }
+
+      class Shop {
+        constructor(prod) {
+          this.prod = prod;
+        }
+        render(element) {
+          let p = document.createElement("p");
+          p.className = "product";
+          document.querySelector(".page__dessegen").append(p);
+          p.innerText = element;
+        }
+        *[Symbol.iterator]() {
+          for (let value = 0; value < this.prod.length; value++) {
+            yield this.prod[value];
+          }
+          // this.curentProd = 0;
+          // return this;
+        }
+        // next() {
+        //   if (this.curentProd < this.prod.length) {
+        //     return {
+        //       done: false,
+        //       value: this.prod[this.curentProd++],
+        //     };
+        //   } else {
+        //     return {
+        //       done: true,
+        //     };
+        //   }
+        // }
+      }
+      let products = new Shop([
+        new Product("Wine white", 19, 10),
+        new Product("Jack Daniels", 40, 21),
+        new Product("Beer", 3, 150),
+        new Product("Wine Red", 17, 100),
+        new Product("Chivas Regal 12", 50, 10),
+      ]);
+      for (const elem of products) {
+        products.render(`"${elem.name}" Full price: ${elem.price * elem.countProd}$`);
+      }
+    </script>
   </body>
 </html>

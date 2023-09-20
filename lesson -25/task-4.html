@@ -14,14 +14,31 @@
       <main class="page">
         <div class="page__container">
           <ul class="page__list">
-            <li class="page__task">Task 4</li>
+            <li class="page__task"
+              >Task 4
+              <p>
+                Задача 4. Використовуючи один з АРІ
+                <a href="https://github.com/public-apis/public-apis#animals"
+                  >https://github.com/public-apis/public-apis#animals</a
+                >
+                та функцію fetch організувати завантаження та відображення даних
+              </p>
+            </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
-          </div>
+          <div class="page__dessegen"></div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      fetch("https://dog.ceo/api/breeds/image/random")
+        .then((response) => response.json())
+        .then((data) => {
+          document.querySelector(".page__dessegen").innerHTML = `<img src="${data.message}">`;
+        })
+        .catch((err) => {
+          document.querySelector(".page__dessegen").innerHTML = "<p>Error</p>";
+        });
+    </script>
   </body>
 </html>

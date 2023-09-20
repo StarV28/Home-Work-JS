@@ -709,3 +709,14 @@ h6 {
   font-style: italic;
   color: green;
 }
+
+.product {
+  font-size: 21px;
+  font-weight: 500;
+  color: brown;
+}
+
+.page__dessegen img {
+  max-width: 350px;
+  max-width: 250px;
+}

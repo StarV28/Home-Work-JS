@@ -16,15 +16,31 @@
           <ul class="page__list">
             <li class="page__task">
               Task 3
-              <p></p>
+              <p>
+                Задача 3. Створити генератор, який би випадковим чином поступово генерував вказану
+                кількість парних чисел.
+              </p>
             </li>
           </ul>
-          <div class="page__dessegen">
-            <script></script>
-          </div>
+          <div class="page__dessegen"> </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      function* generatNumber(counter, min, max) {
+        for (let i = 0; i < counter; ) {
+          let rand = Math.floor(Math.random() * (max - min) + 1);
+          if (rand % 2 === 0) {
+            i++;
+            yield rand;
+          }
+        }
+      }
+      let arrNum = [...generatNumber(10, 1, 50)];
+      let p = document.createElement("p");
+      p.innerText = arrNum;
+      document.querySelector(".page__dessegen").append(p);
+    </script>
   </body>
 </html>
