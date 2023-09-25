@@ -20,11 +20,46 @@
             </li>
           </ul>
           <div class="page__dessegen">
-            <script></script>
+            <input type="file" name="" id="file-one" />
           </div>
         </div>
       </main>
       <footer class="footer">Cours JS Starovoit Vladymyr</footer>
     </div>
+    <script>
+      //---Адресс куда отправляем---------------------
+      let url = "https://jsonplaceholder.typicode.com/";
+      let fileInput = document.getElementById("file-one");
+      fileInput.addEventListener("change", (e) => {
+        let files = e.target.files;
+        //------Функция показа выбраных файлов---------------
+        showImg(files[0]);
+        //------Функция отправки выбраных файлов по адрессу--------------
+        uploadFile(files[0]);
+      });
+
+      //----------------------------------------------
+      function showImg(file) {
+        let reader = new FileReader();
+        reader.onload = (e) => {
+          let image = document.createElement("img");
+          image.setAttribute("src", "");
+          image.className = "imgPreview";
+          document.querySelector(".page__dessegen").append(image);
+          image.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+      //------------------------------------------------
+      async function uploadFile(file) {
+        let formData = new FormData();
+        formData.append("file", file);
+        let respnse = await fetch(url, {
+          method: "POST",
+          body: formData,
+        });
+        console.log(formData);
+      }
+    </script>
   </body>
 </html>
